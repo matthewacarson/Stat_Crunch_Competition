@@ -2,7 +2,7 @@
   "info": {
     "type": "StatCrunch Session",
     "version": 1,
-    "date": "2024-04-04 16:31"
+    "date": "2024-04-04 19:31"
   },
   "settings": {
     "graphfontface": "Open Sans",
@@ -41,23 +41,23 @@
       74
     ],
     "exp_history": [
-      "-1/(-0.00004043631 - 1.7604809e-7 * x)",
-      "-1/\"Average viewers\"",
-      "-1/\"Stream time (hrs)\"",
-      "CooksD_Problem = 0 and Leverage_Problem = 0",
-      "DFFITS_Problem = 0",
-      "DFFITS_Problem = 0  and 2_times_Leverage_Problem = 0",
-      "CooksD_Problem = 0",
-      "CooksD_Problem = 0 and DFFITS_Problem = 0",
-      "CooksD_Problem = 0 and 2_times_Leverage_Problem = 0",
-      "CooksD_Problem = 0 and 2_times_Leverage_Problem = 0 and DFFITS_Problem = 0",
-      "ifelse(FollowerGainPercent > 3, 3, FollowerGainPercent)",
-      "FollowersPrevYear > 1000",
-      "Mature = 1",
-      "Mature = 0",
-      "ifelse(\"Average viewers\" > 6000 and \"Stream time (hrs)\" > 600,1,0)",
+      "CooksD_Problem = 0 and Leverage_Problem = 0 and DFFITS_Problem = 0",
       "\"Stream time\"^(1/3)",
-      "CooksD_Problem = 0 and Leverage_Problem = 0 and DFFITS_Problem = 0"
+      "ifelse(\"Average viewers\" > 6000 and \"Stream time (hrs)\" > 600,1,0)",
+      "Mature = 0",
+      "Mature = 1",
+      "FollowersPrevYear > 1000",
+      "ifelse(FollowerGainPercent > 3, 3, FollowerGainPercent)",
+      "CooksD_Problem = 0 and 2_times_Leverage_Problem = 0 and DFFITS_Problem = 0",
+      "CooksD_Problem = 0 and 2_times_Leverage_Problem = 0",
+      "CooksD_Problem = 0 and DFFITS_Problem = 0",
+      "CooksD_Problem = 0",
+      "DFFITS_Problem = 0  and 2_times_Leverage_Problem = 0",
+      "DFFITS_Problem = 0",
+      "CooksD_Problem = 0 and Leverage_Problem = 0",
+      "-1/\"Stream time (hrs)\"",
+      "-1/\"Average viewers\"",
+      "-1/(-0.00004043631 - 1.7604809e-7 * x)"
     ]
   },
   "dialogs": [
@@ -104,12 +104,11 @@
       "dialog": "SLRDialog",
       "result_properties": {
         "size_and_position": {
-          "width": 0,
-          "height": 562,
-          "left": 911,
-          "top": 1
-        },
-        "hidden": true
+          "width": 568,
+          "height": 561,
+          "left": 940,
+          "top": 28.000000774860382
+        }
       },
       "x": "46",
       "graphs": [
@@ -195,7 +194,7 @@
         "46",
         "5"
       ],
-      "stack_order": 7
+      "stack_order": 8
     },
     {
       "dialog": "PlotxyDialog",
@@ -212,6 +211,30 @@
       "y": "5",
       "overlay_function": "-1/(-0.00004043631 - 1.7604809e-7 * x)",
       "graph_title": "-1 / Average viewers = -0.00004043631 - 1.7604809e-7 Stream time (hrs)",
+      "stack_order": 7
+    },
+    {
+      "dialog": "SLRDialog",
+      "result_properties": {
+        "size_and_position": {
+          "width": 760,
+          "height": 592,
+          "left": 0,
+          "top": 0
+        },
+        "hidden": true
+      },
+      "x": "46",
+      "y": "5",
+      "graphs": [
+        "Fitted line plot",
+        "--- with mean interval",
+        "Histogram of residuals",
+        "QQ plot of residuals",
+        "Residuals vs. X-values",
+        "Y-values vs. residuals",
+        "Predicted values vs. residuals"
+      ],
       "stack_order": 6
     }
   ]
