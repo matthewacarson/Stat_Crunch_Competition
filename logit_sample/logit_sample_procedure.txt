@@ -1,0 +1,8 @@
+Partnered sample size (30% * 873) = 262
+non-partnered sample size (70% * 27) = 19
+Total sample size: 262 + 19 = 281
+fixed seed: 12641
+
+Summary statistics:
+Column	    n	Mean	Sum
+Partnered	900	0.97	873
