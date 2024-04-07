@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SearchIndexes Version="1.0">
+    <Documents>
+        <Document ID="06F48E46-C37A-4A69-8831-F5E8EF85F578">
+            <Text>Since these data were not randomly sampled, it would be inappropriate to conduct inference (i.e., construct confidence intervals or conduct hypothesis tests). Because of this, it is not possible to estimate population parameters; that is, make claims or generalizations about the broader population of Twitch users. However, since these data represent the top 900 Twitch users, statistics can be calculated and relationships can be discovered about that population.
+Initial calculations were made before presenting the summary statistics. Since values for ‘Watch time’ (given in minutes) were typically very large, requiring scientific notation to express, values were rescaled to ‘Mean weekly watch hours’ by dividing ‘Watch time’ by the product of 60 times 52 (number of weeks in a year) to make the numbers more manageable.
+#
+Additional statistics were calculated as well: 
+‘Followers’ - ‘Followers gained’ = ‘Followers Prev Yr’. 
+‘Followers gained’ / ‘Followers Prev Yr’ = ‘Followers gained percent’.
+Because all distributions are heavily right skewed (skewness ≥ 2.6), medians, represented with Greek letter eta (η), are reported instead of means (all values reported are from Table 1). The majority of the top nine hundred accounts stream content at least 30 hours per week (η ≈ 34.23) and are watched more than 90 thousand hours per week (η ≈ 91,422). Most accounts gained a substantial number of followers from the previous year (η ≈ 66,003), which represents a median increase of approximately 16 percent. Because of the heavy skewness of the distributions, easy-to-interpret visualizations were difficult to make (see appendix for histograms).
+Table 1: Summary Statistics
+#
+
+To assess the relationships between numeric variables, Spearman’s correlation coefficients were calculated. Because of the non-linearity of the relationships, typical Pearson’s R correlation coefficients would be inappropriate. Spearman’s correlation coefficients are preferred for assessing the strength of non-linear relationships.
+The relationships between numeric variables are surprising, especially the absence of some correlations where one would think they they would exist. ‘Stream time’ has a moderately strong negative correlations with ‘Average viewers’, which is counterintuitive given that one might expect more frequent streaming to result in more viewers, but that is not the case. In terms of change over time, the more one streams With respect to surprising absences of relationships, ‘Stream time’ has practically no relationship with ‘Watch time’. Together, these findings suggest that a strategy of merely increasing one’s streaming time does not “pay off” in terms of the number of followers or viewers.
+
+Table 2: Spearman’s Correlation Coefficients
+#
+
+A simple linear regression was run to assess the strength between ‘stream time’ (independent variable) and ‘average viewers’ (dependent variable). Because of the non-linear relationship between the variables, the residuals were highly non-normal. A inverse (reciprocal) transformation of ‘Average viewers’ was performed to correct for non-normality of the residuals. The transformation greatly improved the distribution of the residuals, making them nearly normal.
+
+The transformation could not correct for heteroskedasticity, but this is not an issues since inference is not being conducted. The transformed equation is as follows:
+
+# (1)
+
+Since the reciprocal transformation makes interpretation of the coefficients difficult to interpret, the  transformation can be reversed by taking the reciprocal of the right side of the equation. From this, predicted values can be calculated.
+
+# (2)
+The regression results are reported below.
+
+#
+
+The equation for the model is:
+# (3)
+R-squared is moderate, suggesting that the mean weekly stream hours can explain 56 percent of the variation in the average number of viewers. Because of the inverse transformation of the dependent variable, the signs of the intercept and mean weekly stream hours coefficient are reversed. This makes sense though, since an increase in the denominator of the equation (when the right hand side of the equation is “reversed”) will diminish the predicted number of average viewers.
+Figure 1 shows the relationship between the mean weekly stream hours and the inverse of average viewers. The other scatter plots show the residuals. The histogram and Q-Q plots show that the residuals are now nearly normal (skewness = -0.57036091; excess kurtosis = 6.0727871). Heteroskedasticity was not corrected, but it is not an issue as no hypothesis testing  is being conducted, nor are confidence intervals being calculated.
+
+Figure 1: Regression Scatter Plot and Residual Evaluation
+#
+
+
+Now the transformation of the dependent variable can be reversed, making the new equation:
+
+# (4)
+
+Reversing the dependent variable transformation, and thus reversing the y-axis transformation from Figure 1, allows for plotting the values on the original scale with equation 4 overlaid.
+Figure 2: Mean Weekly Stream Time and Average Viewers
+#
+
+Calculate predicted values
+
+Motivate for logistic regression
+Logit table
+Logit plots
+Goodness-of-fit
+Add more variables?
+
+Summary of all findings
+Conclusion additional research?
+</Text>
+        </Document>
+        <Document ID="3CC6F284-3C31-47B6-93BD-1045639DF14D">
+            <Text>#</Text>
+        </Document>
+        <Document ID="A7D7AE17-EDC7-4C4F-AE2A-98D5E6E89080"/>
+    </Documents>
+</SearchIndexes>
