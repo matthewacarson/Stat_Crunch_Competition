@@ -34,7 +34,7 @@ The regression results are reported below.
 The equation for the model is:
 # (3)
 R-squared is moderate, suggesting that the mean weekly stream hours can explain 56 percent of the variation in the average number of viewers. Because of the inverse transformation of the dependent variable, the signs of the intercept and mean weekly stream hours coefficient are reversed. This makes sense though, since an increase in the denominator of the equation (when the right hand side of the equation is “reversed”) will diminish the predicted number of average viewers.
-Figure 1 shows the relationship between the mean weekly stream hours and the inverse of average viewers. The other scatter plots show the residuals. The histogram and Q-Q plots show that the residuals are now nearly normal (skewness = -0.57036091; excess kurtosis = 6.0727871). Heteroskedasticity was not corrected, but it is not an issue as no hypothesis testing  is being conducted, nor are confidence intervals being calculated.
+Figure 1 shows the relationship between the mean weekly stream hours and the inverse of average viewers. The other scatter plots show the residuals. The histogram and Q-Q plots show that the residuals are now nearly normal, although excess kurtosis is still high, making the distribution of the residuals leptokurtic (skewness = -0.57036091; excess kurtosis = 6.0727871). Removing extreme dependent variable observations would help correct for this, but it is unlikely to be helpful since inference is not being conducted. Heteroskedasticity also was not corrected, but it also is not an issue as no hypothesis testing is being conducted, nor are confidence intervals being calculated.
 
 Figure 1: Regression Scatter Plot and Residual Evaluation
 #
@@ -59,6 +59,10 @@ Add more variables?
 Summary of all findings
 Conclusion additional research?
 </Text>
+            <Notes>Remove these observations/outliers
+&quot;Watch time&quot; &lt;= 6e8
+
+I also made a column to remove cases where the values exceed Q3 + 1.5 * IQR</Notes>
         </Document>
         <Document ID="3CC6F284-3C31-47B6-93BD-1045639DF14D">
             <Text>#</Text>

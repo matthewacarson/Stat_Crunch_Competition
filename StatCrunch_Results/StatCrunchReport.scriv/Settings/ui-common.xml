@@ -12,7 +12,7 @@
         </Selection>
         <SearchResultsSort Titles="Ascending" Dates="Ascending">None</SearchResultsSort>
     </Binder>
-    <Inspector Show="No" View="Notes">
+    <Inspector Show="Yes" View="Notes">
         <ShowProjectBookmarks>No</ShowProjectBookmarks>
         <ShowSimilarTexts>No</ShowSimilarTexts>
         <Collapse>CustomMetaData</Collapse>
@@ -89,7 +89,7 @@
                 <PageLayout Facing="No">No</PageLayout>
                 <TypewriterScrolling>No</TypewriterScrolling>
                 <LineNumbers Interval="1">No</LineNumbers>
-                <Selection>4407,0</Selection>
+                <Selection>4373,0</Selection>
             </Text>
             <Outliner>
                 <Columns>
@@ -130,9 +130,10 @@
                 <CurrentViewMode>Single</CurrentViewMode>
                 <SelectionAffects>Current</SelectionAffects>
                 <Content/>
-                <NavigationHistory CurrentIndex="1">
+                <NavigationHistory CurrentIndex="2">
                     <HistoryItem Type="BinderItems" ViewMode="Single">06F48E46-C37A-4A69-8831-F5E8EF85F578</HistoryItem>
                     <HistoryItem Type="BinderItems" ViewMode="Single">B2FB397F-EEF1-45DE-BEBB-6EA6893E5878</HistoryItem>
+                    <HistoryItem Type="BinderItems" ViewMode="Single">06F48E46-C37A-4A69-8831-F5E8EF85F578</HistoryItem>
                 </NavigationHistory>
             </View>
             <Text>
