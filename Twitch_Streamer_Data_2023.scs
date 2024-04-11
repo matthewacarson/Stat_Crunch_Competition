@@ -2,7 +2,7 @@
   "info": {
     "type": "StatCrunch Session",
     "version": 1,
-    "date": "2024-04-10 18:24"
+    "date": "2024-04-10 18:27"
   },
   "settings": {
     "graphfontface": "Open Sans",
@@ -49,16 +49,16 @@
       518
     ],
     "exp_history": [
-      "\"Mean weekly stream hours\" <= 75",
-      "\"Average viewers\" <= 20000",
-      "Include",
-      "0.0000198133 + 0.000011569864 * x",
-      "Q1(x)",
-      "median(x)",
-      "Q3(x)",
-      "\"Average viewers\" <= 10000",
+      "\"Mean weekly stream hours\" <= 70",
       "1/(0.00004043631 + 0.0000091545008* x)",
-      "\"Mean weekly stream hours\" <= 70"
+      "\"Average viewers\" <= 10000",
+      "Q3(x)",
+      "median(x)",
+      "Q1(x)",
+      "0.0000198133 + 0.000011569864 * x",
+      "Include",
+      "\"Average viewers\" <= 20000",
+      "\"Mean weekly stream hours\" <= 75"
     ]
   },
   "dialogs": [
@@ -76,7 +76,7 @@
       ],
       "where": "Include",
       "y_transform": "1/y",
-      "stack_order": 2
+      "stack_order": 0
     },
     {
       "dialog": "PlotxyDialog",
@@ -99,7 +99,7 @@
       "horizontal_lines": true,
       "vertical_lines": true,
       "graph_title": "Stream hours vs. Inverse of Average Viewers (Outliers vs. No Outliers)",
-      "stack_order": 10
+      "stack_order": 6
     },
     {
       "dialog": "SumStatDialog",
@@ -119,7 +119,7 @@
       "statistics": [
         "Max"
       ],
-      "stack_order": 9
+      "stack_order": 5
     },
     {
       "dialog": "SumStatDialog",
@@ -151,7 +151,7 @@
         "Skewness",
         "Kurtosis"
       ],
-      "stack_order": 8
+      "stack_order": 4
     },
     {
       "dialog": "HistDialog",
@@ -185,7 +185,7 @@
           "expression": "Q3(x)"
         }
       ],
-      "stack_order": 7
+      "stack_order": 3
     },
     {
       "dialog": "PlotxyDialog",
@@ -200,36 +200,7 @@
       },
       "x": "463",
       "y": "426",
-      "stack_order": 6
-    },
-    {
-      "dialog": "BinColumnDialog",
-      "column": "463",
-      "use_fixed_width_bins": true,
-      "start_at": "0",
-      "bin_width": "5",
-      "stack_order": 0
-    },
-    {
-      "dialog": "PatternDataDialog",
-      "from": "2.5",
-      "to": "167.5",
-      "by": "5",
-      "stack_order": 1
-    },
-    {
-      "dialog": "SumStatDialog",
-      "columns": [
-        "463"
-      ],
-      "where": "\"Mean weekly stream hours\" <= 70",
-      "group_by": "497",
-      "statistics": [
-        "Mean",
-        "Median"
-      ],
-      "store_in_data_table": true,
-      "stack_order": 5
+      "stack_order": 2
     },
     {
       "dialog": "PlotxyDialog",
@@ -237,37 +208,14 @@
         "size_and_position": {
           "width": 679,
           "height": 657,
-          "left": 549,
-          "top": 9.999999821186066
+          "left": 821,
+          "top": 15.999999821186066
         }
       },
       "x": "518",
       "y": "513",
       "overlay_function": "1/(0.00004043631 + 0.0000091545008* x)",
-      "stack_order": 11
-    },
-    {
-      "dialog": "HistDialog",
-      "result_properties": {
-        "size_and_position": {
-          "width": 462,
-          "height": 462,
-          "left": 934,
-          "top": 51.80000001192093
-        }
-      },
-      "columns": [
-        "426"
-      ],
-      "group_by": "497",
-      "stack_order": 3
-    },
-    {
-      "dialog": "PatternDataDialog",
-      "from": "0",
-      "to": "70",
-      "by": "5",
-      "stack_order": 4
+      "stack_order": 1
     }
   ]
 }
