@@ -1,25 +1,63 @@
 library(readr)
 library(dplyr)
+library(ggplot2)
 
-new_wd <- "C:/Users/madou/OneDrive - UCLA IT Services/Stat_Crunch_Competition/"
-setwd(new_wd)
+# new_wd <- "C:/Users/madou/OneDrive - UCLA IT Services/Stat_Crunch_Competition/"
+# setwd(new_wd)
 
 Twitch23 <-
-  read_csv(
-    "../Twitch_Streamer_Data_2023.csv"
+  read.csv(
+    "Twitch_Streamer_Data_2023.csv"
   )
 
-# Twitch23_sample <- 
-#   read_csv("logit_sample/10_70_Sampled_from_Sample_for_logit_Twit.csv")
-# 
-# 
-# Twitch23_sample_joined <- 
-#   left_join(
-#     x = Twitch23_sample |> rename(Channel_ID = ID),
-#     y = Twitch23[c('Channel_ID', 'Stream time', 'Watch time')]
-#   )
-# write_csv(Twitch23_sample_joined, file = 'logit_sample/fixed_twitch_sample.csv')
+Outliers <-  Twitch23$Mean.weekly.stream.hours <= 60
 
+Twitch_partnered <- Twitch23[as.logical(Twitch23$Partnered) & Outliers,]
+ 
+Twitch_not_partnered <- Twitch23[!Twitch23$Partnered & Outliers,]
+
+Twitch23_sample <-
+  rbind(
+    Twitch_partnered,
+    Twitch_not_partnered,
+    Twitch_not_partnered,
+    Twitch_not_partnered,
+    Twitch_not_partnered,
+    Twitch_not_partnered,
+    Twitch_not_partnered,
+    Twitch_not_partnered,
+    Twitch_not_partnered,
+    Twitch_not_partnered,
+    Twitch_not_partnered,
+    Twitch_not_partnered,
+    Twitch_not_partnered,
+    Twitch_not_partnered,
+    Twitch_not_partnered,
+    Twitch_not_partnered,
+    Twitch_not_partnered,
+    Twitch_not_partnered,
+    Twitch_not_partnered,
+    Twitch_not_partnered,
+    Twitch_not_partnered,
+    Twitch_not_partnered,
+    Twitch_not_partnered,
+    Twitch_not_partnered,
+    Twitch_not_partnered,
+    Twitch_not_partnered,
+    Twitch_not_partnered,
+    Twitch_not_partnered,
+    Twitch_not_partnered,
+    Twitch_not_partnered,
+    Twitch_not_partnered,
+    Twitch_not_partnered
+    )
+
+ggplot(Twitch23_sample, aes(x = Mean.weekly.stream.hours, y = Partnered)) +
+  geom_point(position = position_jitter(height = 0.05, seed = 12)) + 
+  geom_smooth(method = "glm", se = FALSE, method.args = list(family = "binomial")) +
+  geom_hline(yintercept = 0.5)
+  # labs(x = "Predictor Variable 1", y = "Predicted Probability") +
+  ggtitle("Logistic Regression Visualization")
 
 # ################################## #
 # Logistic Regression ####
@@ -28,8 +66,10 @@ Twitch23 <-
 twitch_sample_logit <- 
   Twitch23_sample |>  glm(
     family = 'binomial',
-    formula = Partnered ~ `Stream time`
+    formula = Partnered ~ sqrt(Mean.weekly.stream.hours)
   )
+
+
 # ################################## #
 # Poisson Regression ####
 # ################################## #
