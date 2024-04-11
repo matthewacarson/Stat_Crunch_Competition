@@ -2,7 +2,7 @@
   "info": {
     "type": "StatCrunch Session",
     "version": 1,
-    "date": "2024-04-10 18:27"
+    "date": "2024-04-10 18:42"
   },
   "settings": {
     "graphfontface": "Open Sans",
@@ -58,7 +58,10 @@
       "0.0000198133 + 0.000011569864 * x",
       "Include",
       "\"Average viewers\" <= 20000",
-      "\"Mean weekly stream hours\" <= 75"
+      "\"Mean weekly stream hours\" <= 75",
+      "Mature = 0",
+      "Mature",
+      "\"Peak viewers\" < 500000"
     ]
   },
   "dialogs": [
@@ -216,6 +219,26 @@
       "y": "513",
       "overlay_function": "1/(0.00004043631 + 0.0000091545008* x)",
       "stack_order": 1
+    },
+    {
+      "dialog": "BoxplotDialog",
+      "result_properties": {
+        "size_and_position": {
+          "width": 462,
+          "height": 462,
+          "left": 586,
+          "top": 170.98750001192093
+        }
+      },
+      "columns": [
+        "425"
+      ],
+      "where": "\"Peak viewers\" < 500000",
+      "group_by": "433",
+      "draw_horizontally": true,
+      "median_marker_state": true,
+      "median_marker_color": "rgb(200,0,0)",
+      "stack_order": 7
     }
   ]
 }
