@@ -6,3 +6,5 @@ Competition_Details/statcrunch-contest.html
 /Minitab
 *.mpx
 .RData
+.Rproj.user
+R/.Rhistory
