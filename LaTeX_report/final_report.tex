@@ -6,6 +6,7 @@
 
 \usepackage{amsmath}
 \usepackage{graphicx}
+\usepackage{caption} % for customizing captions
 \usepackage[margin=1in]{geometry} % for setting margins
 \usepackage{setspace} % for adjusting line spacing
 % Line spacing
@@ -69,7 +70,7 @@ Because all distributions are heavily right skewed (skewness $\geq$ 2.6), median
 \begin{table}[t]
   \centering
   \includegraphics[width=\linewidth]{../StatCrunch_Results/reciprocal/table}
-%  \captionsetup{justification=centering, margin=2cm}
+  \captionsetup{justification=centering, singlelinecheck=false, margin=2cm}
   \caption[Summary Statistics]{These are summary statistics for the dataset.}
   \label{fig:summary_stats}
 \end{table}
@@ -77,9 +78,9 @@ Because all distributions are heavily right skewed (skewness $\geq$ 2.6), median
 
 \begin{figure}[b]
   \centering
-  \includegraphics[width=\linewidth]{../StatCrunch_Results/Histogram_Matrix.png}
+  \includegraphics[width=0.8\linewidth]{../StatCrunch_Results/Histogram_Matrix.png}
   \captionsetup{justification=centering, singlelinecheck=false, margin=2cm}
-  \caption[Histogram Matrix]{All distributions are heavily skewed.)}
+  \caption[Histogram Matrix]{All distributions are heavily skewed and non-normal.}
   \label{fig:histogram_matrix}
 \end{figure}
 
