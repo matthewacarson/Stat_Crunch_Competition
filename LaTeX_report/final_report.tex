@@ -1,0 +1,88 @@
+\documentclass[12pt]{article}
+\usepackage[english]{babel}
+\title{StatCrunch Competition\\ Twitch Dataset}
+\author{Matthew Carson\\ University of California, Los Angeles}
+\date{\today}
+
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry} % for setting margins
+\usepackage{setspace} % for adjusting line spacing
+% Line spacing
+\setstretch{1.25}
+\usepackage[autostyle, english = american]{csquotes}
+\MakeOuterQuote{"}
+
+% Define indentation length
+\newlength{\myindent}
+\setlength{\myindent}{3em}
+
+% Paragraph indentation
+\setlength{\parindent}{\myindent}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Begin Document
+% Title Page
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\begin{titlepage}
+\maketitle	
+\end{titlepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Table of Contents
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tableofcontents
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% List of Figures
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\listoffigures
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Begin body of report
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Summary Statistics}\
+
+Since these data were not randomly sampled, it would be inappropriate to conduct inference (i.e., construct confidence intervals or conduct hypothesis tests). Because of this, it is not possible to estimate population parameters; that is, make claims or generalizations about the broader population of Twitch users. However, since these data represent the top 900 Twitch users, statistics can be calculated and relationships can be discovered about that population.
+
+Initial calculations were made before presenting the summary statistics. Since values for \texttt{`Watch time (mins)'} were typically very large, requiring scientific notation to express, values were rescaled to \texttt{`Mean weekly watch hours’} by dividing \texttt{`Watch time (mins)'} by the product of 60 times 52 (number of weeks in a year) to make the numbers more manageable:
+
+\begin{equation}
+Mean\ weekly\ watch\ hours = \dfrac{Watch\ time\ (mins)}{60 \ast 52}
+\end{equation}
+\newline
+Additional statistics were calculated as well:
+
+\begin{itemize}
+	\item \texttt{`Followers Prev Yr’} = \texttt{`Followers’} - \texttt{`Followers gained’}.
+	\item \texttt{`Followers gained percent’} = \texttt{`Followers gained’} / \texttt{`Followers Prev Yr’}.
+\end{itemize}
+
+Because all distributions are heavily right skewed (skewness $\geq$ 2.6), medians, represented with Greek letter eta ($\eta$), are reported instead of means (all values reported are from Table \ref{fig:summary_stats}). The majority of the top nine hundred accounts stream content at least 30 hours per week ($\eta \approx$ 34.23) and are watched more than 90 thousand hours per week $(\eta \approx$ 91,422). Most accounts gained a substantial number of followers from the previous year ($\eta \approx$ 66,003), which represents a median increase of approximately 16 percent. Because of the heavy skewness of the distributions, easy-to-interpret visualizations were difficult to make (see appendix for histograms).
+
+\begin{table}[t]
+  \centering
+  \includegraphics[width=\linewidth]{../StatCrunch_Results/reciprocal/table}
+%  \captionsetup{justification=centering, margin=2cm}
+  \caption[Summary Statistics]{These are summary statistics for the dataset.}
+  \label{fig:summary_stats}
+\end{table}
+
+To assess the relationships between numeric variables, Spearman’s correlation coefficients were calculated. Because of the non-linearity of the relationships, typical Pearson’s R correlation coefficients would be inappropriate. Spearman’s correlation coefficients are preferred for assessing the strength of non-linear relationships.
+
+The relationships between numeric variables are surprising, especially the absence of some correlations where one would think they they would exist. ‘Stream time’ has a moderately strong negative correlations with ‘Average viewers’, which is counterintuitive given that one might expect more frequent streaming to result in more viewers, but that is not the case. In terms of change over time, the more one streams With respect to surprising absences of relationships, ‘Stream time’ has practically no relationship with ‘Watch time’. Together, these findings suggest that a strategy of merely increasing one’s streaming time does not “pay off” in terms of the number of followers or viewers.
+
+%\begin{table}[hb]
+%  \centering
+%  \begin{tabular}{|c|c|}
+%    \includegraphics[width=0.9\linewidth]{../StatCrunch_Results/reciprocal/table}
+%  \end{tabular}
+%  \caption{An image included in a table}
+%  \label{tab:summary_stats}
+%\end{table}
+
+\end{document}
