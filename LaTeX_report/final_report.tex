@@ -28,20 +28,22 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 \begin{titlepage}
-\maketitle	
+\maketitle
+\thispagestyle{empty} % Removes page number from the cover page
 \end{titlepage}
-
+% Set page numbering to roman for preliminary pages
+\pagenumbering{roman}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Table of Contents
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \tableofcontents
-\newpage
+%\newpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % List of Figures
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \listoffigures
-\newpage
+%\newpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % List of Tables
@@ -51,6 +53,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Begin body of report
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Set page numbering to arabic for main content
+\pagenumbering{arabic}
 
 \section{Summary Statistics}\
 
@@ -86,7 +90,7 @@ Because all distributions are heavily right skewed (skewness $\geq$ 2.6), median
   \centering
   \includegraphics[width=0.8\linewidth]{../StatCrunch_Results/Histogram_Matrix.png}
   \captionsetup{justification=centering, singlelinecheck=false, margin=2cm}
-  \caption[Histogram Matrix]{All distributions are heavily skewed and non-normal. \hyperref[sec:toc]{(Back)}}
+  \caption[Histogram Matrix]{All distributions are heavily skewed and non-normal.}
   \label{fig:histogram_matrix}
 \end{figure}
 
