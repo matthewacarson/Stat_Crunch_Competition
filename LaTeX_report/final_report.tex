@@ -62,7 +62,9 @@ Additional statistics were calculated as well:
 	\item \texttt{`Followers gained percent’} = \texttt{`Followers gained’} / \texttt{`Followers Prev Yr’}.
 \end{itemize}
 
-Because all distributions are heavily right skewed (skewness $\geq$ 2.6), medians, represented with Greek letter eta ($\eta$), are reported instead of means (all values are from Table \ref{fig:summary_stats}). The majority of the top nine hundred accounts stream content at least 30 hours per week ($\eta \approx$ 34.23) and are watched more than 90 thousand hours per week $(\eta \approx$ 91,422). Most accounts gained a substantial number of followers from the previous year ($\eta \approx$ 66,003), which represents a median increase of approximately 16 percent. Because of the heavy skewness of the distributions, easy-to-interpret visualizations were difficult to make (see appendix for histograms).
+Because all distributions are heavily right skewed (skewness $\geq$ 2.6), medians, represented with Greek letter eta ($\eta$), are reported instead of means (all values are from Table \ref{fig:summary_stats}). The majority of the top nine hundred accounts stream content at least 30 hours per week ($\eta \approx$ 34.23) and are watched more than 90 thousand hours per week $(\eta \approx$ 91,422). Most accounts gained a substantial number of followers from the previous year ($\eta \approx$ 66,003), which represents a median increase of approximately 16 percent. Because of the heavy skewness of the distributions, easy-to-interpret visualizations were difficult to make (Figure \ref{fig:histogram_matrix}).
+
+
 
 \begin{table}[t]
   \centering
@@ -72,17 +74,19 @@ Because all distributions are heavily right skewed (skewness $\geq$ 2.6), median
   \label{fig:summary_stats}
 \end{table}
 
+
+\begin{figure}[b]
+  \centering
+  \includegraphics[width=\linewidth]{../StatCrunch_Results/Histogram_Matrix.png}
+  \captionsetup{justification=centering, singlelinecheck=false, margin=2cm}
+  \caption[Histogram Matrix]{All distributions are heavily skewed.)}
+  \label{fig:histogram_matrix}
+\end{figure}
+
 To assess the relationships between numeric variables, Spearman’s correlation coefficients were calculated. Because of the non-linearity of the relationships, typical Pearson’s R correlation coefficients would be inappropriate. Spearman’s correlation coefficients are preferred for assessing the strength of non-linear relationships.
 
 The relationships between numeric variables are surprising, especially the absence of some correlations where one would think they they would exist. \texttt{`Stream time’} has a moderately strong negative correlations with \texttt{`Average viewers’}, which is counterintuitive given that one might expect more frequent streaming to result in more viewers, but that is not the case. In terms of change over time, the more one streams With respect to surprising absences of relationships, \texttt{`Stream time’} has practically no relationship with \texttt{`Watch time’}. Together, these findings suggest that a strategy of merely increasing one’s streaming time does not “pay off” in terms of the number of followers or viewers.
 
-%\begin{table}[hb]
-%  \centering
-%  \begin{tabular}{|c|c|}
-%    \includegraphics[width=0.9\linewidth]{../StatCrunch_Results/reciprocal/table}
-%  \end{tabular}
-%  \caption{An image included in a table}
-%  \label{tab:summary_stats}
-%\end{table}
+
 
 \end{document}
