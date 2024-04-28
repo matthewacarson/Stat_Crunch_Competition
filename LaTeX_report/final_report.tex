@@ -3,7 +3,8 @@
 \title{StatCrunch Competition\\ Twitch Dataset}
 \author{Matthew Carson\\ University of California, Los Angeles}
 \date{\today}
-
+\usepackage{url}
+\usepackage{hyperref}
 \usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage{caption} % for customizing captions
@@ -43,6 +44,11 @@
 \newpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% List of Tables
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\listoftables
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Begin body of report
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -80,7 +86,7 @@ Because all distributions are heavily right skewed (skewness $\geq$ 2.6), median
   \centering
   \includegraphics[width=0.8\linewidth]{../StatCrunch_Results/Histogram_Matrix.png}
   \captionsetup{justification=centering, singlelinecheck=false, margin=2cm}
-  \caption[Histogram Matrix]{All distributions are heavily skewed and non-normal.}
+  \caption[Histogram Matrix]{All distributions are heavily skewed and non-normal. \hyperref[sec:toc]{(Back)}}
   \label{fig:histogram_matrix}
 \end{figure}
 
