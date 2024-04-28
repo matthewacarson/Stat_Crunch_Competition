@@ -83,7 +83,7 @@ Because all distributions are heavily right skewed (skewness $\geq$ 2.6), median
   \label{fig:histogram_matrix}
 \end{figure}
 
-\begin{table}[t]
+\begin{table}[b]
   \centering
   \includegraphics[width=\linewidth]{../StatCrunch_Results/table}
   \captionsetup{justification=centering, singlelinecheck=false, margin=2cm}
@@ -91,16 +91,24 @@ Because all distributions are heavily right skewed (skewness $\geq$ 2.6), median
   \label{fig:summary_stats}
 \end{table}
 
-
+\section{Correlation}
 
 To assess the relationships between numeric variables, Spearman’s correlation coefficients were calculated. Because of the non-linearity of the relationships (Figure \ref{fig:scatter_matrix}), typical Pearson’s R correlation coefficients would be inappropriate. Spearman’s correlation coefficients are preferred for assessing the strength of non-linear relationships.
 
 \begin{figure}[t]
   \centering
-  \includegraphics[width=0.8\linewidth]{../StatCrunch_Results/scatter_plot_matrix.png}
+  \includegraphics[width=0.8\linewidth]{../StatCrunch_Results/stream_scatter_plot_matrix.png}
   \captionsetup{justification=centering, singlelinecheck=false, margin=2cm}
-  \caption[Scatter Plot Matrix]{Relationships between \texttt{`Mean weekly stream hours'} and other variables.}
-  \label{fig:scatter_matrix}
+  \caption[Stream Hours Scatter Plot Matrix]{Relationships between \texttt{`Mean weekly stream hours'} and other variables.}
+  \label{fig:stream_scatter_matrix}
+\end{figure}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.8\linewidth]{../StatCrunch_Results/watch_scatter_plot_matrix.png}
+  \captionsetup{justification=centering, singlelinecheck=false, margin=2cm}
+  \caption[Stream Hours Scatter Plot Matrix]{Relationships between \texttt{`Mean weekly watch hours'} and other variables.}
+  \label{fig:watch_scatter_matrix}
 \end{figure}
 
 The relationships between numeric variables are surprising, especially the absence of some correlations where one would think they they would exist (Figure \ref{fig:spearman_correlogram}). \texttt{`Stream time’} has a moderately strong negative correlations with \texttt{`Average viewers’}, which is counterintuitive given that one might expect more frequent streaming to result in more viewers, but that is not the case. In terms of change over time, the more one streams With respect to surprising absences of relationships, \texttt{`Stream time’} has practically no relationship with \texttt{`Watch time’}. Together, these findings suggest that a strategy of merely increasing one’s streaming time does not “pay off” in terms of the number of followers or viewers.
@@ -109,7 +117,7 @@ The relationships between numeric variables are surprising, especially the absen
   \centering
   \includegraphics[width=\linewidth]{../StatCrunch_Results/spearman_correlogram}
   \captionsetup{justification=centering, singlelinecheck=false, margin=2cm}
-  \caption[S Matrix]{Spearman Correlogram}
+  \caption[Spearman Correlogram]{Spearman Correlogram}
   \label{fig:spearman_correlogram}
 \end{figure}
 
