@@ -74,19 +74,20 @@ Additional statistics were calculated as well:
 	\item \texttt{`Followers gained percent’} = \texttt{`Followers gained’} / \texttt{`Followers Prev Yr’}.
 \end{itemize}
 
-Because all distributions are heavily right skewed (skewness $\geq$ 2.6), medians, represented with Greek letter eta ($\eta$), are reported instead of means (all values are from Table \ref{table:summary_stats}). The majority of the top nine hundred accounts stream content at least 30 hours per week ($\eta \approx$ 34.23) and are watched more than 90 thousand hours per week $(\eta \approx$ 91,422). 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Table: Summary Statistics
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{table}[H]
   \centering
-  \includegraphics[width=0.65\linewidth]{../StatCrunch_Results/table}
+  \includegraphics[width=0.8\linewidth]{../StatCrunch_Results/table}
   \captionsetup{justification=centering, singlelinecheck=false, margin=2cm}
   \caption[Summary Statistics]{Summary Statistics.}
   \label{table:summary_stats}
 \end{table}
-\noindent
-Most accounts gained a substantial number of followers from the previous year ($\eta \approx$ 66,003), which represents a median increase of approximately 16 percent. Because of the heavy skewness of the distributions, easy-to-interpret visualizations were difficult to make (Fig. \ref{fig:histogram_matrix}).
+
+Because all distributions are heavily right skewed (skewness $\geq$ 2.6), medians, represented with Greek letter eta ($\eta$), are reported instead of means (all values are from Table \ref{table:summary_stats}). The majority of the top nine hundred accounts stream content at least 30 hours per week ($\eta \approx$ 34.23) and are watched more than 90 thousand hours per week $(\eta \approx$ 91,422). Most accounts gained a substantial number of followers from the previous year ($\eta \approx$ 66,003), which represents a median increase of approximately 16 percent. Because of the heavy skewness of the distributions, easy-to-interpret visualizations were difficult to make (Fig. \ref{fig:histogram_matrix}).
+
+
 
 \section{Correlation}
 
@@ -151,13 +152,13 @@ where \textit{i} is a Twitch account. \textit{`Average viewers'} is the average 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Table: Regression table
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\begin{table}[!h]
-%%  \centering % width=0.8\linewidth, height=0.375\textheight
-%  \includegraphics[scale=0.8]{../StatCrunch_Results/reciprocal/regression_table}
-%  \captionsetup{justification=raggedright, singlelinecheck=false, margin=2cm}
-%  \caption[Regression: Average Viewers Predicted by Stream Hours]{Simple linear regression model showing a moderate relationship between average viewers and mean weekly stream hours.}
-%  \label{table:reciprocal_regression_table}
-%\end{table}
+\begin{table}[!h]
+  \centering % width=0.8\linewidth, height=0.375\textheight
+  \includegraphics[scale=0.8]{../StatCrunch_Results/reciprocal/regression_table}
+  \captionsetup{justification=raggedright, singlelinecheck=false, margin=2cm}
+  \caption[Regression: Average Viewers Predicted by Stream Hours]{Simple linear regression model showing a moderate relationship between average viewers and mean weekly stream hours.}
+  \label{table:reciprocal_regression_table}
+\end{table}
 
 R-squared is moderate, suggesting that the mean weekly stream hours can explain 56 percent of the variation in the average number of viewers. Because of the inverse transformation of the dependent variable, the signs of the intercept and mean weekly stream hours coefficient are reversed. This makes sense though, since an increase in the denominator of the equation (when the right hand side of the equation is back transform; Eq. \ref{eq:back_transformed}) will diminish the predicted number of average viewers.
 
@@ -165,15 +166,14 @@ R-squared is moderate, suggesting that the mean weekly stream hours can explain 
 Average\ viewers_{i} = \dfrac{1}{4.04e^{-5} + 9.15e^{-6} \ast Mean\ weekly\ stream\ hours_{i}} \label{eq:back_transformed}
 \end{equation}
 
-\newpage
 
-\begin{wraptable}{l}{0.65\textwidth} % Adjust the width as needed
-%    \centering
-    \includegraphics[scale=0.8]{../StatCrunch_Results/reciprocal/regression_table}
-    \captionsetup{justification=centering, singlelinecheck=false, margin=0cm}
-    \caption[Regression: Average Viewers Predicted by Stream Hours]{Simple linear regression model showing a moderate relationship between average viewers and mean weekly stream hours.}
-    \label{table:reciprocal_regression_table}
-\end{wraptable}
+%\begin{wraptable}{l}{0.5\textwidth} % Adjust the width as needed
+%%    \centering
+%    \includegraphics[width=\linewidth]{../StatCrunch_Results/reciprocal/regression_table}
+%    \captionsetup{justification=centering, singlelinecheck=false, margin=0cm}
+%    \caption[Regression: Average Viewers Predicted by Stream Hours]{Simple linear regression model showing a moderate relationship between average viewers and mean weekly stream hours.}
+%    \label{table:reciprocal_regression_table}
+%\end{wraptable}
 
 
 
