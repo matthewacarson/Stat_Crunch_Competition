@@ -127,20 +127,24 @@ The relationships between numeric variables are surprising, especially the absen
   \label{fig:followers_gained_stream_deciles}
 \end{figure}
 
-\section{Simple Linear Regression}\
+\section{Simple Linear Regressions}\
+
+Because the relationships between the variables were not linear, it was difficult to fit models using simple linear regression. However, using transformations, I was able to fit some models.
+
+\subsubsection{Stream Hours to Predict Average Viewers}
 
 A simple linear regression was run to assess the strength between \texttt{`Mean weekly stream hours’} (independent variable) and \texttt{`average viewers’} (dependent variable). Because of the non-linear relationship between the variables, the residuals were highly non-normal. A inverse (reciprocal) transformation of \texttt{`Average viewers’} was performed to correct for non-normality of the residuals. The transformation greatly improved the distribution of the residuals, making them nearly normal. The transformation could not correct for heteroskedasticity, but this is not an issues since inference is not being conducted.
 
-\subsection{Model Specification}\
+\paragraph{Model Specification}
 
 The regression model is as follows:
 
 \begin{equation}
 \dfrac{1}{Average\ viewers_{i}} = \beta_{0} + \beta_{1} \ast Mean\ weekly\ stream\ hours_{i} 
 \end{equation}
-where \textit{i} is a Twitch count.
+where \textit{i} is a Twitch account. \textit{`Average viewers'} is the average number of viewers that watched the respective Twitch account; and \textit{`Mean weekly stream hours'} is the number of hours that the respective Twitch account streamed over the year divided by 52.
 
-
+The regression results are reported below
 
 
 
