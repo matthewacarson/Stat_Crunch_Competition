@@ -57,6 +57,8 @@
 % Set page numbering to arabic for main content
 \pagenumbering{arabic}
 
+\part{Analysis}
+
 \section{Summary Statistics}\
 
 Since these data were not randomly sampled, it would be inappropriate to conduct inference (i.e., construct confidence intervals or conduct hypothesis tests). Because of this, it is not possible to estimate population parameters; that is, make claims or generalizations about the broader population of Twitch users. However, since these data represent the top 900 Twitch users, statistics can be calculated and relationships can be discovered about that population.
@@ -91,9 +93,9 @@ Because all distributions are heavily right skewed (skewness $\geq$ 2.6), median
 
 \section{Correlation}
 
-To assess the relationships between numeric variables, Spearman’s correlation coefficients were calculated (Fig. \ref{fig:spearman_correlogram}). Because of the non-linearity of the relationships (Fig. \ref{fig:stream_scatter_matrix}), typical Pearson’s R correlation coefficients would be inappropriate. Spearman’s correlation coefficients are preferred for assessing the strength of non-linear relationships.
+To assess the relationships between numeric variables, Spearman’s correlation coefficients were calculated (Fig. \ref{fig:spearman_correlogram}). Because of the non-linearity of the relationships (Fig. \ref{fig:stream_scatter_matrix}, Fig. \ref{fig:watch_scatter_matrix}, Fig. \ref{fig:follow_gain_scatter_matrix}), typical Pearson’s R correlation coefficients would be inappropriate. Spearman’s correlation coefficients are preferred for assessing the strength of non-linear relationships.
 %%%%%%%%%%%%%%
-% Figure: Spearman Correlogram
+% Figure: Spearman Correlogram 
 %%%%%%%%%%%%%%
 \begin{figure}[H]
   \centering % width=\linewidth, height=0.4\textheight
@@ -145,7 +147,7 @@ The regression model is as follows:
 \end{equation}
 where \textit{i} is a Twitch account. \textit{`Average viewers'} is the average number of viewers that watched the respective Twitch account; and \textit{`Mean weekly stream hours'} is the number of hours that the respective Twitch account streamed over the year divided by 52.
 
-\subsubsection{Results}
+\subsubsection{Results}\
 
 %The regression results are reported below (Table \ref{table:reciprocal_regression_table}).
 
@@ -175,6 +177,8 @@ Figure \ref{fig:stream_time_reciprocal_avg_viewers} shows the relationship betwe
  \dfrac{1}{Average\ viewers_{i}} = 4.04e^{-5} + 9.15e^{-6} \ast Mean\ weekly\ stream\ hours_{i} \label{eq:reciprocal_model_w_coef}
 \end{equation}
 
+\subsubsection{Scatter Plots}\
+
 %%%%%%%%%%%%%%%%%%%%%%%%
 % stream_time_reciprocal_avg_viewers
 %%%%%%%%%%%%%%%%%%%%%%%%
@@ -193,13 +197,24 @@ Since one usually does not have a particular interest in knowing what the recipr
   \centering % width=\linewidth, height=\textheight
   \includegraphics[width=\linewidth]{../StatCrunch_Results/reciprocal/scatter_plot_reverse_transformed}
   \captionsetup{justification=centering, singlelinecheck=false, margin=2cm}
-  \caption[Back Transformed Average Viewers Predicted by Stream Hours]{Back Transformed Average Viewers Predicted by Stream Hours. The fitted line is Equation \ref{eq:back_transformed_reciprocal_eq}}
+  \caption[Back Transformed Average Viewers Predicted by Stream Hours]{Back Transformed Average Viewers Predicted by Stream Hours. The fitted line is Equation \ref{eq:back_transformed_reciprocal_eq}}.
   \label{fig:transformed_reciprocal_scatter}
 \end{figure}
 
 \begin{equation}
 Average\ viewers_{i} = \dfrac{1}{4.04e^{-5} + 9.15e^{-6} \ast Mean\ weekly\ stream\ hours_{i}} \label{eq:back_transformed_reciprocal_eq}
 \end{equation}
+
+\subsubsection{Discussion}\
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%    Appendix    %%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\part{Appendix}
+
 %%%%%%%%%%%%%
 % Figure: Histogram Matrix
 %%%%%%%%%%%%%
