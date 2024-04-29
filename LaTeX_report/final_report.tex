@@ -160,7 +160,7 @@ where \textit{i} is a Twitch account. \textit{`Average viewers'} is the average 
   \label{table:reciprocal_regression_table}
 \end{table}
 
-R-squared is moderate, suggesting that the mean weekly stream hours can explain 56 percent of the variation in the average number of viewers. Because of the inverse transformation of the dependent variable, the signs of the intercept and mean weekly stream hours coefficient are reversed. This makes sense though, since an increase in the denominator of the equation (when the right hand side of the equation is back transform; Equation \ref{eq:back_transformed_reciprocal}) will diminish the predicted number of average viewers.
+R-squared is moderate, suggesting that the mean weekly stream hours can explain 56 percent of the variation in the average number of viewers. Because of the inverse transformation of the dependent variable, the signs of the intercept and mean weekly stream hours coefficient are reversed. This makes sense though, since an increase in the denominator of the equation (when the right hand side of the equation is back transform; Equation \ref{eq:back_transformed_reciprocal_eq}) will diminish the predicted number of average viewers.
 
 %\begin{wraptable}{l}{0.5\textwidth} % Adjust the width as needed
 %%    \centering
@@ -186,22 +186,19 @@ Figure \ref{fig:stream_time_reciprocal_avg_viewers} shows the relationship betwe
   \label{fig:stream_time_reciprocal_avg_viewers}
 \end{figure}
 
-Since one usually does not have a particular interest in knowing what the reciprocal of the average number of viewers is, \texttt{`Average viewers'} was reverse transformed and the transformed equation was plotted over the data on their original scale.
+Since one usually does not have a particular interest in knowing what the reciprocal of the average number of viewers is, \texttt{`Average viewers'} was reverse transformed and the transformed equation was plotted over the data on their original scale (Fig. \ref{fig:transformed_reciprocal_scatter}).
 
-% scatter_plot_reverse_transformed
-%%%%%%%%%%%%%%%%%%%%%%%%
-% Back transformed reciprocal
-%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{figure}[H]
   \centering % width=\linewidth, height=\textheight
-  \includegraphics[scale=0.5]{../StatCrunch_Results/reciprocal/scatter_plot_reverse_transformed}
+  \includegraphics[width=\linewidth]{../StatCrunch_Results/reciprocal/scatter_plot_reverse_transformed}
   \captionsetup{justification=centering, singlelinecheck=false, margin=2cm}
-  \caption[Back Transformed Average Viewers Predicted by Stream Hours]{Back Transformed Average Viewers Predicted by Stream Hours. The fitted line is Equation \ref{eq:back_transformed_reciprocal}}
-  \label{fig:back_transformed_reciprocal}
+  \caption[Back Transformed Average Viewers Predicted by Stream Hours]{Back Transformed Average Viewers Predicted by Stream Hours. The fitted line is Equation \ref{eq:back_transformed_reciprocal_eq}}
+  \label{fig:transformed_reciprocal_scatter}
 \end{figure}
 
 \begin{equation}
-Average\ viewers_{i} = \dfrac{1}{4.04e^{-5} + 9.15e^{-6} \ast Mean\ weekly\ stream\ hours_{i}} \label{eq:back_transformed_reciprocal}
+Average\ viewers_{i} = \dfrac{1}{4.04e^{-5} + 9.15e^{-6} \ast Mean\ weekly\ stream\ hours_{i}} \label{eq:back_transformed_reciprocal_eq}
 \end{equation}
 %%%%%%%%%%%%%
 % Figure: Histogram Matrix
