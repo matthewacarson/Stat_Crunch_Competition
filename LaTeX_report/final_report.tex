@@ -108,9 +108,9 @@ The relationships between numeric variables are surprising, especially the absen
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Table: followers_gained_stream_decile_table
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{table}[!h]
+\begin{table}[H]
   \centering % width=0.8\linewidth, height=0.35\textheight
-  \includegraphics[width=\linewidth]{../StatCrunch_Results/followers_gained_stream_deciles/table}
+  \includegraphics[width=0.8\linewidth]{../StatCrunch_Results/followers_gained_stream_deciles/table}
   \captionsetup{justification=centering, singlelinecheck=false, margin=2cm}
   \caption[Followers Gained by Stream Time Deciles]{Followers Gained by Stream Time Deciles. (The lowest decile streamed the least.)}
   \label{table:followers_gained_stream_decile_table}
@@ -120,9 +120,9 @@ The relationships between numeric variables are surprising, especially the absen
 %%%%%%%%%%%%%%%%%%%%%%%%
 % Figure: followers_gained_stream_deciles
 %%%%%%%%%%%%%%%%%%%%%%%%
-\begin{figure}[!b]
+\begin{figure}[H]
   \centering % width=0.8\linewidth, height=0.4\textheight
-  \includegraphics[scale=0.55]{../StatCrunch_Results/followers_gained_stream_deciles/barplot}
+  \includegraphics[width=0.6\linewidth]{../StatCrunch_Results/followers_gained_stream_deciles/barplot}
   \captionsetup{justification=centering, singlelinecheck=false, margin=2cm}
   \caption[Followers Gained by Stream Time Deciles]{Followers Gained by Stream Time Deciles. (The lowest decile streamed the least.)}
   \label{fig:followers_gained_stream_deciles}
@@ -154,18 +154,13 @@ where \textit{i} is a Twitch account. \textit{`Average viewers'} is the average 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{table}[!h]
   \centering % width=0.8\linewidth, height=0.375\textheight
-  \includegraphics[scale=0.8]{../StatCrunch_Results/reciprocal/regression_table}
+  \includegraphics[scale=1]{../StatCrunch_Results/reciprocal/regression_table}
   \captionsetup{justification=raggedright, singlelinecheck=false, margin=2cm}
   \caption[Regression: Average Viewers Predicted by Stream Hours]{Simple linear regression model showing a moderate relationship between average viewers and mean weekly stream hours.}
   \label{table:reciprocal_regression_table}
 \end{table}
 
 R-squared is moderate, suggesting that the mean weekly stream hours can explain 56 percent of the variation in the average number of viewers. Because of the inverse transformation of the dependent variable, the signs of the intercept and mean weekly stream hours coefficient are reversed. This makes sense though, since an increase in the denominator of the equation (when the right hand side of the equation is back transform; Eq. \ref{eq:back_transformed}) will diminish the predicted number of average viewers.
-
-\begin{equation}
-Average\ viewers_{i} = \dfrac{1}{4.04e^{-5} + 9.15e^{-6} \ast Mean\ weekly\ stream\ hours_{i}} \label{eq:back_transformed}
-\end{equation}
-
 
 %\begin{wraptable}{l}{0.5\textwidth} % Adjust the width as needed
 %%    \centering
@@ -175,12 +170,8 @@ Average\ viewers_{i} = \dfrac{1}{4.04e^{-5} + 9.15e^{-6} \ast Mean\ weekly\ stre
 %    \label{table:reciprocal_regression_table}
 %\end{wraptable}
 
-
-
-
 Figure \ref{fig:stream_time_reciprocal_avg_viewers} shows the relationship between the mean weekly stream hours and the inverse of average viewers. The other scatter plots show the residuals. The histogram and Q-Q plots show that the residuals are now nearly normal, although excess kurtosis is still high, making the distribution of the residuals leptokurtic (skewness = -0.57036091; excess kurtosis = 6.0727871). Removing extreme dependent variable observations would help correct for this, but it is unlikely to be helpful since inference is not being conducted. Heteroskedasticity also was not corrected, but it also is not an issue as no hypothesis testing is being conducted, nor are confidence intervals being calculated.
 
-\newpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%
 % stream_time_reciprocal_avg_viewers
@@ -193,7 +184,9 @@ Figure \ref{fig:stream_time_reciprocal_avg_viewers} shows the relationship betwe
   \label{fig:stream_time_reciprocal_avg_viewers}
 \end{figure}
 
-
+\begin{equation}
+Average\ viewers_{i} = \dfrac{1}{4.04e^{-5} + 9.15e^{-6} \ast Mean\ weekly\ stream\ hours_{i}} \label{eq:back_transformed}
+\end{equation}
 %%%%%%%%%%%%%
 % Figure: Histogram Matrix
 %%%%%%%%%%%%%
