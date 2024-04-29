@@ -9,6 +9,7 @@
 \usepackage{hyperref}
 \usepackage{graphicx}
 \usepackage{float} % for [H] placement specifier
+\usepackage{wrapfig}
 \usepackage{caption} % for customizing captions
 \usepackage[margin=1in]{geometry} % for setting margins
 \usepackage{setspace} % for adjusting line spacing
@@ -94,8 +95,8 @@ To assess the relationships between numeric variables, Spearman’s correlation 
 % Figure: Spearman Correlogram
 %%%%%%%%%%%%%%
 \begin{figure}[H]
-  \centering
-  \includegraphics[width=\linewidth, height=0.4\textheight]{../StatCrunch_Results/spearman_correlogram}
+  \centering % width=\linewidth, height=0.4\textheight
+  \includegraphics[width=\linewidth]{../StatCrunch_Results/spearman_correlogram}
   \captionsetup{justification=centering, singlelinecheck=false, margin=2cm}
   \caption[Spearman Correlogram]{Spearman Correlogram}
   \label{fig:spearman_correlogram}
@@ -120,7 +121,7 @@ The relationships between numeric variables are surprising, especially the absen
 %%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[!b]
   \centering % width=0.8\linewidth, height=0.4\textheight
-  \includegraphics[scale=0.65]{../StatCrunch_Results/followers_gained_stream_deciles/barplot}
+  \includegraphics[scale=0.5]{../StatCrunch_Results/followers_gained_stream_deciles/barplot}
   \captionsetup{justification=centering, singlelinecheck=false, margin=2cm}
   \caption[Followers Gained by Stream Time Deciles]{Followers Gained by Stream Time Deciles. (The lowest decile streamed the least.)}
   \label{fig:followers_gained_stream_deciles}
@@ -150,13 +151,13 @@ where \textit{i} is a Twitch account. \textit{`Average viewers'} is the average 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Table: Regression table
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{table}[!h]
-  \centering % width=0.8\linewidth, height=0.375\textheight
-  \includegraphics[scale=0.6]{../StatCrunch_Results/reciprocal/regression_table}
-  \captionsetup{justification=centering, singlelinecheck=false, margin=2cm}
-  \caption[Regression: Average Viewers Predicted by Stream Hours]{Simple linear regression model showing a moderate relationship between average viewers and mean weekly stream hours.}
-  \label{table:reciprocal_regression_table}
-\end{table}
+%\begin{table}[!h]
+%%  \centering % width=0.8\linewidth, height=0.375\textheight
+%  \includegraphics[scale=0.8]{../StatCrunch_Results/reciprocal/regression_table}
+%  \captionsetup{justification=raggedright, singlelinecheck=false, margin=2cm}
+%  \caption[Regression: Average Viewers Predicted by Stream Hours]{Simple linear regression model showing a moderate relationship between average viewers and mean weekly stream hours.}
+%  \label{table:reciprocal_regression_table}
+%\end{table}
 
 R-squared is moderate, suggesting that the mean weekly stream hours can explain 56 percent of the variation in the average number of viewers. Because of the inverse transformation of the dependent variable, the signs of the intercept and mean weekly stream hours coefficient are reversed. This makes sense though, since an increase in the denominator of the equation (when the right hand side of the equation is back transform; Eq. \ref{eq:back_transformed}) will diminish the predicted number of average viewers.
 
@@ -164,8 +165,22 @@ R-squared is moderate, suggesting that the mean weekly stream hours can explain 
 Average\ viewers_{i} = \dfrac{1}{4.04e^{-5} + 9.15e^{-6} \ast Mean\ weekly\ stream\ hours_{i}} \label{eq:back_transformed}
 \end{equation}
 
+\newpage
+
+\begin{wraptable}{l}{0.65\textwidth} % Adjust the width as needed
+%    \centering
+    \includegraphics[scale=0.8]{../StatCrunch_Results/reciprocal/regression_table}
+    \captionsetup{justification=centering, singlelinecheck=false, margin=0cm}
+    \caption[Regression: Average Viewers Predicted by Stream Hours]{Simple linear regression model showing a moderate relationship between average viewers and mean weekly stream hours.}
+    \label{table:reciprocal_regression_table}
+\end{wraptable}
+
+
+
+
 Figure \ref{fig:stream_time_reciprocal_avg_viewers} shows the relationship between the mean weekly stream hours and the inverse of average viewers. The other scatter plots show the residuals. The histogram and Q-Q plots show that the residuals are now nearly normal, although excess kurtosis is still high, making the distribution of the residuals leptokurtic (skewness = -0.57036091; excess kurtosis = 6.0727871). Removing extreme dependent variable observations would help correct for this, but it is unlikely to be helpful since inference is not being conducted. Heteroskedasticity also was not corrected, but it also is not an issue as no hypothesis testing is being conducted, nor are confidence intervals being calculated.
 
+\newpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%
 % stream_time_reciprocal_avg_viewers
