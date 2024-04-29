@@ -4,7 +4,7 @@
 FileGetSize, fileSize, LaTeX_report/final_report.tex
 gosub, SyncReport
 
-SetTimer, SyncReport, 300000
+SetTimer, SyncReport, 600000
 return
 
 SyncReport:
@@ -26,7 +26,7 @@ if(fileSizeLatest != FileSize) {
 return
 
 SendCommands:
-RunWait, git add LaTeX_report/final_report.tex Twitch_Streamer_Data_2023.scs,, Hide
+RunWait, git add LaTeX_report/final_report.tex Twitch_Streamer_Data_2023.scs Twitch_Streamer_Data_2023.csv,, Hide
 RunWait, git commit -m "Auto commit",, Hide
 RunWait, git push,, Hide
 return
