@@ -7,6 +7,8 @@
 \usepackage{hyperref}
 \usepackage{amsmath}
 \usepackage{graphicx}
+\usepackage{float}
+\usepackage{wrapfig}
 \usepackage{caption} % for customizing captions
 \usepackage[margin=1in]{geometry} % for setting margins
 \usepackage{setspace} % for adjusting line spacing
@@ -78,13 +80,17 @@ Because all distributions are heavily right skewed (skewness $\geq$ 2.6), median
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Table: Summary Statistics
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{table}[H]
+\floatstyle{plain}
+%\restylefloat{figure}
+\restylefloat{table}
+
+\begin{wraptable}
   \centering
   \includegraphics[width=\linewidth]{../StatCrunch_Results/table}
   \captionsetup{justification=centering, singlelinecheck=false, margin=2cm}
   \caption[Summary Statistics]{Summary Statistics.}
   \label{table:summary_stats}
-\end{table}
+\end{wraptable}
 
 \section{Correlation}
 
