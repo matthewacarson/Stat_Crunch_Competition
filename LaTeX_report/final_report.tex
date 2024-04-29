@@ -171,14 +171,30 @@ R-squared is moderate, suggesting that the mean weekly stream hours can explain 
 %\end{wraptable}
 
 Figure \ref{fig:stream_time_reciprocal_avg_viewers} shows the relationship between the mean weekly stream hours and the inverse of average viewers. The other scatter plots show the residuals. The histogram and Q-Q plots show that the residuals are now nearly normal, although excess kurtosis is still high, making the distribution of the residuals leptokurtic (skewness = -0.57036091; excess kurtosis = 6.0727871). Removing extreme dependent variable observations would help correct for this, but it is unlikely to be helpful since inference is not being conducted. Heteroskedasticity also was not corrected, but it also is not an issue as no hypothesis testing is being conducted, nor are confidence intervals being calculated.
-
+\begin{equation}
+ \dfrac{1}{Average\ viewers_{i}} = 4.04e^{-5} + 9.15e^{-6} \ast Mean\ weekly\ stream\ hours_{i} \label{eq:reciprocal_model_w_coef}
+\end{equation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%
 % stream_time_reciprocal_avg_viewers
 %%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[H]
-  \centering
-  \includegraphics[width=0.8\linewidth, height=0.4\textheight]{../StatCrunch_Results/reciprocal/stream_time_reciprocal_avg_viewers_plots}
+  \centering % width=\linewidth, height=\textheight
+  \includegraphics[scale=0.5]{../StatCrunch_Results/reciprocal/stream_time_reciprocal_avg_viewers_plots}
+  \captionsetup{justification=centering, singlelinecheck=false, margin=2cm}
+  \caption[Residuals: Average Viewers Predicted by Stream Hours]{Residual Plots of the model. There residuals are symmetric, making the model a decent fit, nothwithstanding the non-constant variance.}
+  \label{fig:stream_time_reciprocal_avg_viewers}
+\end{figure}
+
+Since one usually does not have a particular interest in knowing what the reciprocal of the average number of viewers is, \texttt{`Average viewers'} was reverse transformed and the transformed equation was plotted over the data on their original scale.
+
+% scatter_plot_reverse_transformed
+%%%%%%%%%%%%%%%%%%%%%%%%
+% Back transformed reciprocal
+%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[H]
+  \centering % width=\linewidth, height=\textheight
+  \includegraphics[scale=0.5]{../StatCrunch_Results/reciprocal/stream_time_reciprocal_avg_viewers_plots}
   \captionsetup{justification=centering, singlelinecheck=false, margin=2cm}
   \caption[Residuals: Average Viewers Predicted by Stream Hours]{Residual Plots of the model. There residuals are symmetric, making the model a decent fit, nothwithstanding the non-constant variance.}
   \label{fig:stream_time_reciprocal_avg_viewers}
