@@ -127,15 +127,15 @@ The relationships between numeric variables are surprising, especially the absen
   \label{fig:followers_gained_stream_deciles}
 \end{figure}
 
-\chapter{Simple Linear Regressions}\
+\section{Simple Linear Regressions}\
 
 Because the relationships between the variables were not linear, it was difficult to fit models using simple linear regression. However, using transformations, I was able to fit some models.
 
-\subsection{Stream Hours to Predict Average Viewers}
+\subsection{Stream Hours to Predict Average Viewers}\
 
 A simple linear regression was run to assess the strength between \texttt{`Mean weekly stream hours’} (independent variable) and \texttt{`average viewers’} (dependent variable). Because of the non-linear relationship between the variables, the residuals were highly non-normal. A inverse (reciprocal) transformation of \texttt{`Average viewers’} was performed to correct for non-normality of the residuals. The transformation greatly improved the distribution of the residuals, making them nearly normal. The transformation could not correct for heteroskedasticity, but this is not an issues since inference is not being conducted.
 
-\paragraph{Model Specification}
+\subsubsection{Model Specification}
 
 The regression model is as follows:
 
@@ -144,9 +144,20 @@ The regression model is as follows:
 \end{equation}
 where \textit{i} is a Twitch account. \textit{`Average viewers'} is the average number of viewers that watched the respective Twitch account; and \textit{`Mean weekly stream hours'} is the number of hours that the respective Twitch account streamed over the year divided by 52.
 
-The regression results are reported below
+\subsubsection{Results}
 
+The regression results are reported below (Table \ref{table:reciprocal_regression_table}).
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Table: Regression table
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[!h]
+  \centering
+  \includegraphics[width=0.7\linewidth, height=0.25\textheight]{../StatCrunch_Results/reciprocal/regression_table}
+  \captionsetup{justification=centering, singlelinecheck=false, margin=2cm}
+  \caption[Average Viewers Predicted by Stream Hours]{Simple linear regression model showing a moderately strong relationship between average viewers and mean weekly stream hours.}
+  \label{table:reciprocal_regression_table}
+\end{table}
 
 
 
