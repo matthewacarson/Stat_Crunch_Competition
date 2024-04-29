@@ -146,22 +146,26 @@ where \textit{i} is a Twitch account. \textit{`Average viewers'} is the average 
 
 \subsubsection{Results}
 
-The regression results are reported below (Table \ref{table:reciprocal_regression_table}).
+%The regression results are reported below (Table \ref{table:reciprocal_regression_table}).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Table: Regression table
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{table}[!h]
   \centering
-  \includegraphics[width=0.7\linewidth, height=0.25\textheight]{../StatCrunch_Results/reciprocal/regression_table}
+  \includegraphics[width=0.8\linewidth, height=0.375\textheight]{../StatCrunch_Results/reciprocal/regression_table}
   \captionsetup{justification=centering, singlelinecheck=false, margin=2cm}
-  \caption[Average Viewers Predicted by Stream Hours]{Simple linear regression model showing a moderately strong relationship between average viewers and mean weekly stream hours.}
+  \caption[Regression: Average Viewers Predicted by Stream Hours]{Simple linear regression model showing a moderate relationship between average viewers and mean weekly stream hours.}
   \label{table:reciprocal_regression_table}
 \end{table}
 
+\subsubsection{Discussion}\
 
+R-squared is moderate, suggesting that the mean weekly stream hours can explain 56 percent of the variation in the average number of viewers. Because of the inverse transformation of the dependent variable, the signs of the intercept and mean weekly stream hours coefficient are reversed. This makes sense though, since an increase in the denominator of the equation (when the right hand side of the equation is “reversed”) will diminish the predicted number of average viewers.
 
-
+\begin{equation}
+Average\ viewers_{i} = \dfrac{1}{0.00004043631 + 0.0000091545008 \ast Mean\ weekly\ stream\ hours_{i}}
+\end{equation}
 
 
 
