@@ -7,8 +7,7 @@
 \usepackage{hyperref}
 \usepackage{amsmath}
 \usepackage{graphicx}
-\usepackage{float}
-\usepackage{wrapfig}
+\usepackage{float} % for [H] placement specifier
 \usepackage{caption} % for customizing captions
 \usepackage[margin=1in]{geometry} % for setting margins
 \usepackage{setspace} % for adjusting line spacing
@@ -75,26 +74,33 @@ Additional statistics were calculated as well:
 	\item \texttt{`Followers gained percent’} = \texttt{`Followers gained’} / \texttt{`Followers Prev Yr’}.
 \end{itemize}
 
-Because all distributions are heavily right skewed (skewness $\geq$ 2.6), medians, represented with Greek letter eta ($\eta$), are reported instead of means (all values are from Table \ref{table:summary_stats}). The majority of the top nine hundred accounts stream content at least 30 hours per week ($\eta \approx$ 34.23) and are watched more than 90 thousand hours per week $(\eta \approx$ 91,422). Most accounts gained a substantial number of followers from the previous year ($\eta \approx$ 66,003), which represents a median increase of approximately 16 percent. Because of the heavy skewness of the distributions, easy-to-interpret visualizations were difficult to make (Figure \ref{fig:histogram_matrix}).
-
+Because all distributions are heavily right skewed (skewness $\geq$ 2.6), medians, represented with Greek letter eta ($\eta$), are reported instead of means (all values are from Table \ref{table:summary_stats}). The majority of the top nine hundred accounts stream content at least 30 hours per week ($\eta \approx$ 34.23) and are watched more than 90 thousand hours per week $(\eta \approx$ 91,422). 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Table: Summary Statistics
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\floatstyle{plain}
-%\restylefloat{figure}
-\restylefloat{table}
-
-\begin{wraptable}
+\begin{table}[b]
   \centering
   \includegraphics[width=\linewidth]{../StatCrunch_Results/table}
   \captionsetup{justification=centering, singlelinecheck=false, margin=2cm}
   \caption[Summary Statistics]{Summary Statistics.}
   \label{table:summary_stats}
-\end{wraptable}
+\end{table}
+\noindent
+Most accounts gained a substantial number of followers from the previous year ($\eta \approx$ 66,003), which represents a median increase of approximately 16 percent. Because of the heavy skewness of the distributions, easy-to-interpret visualizations were difficult to make (Figure \ref{fig:histogram_matrix}).
 
 \section{Correlation}
 
-To assess the relationships between numeric variables, Spearman’s correlation coefficients were calculated. Because of the non-linearity of the relationships (Figure \ref{fig:stream_scatter_matrix}), typical Pearson’s R correlation coefficients would be inappropriate. Spearman’s correlation coefficients are preferred for assessing the strength of non-linear relationships.
+To assess the relationships between numeric variables, Spearman’s correlation coefficients were calculated (Figure \ref{fig:spearman_correlogram}). Because of the non-linearity of the relationships (Figure \ref{fig:stream_scatter_matrix}), typical Pearson’s R correlation coefficients would be inappropriate. Spearman’s correlation coefficients are preferred for assessing the strength of non-linear relationships.
+%%%%%%%%%%%%%%
+% Figure: Spearman Correlogram
+%%%%%%%%%%%%%%
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth, height=0.4\textheight]{../StatCrunch_Results/spearman_correlogram}
+  \captionsetup{justification=centering, singlelinecheck=false, margin=2cm}
+  \caption[Spearman Correlogram]{Spearman Correlogram}
+  \label{fig:spearman_correlogram}
+\end{figure}
 
 The relationships between numeric variables are surprising, especially the absence of some correlations where one would think they they would exist (Figure \ref{fig:spearman_correlogram}). \texttt{`Stream time’} has a moderately strong negative Spearman correlation ($\rho$) with \texttt{`Average viewers’} ($\rho = -0.63$), which is counterintuitive given that one might expect more frequent streaming to result in more viewers, but that is not the case. In terms of change over time, accounts that streamed more hours did \emph{not} gain more followers; indeed, the accounts that were in the top decile of weekly stream time gained less than one-fifth of the followers that the accounts in the lowest stream time decile gained (Table \ref{table:followers_gained_stream_decile_table}; Figure \ref{fig:followers_gained_stream_deciles}).  With respect to surprising absences of relationships, \texttt{`Stream time’} has practically no relationship with \texttt{`Watch time’} ($\rho = 0.07$; Figure \ref{fig:spearman_correlogram}). Together, these findings suggest that a strategy of merely increasing one’s streaming time does not “pay off” in terms of the number of followers or viewers.
 
@@ -108,18 +114,6 @@ The relationships between numeric variables are surprising, especially the absen
   \caption[Followers Gained by Stream Time Deciles]{Followers Gained by Stream Time Deciles. (The lowest decile streamed the least.)}
   \label{table:followers_gained_stream_decile_table}
 \end{table}
-
-%%%%%%%%%%%%%%
-% Figure: Spearman Correlogram
-%%%%%%%%%%%%%%
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=\linewidth, height=0.4\textheight]{../StatCrunch_Results/spearman_correlogram}
-  \captionsetup{justification=centering, singlelinecheck=false, margin=2cm}
-  \caption[Spearman Correlogram]{Spearman Correlogram}
-  \label{fig:spearman_correlogram}
-\end{figure}
-
 
 
 %%%%%%%%%%%%%%
