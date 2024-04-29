@@ -161,10 +161,10 @@ where \textit{i} is a Twitch account. \textit{`Average viewers'} is the average 
 
 \subsubsection{Discussion}\
 
-R-squared is moderate, suggesting that the mean weekly stream hours can explain 56 percent of the variation in the average number of viewers. Because of the inverse transformation of the dependent variable, the signs of the intercept and mean weekly stream hours coefficient are reversed. This makes sense though, since an increase in the denominator of the equation (when the right hand side of the equation is “reversed”) will diminish the predicted number of average viewers.
+R-squared is moderate, suggesting that the mean weekly stream hours can explain 56 percent of the variation in the average number of viewers. Because of the inverse transformation of the dependent variable, the signs of the intercept and mean weekly stream hours coefficient are reversed. This makes sense though, since an increase in the denominator of the equation (when the right hand side of the equation is back transform; \ref{eq:back_transformed}) will diminish the predicted number of average viewers.
 
 \begin{equation}
-Average\ viewers_{i} = \dfrac{1}{0.00004043631 + 0.0000091545008 \ast Mean\ weekly\ stream\ hours_{i}}
+Average\ viewers_{i} = \dfrac{1}{4.04e^{-5} + 9.15e^{-6} \ast Mean\ weekly\ stream\ hours_{i}} \label{eq:back_transformed}
 \end{equation}
 
 
