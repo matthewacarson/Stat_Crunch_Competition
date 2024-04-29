@@ -158,18 +158,25 @@ where \textit{i} is a Twitch account. \textit{`Average viewers'} is the average 
   \label{table:reciprocal_regression_table}
 \end{table}
 
-\subsubsection{Discussion}\
-
 R-squared is moderate, suggesting that the mean weekly stream hours can explain 56 percent of the variation in the average number of viewers. Because of the inverse transformation of the dependent variable, the signs of the intercept and mean weekly stream hours coefficient are reversed. This makes sense though, since an increase in the denominator of the equation (when the right hand side of the equation is back transform; Eq. \ref{eq:back_transformed}) will diminish the predicted number of average viewers.
 
 \begin{equation}
 Average\ viewers_{i} = \dfrac{1}{4.04e^{-5} + 9.15e^{-6} \ast Mean\ weekly\ stream\ hours_{i}} \label{eq:back_transformed}
 \end{equation}
 
+Figure \ref{fig:stream_time_reciprocal_avg_viewers} shows the relationship between the mean weekly stream hours and the inverse of average viewers. The other scatter plots show the residuals. The histogram and Q-Q plots show that the residuals are now nearly normal, although excess kurtosis is still high, making the distribution of the residuals leptokurtic (skewness = -0.57036091; excess kurtosis = 6.0727871). Removing extreme dependent variable observations would help correct for this, but it is unlikely to be helpful since inference is not being conducted. Heteroskedasticity also was not corrected, but it also is not an issue as no hypothesis testing is being conducted, nor are confidence intervals being calculated.
 
 
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%
+% stream_time_reciprocal_avg_viewers
+%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[!b]
+  \centering
+  \includegraphics[width=0.8\linewidth, height=0.4\textheight]{../StatCrunch_Results/reciprocal/stream_time_reciprocal_avg_viewers}
+  \captionsetup{justification=centering, singlelinecheck=false, margin=2cm}
+  \caption[Residuals: Average Viewers Predicted by Stream Hours]{Residual Plots of the model. There residuals are symmetric, making the model a decent fit, nothwithstanding the non-constant variance.}
+  \label{fig:stream_time_reciprocal_avg_viewers}
+\end{figure}
 
 
 %%%%%%%%%%%%%
