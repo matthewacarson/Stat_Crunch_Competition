@@ -359,10 +359,15 @@ Thus, I opted to only use \texttt{`Followers'} to predict partnered status in my
 
 \begin{equation}
 \begin{aligned}
-	logit(Partnered_{i}) & = \beta_{0} + \beta_{1} \ast Followers_{i} \\
-	logit(Partnered_{i}) & = ln(\frac{p_{i}}{1-p_{i}})
+	ln(\frac{p_{i}}{1-p_{i}}) & = logit(Partnered_{i})  = \beta_{0} + \beta_{1} \ast Followers_{i} \\
+	\frac{p_{i}}{1-p_{i}} & = odds
 \end{aligned}
 \end{equation}
+where \emph{i} is a Twitch account; \texttt{`Partnered'} is a binary variable indicating whether the respective account has attained partnered status or not; \texttt{`Followers'} is the numer of followers that an account has; and \emph{p} is the probability of a "success."
+
+\subsubsection{Logistic Regression Results}
+
+
 
 %ln(\frac{p}{1-p}
 %%%%%%%%%%%%%%%%%%%%%%%%%%
