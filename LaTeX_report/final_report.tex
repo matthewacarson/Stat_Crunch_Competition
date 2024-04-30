@@ -213,9 +213,23 @@ Contrary to what one might think, the amount of time that a Twitch account strea
 \subsection{Stream Hours to Predict Followers}
 
 
-\subsection{Mature Accounts and Followers}
+\subsection{Mature Accounts and Followers}\
 
 Twitch accounts classified as \texttt{`Mature'} have fewer followers than those not classified as \texttt{`Mature'}. At the same time, mature accounts are watched fewer hours per week (Figure \ref{fig:box_plots_mature}).\footnote{Mature accounts also tend to have fewer peak and average viewers, and they also have not gained as many followers over the period.} While it is clear that mature accounts are watched less, it is interesting to ask how much that disparity in watch time can "explain"\footnote{This is observational data, so causal claims cannot be made here.} the disparity in the number of followers.
+
+\subsubsection{Model Specificiation}\
+
+Since \texttt{`Followers'} is highly skewed, the log of \texttt{`Followers'} was taken. A difference in means of the log followers was calculated.
+
+\begin{equation}
+\mu_{1} = Mean of ln(Followers) where Mature \newline
+\mu_{2} = Mean of ln(Followers) where not Mature \\
+\mu_{1} - \mu_{2} = -0.13351611	
+\end{equation}
+
+\begin{equation}
+ln(Followers)
+\end{equation}
 
 \begin{figure}[H]
   \centering % width=\linewidth, height=\textheight
