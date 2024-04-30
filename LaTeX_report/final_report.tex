@@ -221,7 +221,12 @@ where \emph{i} is a Twitch account; \texttt{`Followers'} is the number of follow
 
 \subsubsection{Simple Linear Regression Results}\
 
-The regression reveals a rather weak correlation between the mean weekly stream hours and the number of followers that an account has. R-squared is only 0.056. The coefficient for \texttt{`Mean weekly stream hours'} was exponentiated ($\emph{e}^{-0.0088658957} = 0.99117$), indicating that for every additional weekly streaming hour, an account should expect 0.88 percent fewer followers. 
+The regression reveals a rather weak correlation between the mean weekly stream hours and the number of followers that an account has. R-squared is only 0.056. The coefficient for \texttt{`Mean weekly stream hours'} (Table \ref{tab:ln_followers_stream}) was exponentiated ($\emph{e}^{-0.0088658957} = 0.99117$), indicating that for every additional weekly streaming hour, an account should expect 0.88 percent fewer followers. (See Table \ref{tab:ln_followers_stream} for all model parameters.)
+
+\subsubsection{Discussion}\
+
+The results again are counterintuitive. Rather than observing more followers with accounts that stream more frequently, we see the opposite trend, albeit weakly. Again, this suggests that simply streaming more frequently or for longer durations is not sufficient to build a more successful Twitch account.
+
 
 \begin{table}[H]
 \centering
@@ -235,14 +240,20 @@ The regression reveals a rather weak correlation between the mean weekly stream 
 
 \begin{figure}[H]
 \centering
-	\includegraphics[height=0.45\textheight]{../StatCrunch_Results/ln_followers_stream/plot}
+	\includegraphics[scale=0.8]{../StatCrunch_Results/ln_followers_stream/plot}
 	\captionsetup{justification=centering, singlelinecheck=false, margin=2cm}
 	\caption[Residual Plots: Followers by Stream Time]{\texttt{`Followers'} regressed against \texttt{`Mean weekly stream hours'}. }
+	\label{fig:ln_followers_stream_plot}
 \end{figure}
 
-\subsubsection{Discussion}\
+\begin{figure}[H]
+\centering
+	\includegraphics[height=0.7\textheight]{../StatCrunch_Results/ln_followers_stream/scatter_small}
+	\captionsetup{justification=centering, singlelinecheck=false, margin=2cm}
+	\caption[Scatter Plot: Followers by Stream Time]{\texttt{`Followers'} regressed against \texttt{`Mean weekly stream hours'}. }
+	\label{fig:ln_followers_stream_scatter}
+\end{figure}
 
-The
 
 \section{Multiple Linear Regression}
 
