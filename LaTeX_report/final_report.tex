@@ -208,12 +208,17 @@ Contrary to what one might think, the amount of time that a Twitch account strea
 
 \subsection{Stream Hours to Predict Followers}\
 
-Do accounts that stream more have more followers? Intiutively, it would make sense.
-\section{Multiple Linear Regression}\
+Do accounts that stream more have more followers? Intiutively, it would make sense. A simple linear regression was run to assess the relationship between streaming time, \texttt{`Mean weekly stream hours'}, and the number of \texttt{`Followers'} Twitch accounts have. The initial model revealed a highly non-linear relationship with highly non-normal residuals. A log transformation of \texttt{`Followers'} was conducted to correct for this and the models subsequently fit the data much better.
+
+\subsubsection{Model Specification}\
+
+
+
+\section{Multiple Linear Regression}
 
 \subsection{Mature Accounts and Followers}\
 
-How much does the difference in watch time explain the difference in the number of followers for accounts categorized as mature or not mature? Twitch accounts classified as \texttt{`Mature'} have fewer followers than those not classified as \texttt{`Mature'}. At the same time, mature accounts are watched fewer hours per week (Figure \ref{fig:box_plots_mature}).\footnote{Mature accounts also tend to have fewer peak and average viewers, and they also have not gained as many followers over the period. See Figure \ref{fig:box_plots_mature}} While it is clear that mature accounts are watched less, it is interesting to ask how much that disparity in watch time can "explain"\footnote{This is observational data, so causal claims cannot be made here.} the disparity in the number of followers.
+How much does the difference in watch time explain the difference in the number of followers for accounts categorized as mature or not mature? Twitch accounts classified as \texttt{`Mature'} have fewer followers than those not classified as \texttt{`Mature'}. At the same time, mature accounts are watched fewer hours per week (Figure \ref{fig:box_plots_mature}).\footnote{Mature accounts also tend to have fewer peak and average viewers, and they also have not gained as many followers over the period. See Figure \ref{fig:box_plots_mature}.} While it is clear that mature accounts are watched less, it is interesting to ask how much that disparity in watch time can "explain"\footnote{This is observational data, so causal claims cannot be made here.} the disparity in the number of followers.
 
 \subsubsection{Model Specificiation}\
 
