@@ -337,21 +337,23 @@ After running each model, \texttt{`Followers'} was the best model to predict \te
 \noindent
 AIC values for other models with a single predictor variable:
 \begin{itemize}
-	\item Peak viewers: 245.79
-	\item Average viewers: 246.42
-	\item Mature: 246.22
-	\item Mean weekly watch hours: 245.77
-	\item Mean weekly stream hours: 246.36
+	\item \texttt{`Peak viewers'}: 245.79
+	\item \texttt{`Average viewers'}: 246.42
+	\item \texttt{`Mature'}: 246.22
+	\item \texttt{`Mean weekly watch hours'}: 245.77
+	\item \texttt{`Mean weekly stream hours'}: 246.36
 \end{itemize}
 
 \noindent Adding additional variables beyond \texttt{`Followers'} did not improve the AIC:
 
 \begin{itemize}
-	\item \texttt{`Followers + Peak viewers'} = 238.8016
-	\item \texttt{`Followers + Average viewers'} = 237.6662
-	\item \texttt{`Followers + Mature'} = 239.0717
-	\item \texttt{`Followers + Mean weekly watch hours'} = 239.0692
-	\item \texttt{`Followers + Mean weekly stream hours'} = 238.3238
+\begin{align}
+	\item \texttt{`Followers + Peak viewers'} &: 238.8016
+	\item \texttt{`Followers + Average viewers'} &: 237.6662
+	\item \texttt{`Followers + Mature'} &: 239.0717
+	\item \texttt{`Followers + Mean weekly watch hours'} &: 239.0692
+	\item \texttt{`Followers + Mean weekly stream hours'} &: 238.3238
+\end{align}
 \end{itemize}
 Thus, I opted to only use \texttt{`Followers'} to predict partnered status in my logit model.
 
