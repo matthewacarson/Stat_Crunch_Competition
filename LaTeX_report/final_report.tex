@@ -214,13 +214,24 @@ Do accounts that stream more have more followers? Intiutively, it would make sen
 The regression model is as follows:
 
 \begin{equation}
-	ln(Followers{i}) = \beta_{0} + \beta_{1} \ast ln(Mean\ weekly\ stream\ hours_{i})
+	ln(Followers_{i}) = \beta_{0} + \beta_{1} \ast ln(Mean\ weekly\ stream\ hours_{i})
 	\label{eq:ln_followers_stream}
 \end{equation}
 where \emph{i} is a Twitch account; \texttt{`Followers'} is the number of followers that a Twitch account has; \texttt{`Mean weekly stream hours'} is the amount of time a Twitch account streamed over the year divided by 60 and then divided by 52.
 
 \subsubsection{Results}
-Results are reported below:
+
+\begin{table}[H]
+\centering
+  \includegraphics[scale = 0.65]{../StatCrunch_Results/ln_followers_stream/table}
+  \captionsetup{justification=centering, singlelinecheck=false, margin=2cm}
+  \caption[Simple Linear Regression for Followers by Stream Time]{Followers regressed against Mean weekly stream hours}
+  \label{tab:ln_followers_stream}
+\end{table}
+
+\subsubsection{Discussion}\
+
+The
 
 \section{Multiple Linear Regression}
 
@@ -252,7 +263,7 @@ ln(Followers_{i}) = \beta_{0} + \beta_{1} \ast Mature_{i} + \beta_{2} \ast ln(Me
 where \emph{i} is each Twitch account in the dataset; \texttt{`Followers'} is the number of followers; \texttt{`Mature'} is a binary variable where 1 is when the account has been classified as mature, and 0 is when it has not; \texttt{`Mean weekly watch hours'} is the total watch time in minutes for a Twitch account divided by 60 and divided by 52.
 
 \subsubsection{Results}\
-Results are reported below.
+
 \begin{table}[H]
   \centering % width=\linewidth, height=\textheight
   \includegraphics[scale = 0.7]{../StatCrunch_Results/followers_mature_watch_hrs/multi_regression_table}
