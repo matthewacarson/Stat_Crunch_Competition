@@ -214,7 +214,7 @@ Do accounts that stream more have more followers? Intiutively, it would make sen
 The regression model is as follows:
 
 \begin{equation}
-	ln(Followers_{i}) = \beta_{0} + \beta_{1} \ast ln(Mean\ weekly\ stream\ hours_{i})
+	ln(Followers_{i}) = \beta_{0} + \beta_{1} \ast Mean\ weekly\ stream\ hours_{i}
 	\label{eq:ln_followers_stream}
 \end{equation}
 where \emph{i} is a Twitch account; \texttt{`Followers'} is the number of followers that a Twitch account has; \texttt{`Mean weekly stream hours'} is the amount of time a Twitch account streamed over the year divided by 60 and then divided by 52.
@@ -317,7 +317,7 @@ R-squared is rather weak (0.25), but the differences in watch time (mean weekly 
 
 \subsubsection{Discussion}\
 
-
+The results suggest that the difference between the number of followers that mature and non-mature accounts have is only slightly "explained" by differences in the number of mean weekly stream hours between the two types of accounts.
 
 
 
