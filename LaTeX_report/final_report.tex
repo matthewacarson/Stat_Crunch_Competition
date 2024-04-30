@@ -152,7 +152,7 @@ where \textit{i} is a Twitch account. \textit{`Average viewers'} is the average 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Table: Regression table
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{table}[!h]
+\begin{table}[!ht]
   \centering % width=0.8\linewidth, height=0.375\textheight
   \includegraphics[scale=1]{../StatCrunch_Results/reciprocal/regression_table}
   \captionsetup{justification=raggedright, singlelinecheck=false, margin=2cm}
@@ -193,7 +193,7 @@ Since one usually does not have a particular interest in knowing what the recipr
 
 \begin{figure}[H]
   \centering % width=\linewidth, height=\textheight
-  \includegraphics[width=\linewidth]{../StatCrunch_Results/reciprocal/scatter_plot_reverse_transformed}
+  \includegraphics[width=0.8\linewidth]{../StatCrunch_Results/reciprocal/scatter_plot_reverse_transformed}
   \captionsetup{justification=centering, singlelinecheck=false, margin=2cm}
   \caption[Back Transformed Average Viewers Predicted by Stream Hours]{Back Transformed Average Viewers Predicted by Stream Hours. The fitted line is Equation \ref{eq:back_transformed_reciprocal_eq}}.
   \label{fig:transformed_reciprocal_scatter}
@@ -205,7 +205,7 @@ Average\ viewers_{i} = \dfrac{1}{4.04e^{-5} + 9.15e^{-6} \ast Mean\ weekly\ stre
 
 \subsubsection{Discussion}\
 
-Contrary to what one might think, the amount of time that a Twitch account streams has a negative assocaition with the average number of viewers. So if one wants to increase their viewership, streaming more does not seem to be a good strategy. A quick illustration is helpful. The median weekly stream hours for all accounts is 34.23 hours per week. Using Equation \ref{eq:back_transformed_reciprocal_eq}, we can estimate that the mean average number of viewers\footnote{The formulation appears awkward, but the variable is \texttt{`Average viewers'}, and the predicted value represents the mean \texttt{`Average viewers'} for that particular \texttt{x} value.} for accounts that stream the median number of hours per week is $\approx$ 2826. Accounts that stream ten hours less than median per week have a mean average viewership of 3813, which is 987 more viewers than accounts that stream the median number of hours per week
+Contrary to what one might think, the amount of time that a Twitch account streams has a negative assocaition with the average number of viewers. So if one wants to increase their viewership, streaming more does not seem to be a good strategy. A quick illustration is helpful. The median weekly stream hours for all accounts is 34.23 hours per week. Using Equation \ref{eq:back_transformed_reciprocal_eq}, we can estimate that the mean average number of viewers\footnote{The formulation appears awkward, but the variable is \texttt{`Average viewers'}, and the predicted value represents the mean \texttt{`Average viewers'} for that particular \texttt{x} value.} for accounts that stream the median number of hours per week is $\approx$ 2826. Accounts that stream ten hours less than median per week have a mean average viewership of 3813, which is 987 more viewers than accounts that stream the median number of hours per week (Table \ref{tab:prediction_matrix}).
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%    Appendix    %%%%%%%%%%%
@@ -220,7 +220,7 @@ Contrary to what one might think, the amount of time that a Twitch account strea
 %%%%%%%%%%%%%%%%%%%
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.8\linewidth]{../StatCrunch_Results/stream_scatter_plot_matrix.png}
+  \includegraphics[width=0.795\linewidth]{../StatCrunch_Results/stream_scatter_plot_matrix.png}
   \captionsetup{justification=centering, singlelinecheck=false, margin=2cm}
   \caption[Stream Hours Scatter Plot Matrix]{Relationships between \texttt{`Mean weekly stream hours'} and other variables.}
   \label{fig:stream_scatter_matrix}
