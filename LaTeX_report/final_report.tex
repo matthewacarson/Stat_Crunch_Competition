@@ -320,7 +320,7 @@ The results suggest that the difference between the number of followers that mat
 
 \section{Logistic Regression}
 
-\section{Predict Partnered Status}\
+\section{Predicting Partnered Status}\
 
 Of the variables in the dataset, is the number of followers the best predictor of whether a Twitch account is partnered? To answer this, I ran a logistic regression on each of the predictor values in the dataset. Using the log-likelihood from the output, I calculated the Akaike information criterion (AIC), which estimates the quality of a statistical model relative to other models. The formula for AIC is as follows:
 
@@ -335,13 +335,22 @@ After running each model, \texttt{`Followers'} was the best model to predict \te
 \noindent
 AIC values for other models with a single predictor variable:
 \begin{itemize}
-	\item Peak.viewers: 245.79
-	\item Average.viewers: 246.42
-	\item Mature: 246.22
-	\item Mean.weekly.watch.hours: 245.77
-	\item Mean.weekly.stream.hours: 246.36
+	\item $Peak viewers & = 245.79$
+	\item $Average viewers & = 246.42$
+	\item $Mature & = 246.22$
+	\item $Mean weekly watch hours & = 245.77$
+	\item $Mean weekly stream hours & = 246.36$
 \end{itemize}
 
+Adding additional variables beyond \texttt{`Followers'} did not improve the AIC:
+
+\begin{itemize}
+	\item \texttt{`Followers + Peak viewers'} = 238.8016
+	\item \texttt{`Followers'}
+	\item \texttt{`Followers'}
+	\item \texttt{`Followers'}
+	\item \texttt{`Followers'}
+\end{itemize}
 
 %      # Peak.viewers # AIC: 245.79 -- BIC: 255.3945
 %      # Average.viewers # AIC: 246.42 -- BIC: 256.0215
