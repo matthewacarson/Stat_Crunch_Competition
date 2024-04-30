@@ -320,44 +320,51 @@ The results suggest that the difference between the number of followers that mat
 
 \section{Logistic Regression}
 
-\section{Predicting Partnered Status}\
+\subsection{Predicting Partnered Status}\
 
 Of the variables in the dataset, is the number of followers the best predictor of whether a Twitch account is partnered? To answer this, I ran a logistic regression on each of the predictor values in the dataset. Using the log-likelihood from the output, I calculated the Akaike information criterion (AIC), which estimates the quality of a statistical model relative to other models. The formula for AIC is as follows:
 
 \begin{equation}
 AIC = 2k -2 \ast ln(Likelihood)
 \end{equation}
-where \emph{k} is the number of parameters. When comparing across models with the same number of predictor variables, k remains constant; thus, the model with the greatest ln(likelihood) is the model with the lowest AIC. The model with the smallest AIC is usually preferred over more complicated models unless there is a good theoretical reason to include those additional variables.\footnote{To be clear, one should be guided by theory first; AIC is only a guide in the process.}
+where \emph{k} is the number of parameters. When comparing across models with the same number of predictor variables, k remains constant; thus, the model with the greatest ln(likelihood) is the model with the lowest AIC. The model with the smallest AIC is usually preferred over more complicated models unless there is a good theoretical reason to include those additional variables.\footnote{To be clear, one should be guided by theory first; AIC is only a tool.}
 
-After running each model, \texttt{`Followers'} was the best model to predict \texttt{`Partnered'} status ($AIC = 4 - 2 \times -116.78416 = 237.5683$).
+\subsubsection{AIC Values}
+
+After running each model, \texttt{`Followers'} was the best model to predict \texttt{`Partnered'} status (AIC = 4 - 2 $\times$ -116.78416 = 237.5683).
 \newline
 \newline
 \noindent
 AIC values for other models with a single predictor variable:
 \begin{itemize}
-	\item $Peak viewers & = 245.79$
-	\item $Average viewers & = 246.42$
-	\item $Mature & = 246.22$
-	\item $Mean weekly watch hours & = 245.77$
-	\item $Mean weekly stream hours & = 246.36$
+	\item Peak viewers: 245.79
+	\item Average viewers: 246.42
+	\item Mature: 246.22
+	\item Mean weekly watch hours: 245.77
+	\item Mean weekly stream hours: 246.36
 \end{itemize}
 
-Adding additional variables beyond \texttt{`Followers'} did not improve the AIC:
+\noindent Adding additional variables beyond \texttt{`Followers'} did not improve the AIC:
 
 \begin{itemize}
 	\item \texttt{`Followers + Peak viewers'} = 238.8016
-	\item \texttt{`Followers'}
-	\item \texttt{`Followers'}
-	\item \texttt{`Followers'}
-	\item \texttt{`Followers'}
+	\item \texttt{`Followers + Average viewers'} = 237.6662
+	\item \texttt{`Followers + Mature'} = 239.0717
+	\item \texttt{`Followers + Mean weekly watch hours'} = 239.0692
+	\item \texttt{`Followers + Mean weekly stream hours'} = 238.3238
 \end{itemize}
+Thus, I opted to only use \texttt{`Followers'} to predict partnered status in my logit model.
 
-%      # Peak.viewers # AIC: 245.79 -- BIC: 255.3945
-%      # Average.viewers # AIC: 246.42 -- BIC: 256.0215
-%      # Mature # AIC: 246.22 -- BIC: 255.8209
-%      # Mean.weekly.watch.hours # AIC: 245.77 -- BIC: 255.3718
-%      # Mean.weekly.stream.hours # AIC: 246.36 -- BIC: 255.9618
+\subsubsection{Model Specification}
 
+\begin{equation}
+\begin{aligned}
+	logit(Partnered_{i}) & = \beta_{0} + \beta_{1} \ast Followers_{i} \\
+	logit(Partnered_{i}) & = ln(\frac{p_{i}}{1-p_{i}})
+\end{aligned}
+\end{equation}
+
+%ln(\frac{p}{1-p}
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%    Appendix    %%%%%%%%%%%
