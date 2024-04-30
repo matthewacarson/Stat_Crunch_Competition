@@ -219,7 +219,7 @@ Twitch accounts classified as \texttt{`Mature'} have fewer followers than those 
 
 \subsubsection{Model Specificiation}\
 
-Since \texttt{`Followers'} is highly skewed, the log of \texttt{`Followers'} was taken. A difference in means of the log followers was calculated. The difference in log means (-0.13351611) is exponentiated to get the ratio (0.875) between the two means (Equation \ref{eq:log_means_followers_mature}).
+Since \texttt{`Followers'} is highly skewed, the log of \texttt{`Followers'} was taken. A difference in means of the log followers was calculated. The difference in log means (-0.13351611) is exponentiated to get the ratio (0.875) between the two means (Equation \ref{eq:log_means_followers_mature}). Thus, Mature Twitch accounts have 13 percent fewer followers than accounts that are not classified as mature.
 
 \begin{equation}
 \begin{aligned}
@@ -231,11 +231,13 @@ Since \texttt{`Followers'} is highly skewed, the log of \texttt{`Followers'} was
 \label{eq:log_means_followers_mature}
 \end{equation}
 
-
+Next a multiple linear regression model was run to assess how much the differences between followers between mature and not mature accounts can be explained by differences in the number of watch hours. Log transformations on both the indepdendent (\texttt{`Mean weekly watch hours'}) and dependent variable (\texttt{`Followers'}) were conducted to correct for the non-linear nature of the relationship.
 
 \begin{equation}
-ln(Followers)
+ln(Followers_{i}) = \beta_{0} + \beta_{1} \ast Mature_{i} + \beta_{2} \ast Mean\ weekly\ watch\ hours_{i}
 \end{equation}
+
+where \emph{i} is each Twitch account in the dataset; \texttt{`Followers'} is the number of followers; \texttt{`Mature'} is a binary variable where 1 is when the account has been classified as mature, and 0 is when it has not; \texttt{`Mean weekly watch hours'} is the total watch time in minutes divided by 60 and divideb by 52.
 
 \begin{figure}[H]
   \centering % width=\linewidth, height=\textheight
