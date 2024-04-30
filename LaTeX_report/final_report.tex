@@ -219,14 +219,18 @@ Twitch accounts classified as \texttt{`Mature'} have fewer followers than those 
 
 \subsubsection{Model Specificiation}\
 
-Since \texttt{`Followers'} is highly skewed, the log of \texttt{`Followers'} was taken. A difference in means of the log followers was calculated.
+Since \texttt{`Followers'} is highly skewed, the log of \texttt{`Followers'} was taken. A difference in means of the log followers was calculated. The difference in log means
 
 \begin{equation}
-	\begin{align*}
-	\mu_{1} & = \text{Mean of } \ln(\text{Followers}) \text{ where Mature} \\
-	\mu_{2} & = \text{Mean of } \ln(\text{Followers}) \text{ where not Mature} \\
-	\mu_{1} - \mu_{2} & = -0.13351611	
+\begin{aligned}
+\mu_{1} & = \text{Mean of } \ln(\text{Followers}) \text{ where Mature} \\
+\mu_{2} & = \text{Mean of } \ln(\text{Followers}) \text{ where not Mature} \\
+\mu_{1} - \mu_{2} & = -0.13351611 \\
+\emph{e}^{-0.13351611} & = 0.875
+\end{aligned}
 \end{equation}
+
+
 
 \begin{equation}
 ln(Followers)
