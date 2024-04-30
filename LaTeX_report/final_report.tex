@@ -209,9 +209,9 @@ Contrary to what one might think, the amount of time that a Twitch account strea
 
 
 
-\subsection{Average Viewers to Predict Followers}
+%\subsection{Average Viewers to Predict Followers}
 
-\subsection{Stream Hours to Predict Followers}
+%\subsection{Stream Hours to Predict Followers}
 
 
 \subsection{Mature Accounts and Followers}\
@@ -235,7 +235,8 @@ Since \texttt{`Followers'} is highly skewed, the log of \texttt{`Followers'} was
 Next a multiple linear regression model was run to assess how much the differences between followers between mature and not mature accounts can be explained by differences in the number of watch hours. Log transformations on both the indepdendent (\texttt{`Mean weekly watch hours'}) and dependent variable (\texttt{`Followers'}) were conducted to correct for the non-linear nature of the relationship. The model is as follows:
 
 \begin{equation}
-ln(Followers_{i}) = \beta_{0} + \beta_{1} \ast Mature_{i} + \beta_{2} \ast Mean\ weekly\ watch\ hours_{i}
+ln(Followers_{i}) = \beta_{0} + \beta_{1} \ast Mature_{i} + \beta_{2} \ast ln(Mean\ weekly\ watch\ hours_{i})
+\label{eq:multi_linear_model}
 \end{equation}
 
 where \emph{i} is each Twitch account in the dataset; \texttt{`Followers'} is the number of followers; \texttt{`Mature'} is a binary variable where 1 is when the account has been classified as mature, and 0 is when it has not; \texttt{`Mean weekly watch hours'} is the total watch time in minutes divided by 60 and divided by 52. Results are reported below.
@@ -265,7 +266,7 @@ R-squared is rather weak (0.25), but the differences in watch time (mean weekly 
         \caption{No non-linear trends are detected in the data}
         \label{fig:plot2}
     \end{subfigure}
-    \caption{Plots of residuals for the multiple linear regression model}
+    \caption{Plots of residuals for the multiple linear regression model in Equation \ref{eq:multi_linear_model}}
     \label{fig:both_plots}
 \end{figure}
 
