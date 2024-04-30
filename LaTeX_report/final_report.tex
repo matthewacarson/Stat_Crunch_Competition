@@ -210,9 +210,12 @@ Contrary to what one might think, the amount of time that a Twitch account strea
 
 Do accounts that stream more have more followers? Intiutively, it would make sense. A simple linear regression was run to assess the relationship between streaming time, \texttt{`Mean weekly stream hours'}, and the number of \texttt{`Followers'} Twitch accounts have. The initial model revealed a highly non-linear relationship with highly non-normal residuals. A log transformation of \texttt{`Followers'} was conducted to correct for this and the models subsequently fit the data much better.
 
-\subsubsection{Model Specification}\
+\subsubsection{Model Specification}
+The regression model is as follows:
 
-
+\begin{equation}
+	ln(Followers) = \beta_{0} + \beta_{1} \ast ln(Mean weekly stream hours)
+\end{equation}
 
 \section{Multiple Linear Regression}
 
