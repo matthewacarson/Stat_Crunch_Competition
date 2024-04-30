@@ -219,15 +219,26 @@ The regression model is as follows:
 \end{equation}
 where \emph{i} is a Twitch account; \texttt{`Followers'} is the number of followers that a Twitch account has; \texttt{`Mean weekly stream hours'} is the amount of time a Twitch account streamed over the year divided by 60 and then divided by 52.
 
-\subsubsection{Simple Linear Regression Results}
+\subsubsection{Simple Linear Regression Results}\
+
+The regression reveals
 
 \begin{table}[H]
 \centering
-  \includegraphics[scale = 0.65]{../StatCrunch_Results/ln_followers_stream/table}
+  \includegraphics[scale = 0.85]{../StatCrunch_Results/ln_followers_stream/table}
   \captionsetup{justification=centering, singlelinecheck=false, margin=2cm}
   \caption[Simple Linear Regression for Followers by Stream Time]{\texttt{`Followers'} regressed against \texttt{`Mean weekly stream hours'}}
   \label{tab:ln_followers_stream}
 \end{table}
+
+\subsubsection{Scatter Plots}
+
+\begin{figure}[H]
+\centering
+	\includegraphics[scale=0.5]{../StatCrunch_Results/ln_followers_stream/plot}
+	\captionsetup{justification=centering, singlelinecheck=false, margin=2cm}
+	\caption[Residual Plots: Followers by Stream Time]{\texttt{`Followers'} regressed against \texttt{`Mean weekly stream hours'}. }
+\end{figure}
 
 \subsubsection{Discussion}\
 
@@ -272,7 +283,6 @@ where \emph{i} is each Twitch account in the dataset; \texttt{`Followers'} is th
   \label{tab:multi_regression_tab}
 \end{table}
 
-\subsubsection{Discussion}\
 R-squared is rather weak (0.25), but the differences in watch time (mean weekly watch hours) does explain some of the differences observed between mature and non-mature accounts. The coefficient for \texttt{`Mature'} is -0.080855823. Exponentiating the coefficient ($\emph{e}^{-0.080855823}$) results in 0.9223. This is the ratio of followers for mature accounts to non-mature accounts when the natural log of mean weekly watch hours is held constant. In other words, mature accounts have 7.7 (1- 0.9223) percent fewer followers than non-mature accounts when controlling for differences in watch time.
 
 \begin{figure}
@@ -293,6 +303,8 @@ R-squared is rather weak (0.25), but the differences in watch time (mean weekly 
     \caption{Plots of residuals for the multiple linear regression model in Equation \ref{eq:multi_linear_model}}
     \label{fig:both_plots}
 \end{figure}
+
+\subsubsection{Discussion}\
 
 
 
