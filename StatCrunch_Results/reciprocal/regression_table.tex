@@ -1,0 +1,123 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage[margin=0.25in]{geometry} % for setting margins
+\setlength{\paperwidth}{8.5in}
+\setlength{\paperheight}{7in}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\author{}
+\date{}
+
+\begin{document}
+
+\subsection{Simple linear regression results (w/
+transformation):}\label{simple-linear-regression-results-w-transformation}
+
+\hfill\break
+Dependent Variable: 1/Average viewers\\
+Independent Variable: Mean weekly stream hours\\
+1/Average viewers = 0.00004043631 + 0.0000091545008 Mean weekly stream
+hours\\
+Sample size: 900\\
+R (correlation coefficient) = 0.74839756\\
+R-sq = 0.56009891\\
+Estimate of error standard deviation: 0.00023570204\\
+\strut \\
+
+\subsection{Parameter estimates:}\label{parameter-estimates}
+
+\hfill\break
+
+\begin{longtable}[]{@{}lllllll@{}}
+\toprule\noalign{}
+Parameter & Estimate & Std. Err. & Alternative & DF & T-Stat &
+P-value \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Intercept & 0.00004043631 & 0.000013227847 & $\neq$ 0 & 898 & 3.0569079 &
+0.0023 \\
+Slope & 0.0000091545008 & 2.7073328e-7 & $\neq$ 0 & 898 & 33.813725 &
+\textless0.0001 \\
+\end{longtable}
+
+\hfill\break
+
+\subsection{Analysis of variance table for regression
+model:}\label{analysis-of-variance-table-for-regression-model}
+
+\hfill\break
+
+\begin{longtable}[]{@{}llllll@{}}
+\toprule\noalign{}
+Source & DF & SS & MS & F-stat & P-value \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Model & 1 & 0.000063520326 & 0.000063520326 & 1143.368 &
+\textless0.0001 \\
+Error & 898 & 0.000049888797 & 5.5555453e-8 & & \\
+Total & 899 & 0.00011340912 & & & \\
+\end{longtable}
+
+\end{document}
