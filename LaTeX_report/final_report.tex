@@ -206,17 +206,13 @@ Average\ viewers_{i} = \dfrac{1}{4.04e^{-5} + 9.15e^{-6} \ast Mean\ weekly\ stre
 
 Contrary to what one might think, the amount of time that a Twitch account streams has a negative assocaition with the average number of viewers. So if one wants to increase their viewership, streaming more does not seem to be a good strategy. A quick illustration is helpful. The median weekly stream hours for all accounts is 34.23 hours per week. Using Equation \ref{eq:back_transformed_reciprocal_eq}, we can estimate that the mean average number of viewers\footnote{The formulation appears awkward, but the variable is \texttt{`Average viewers'}, and the predicted value represents the mean \texttt{`Average viewers'} for that particular \texttt{x} value.} for accounts that stream the median number of hours per week is $\approx$ 2826. Accounts that stream ten hours less than median per week have a mean average viewership of 3813, which is 987 more viewers than accounts that stream the median number of hours per week (See Table \ref{tab:prediction_matrix} for predicted values).
 
+\subsection{Stream Hours to Predict Followers}\
 
-
-
-%\subsection{Average Viewers to Predict Followers}
-
-%\subsection{Stream Hours to Predict Followers}
-
+Do accounts that stream more have more followers? Intiutively, it would make sense.
 
 \subsection{Mature Accounts and Followers}\
 
-Twitch accounts classified as \texttt{`Mature'} have fewer followers than those not classified as \texttt{`Mature'}. At the same time, mature accounts are watched fewer hours per week (Figure \ref{fig:box_plots_mature}).\footnote{Mature accounts also tend to have fewer peak and average viewers, and they also have not gained as many followers over the period. See Figure \ref{fig:box_plots_mature}} While it is clear that mature accounts are watched less, it is interesting to ask how much that disparity in watch time can "explain"\footnote{This is observational data, so causal claims cannot be made here.} the disparity in the number of followers.
+How much does the difference in watch time explain the difference in the number of followers for accounts categorized as mature or not mature? Twitch accounts classified as \texttt{`Mature'} have fewer followers than those not classified as \texttt{`Mature'}. At the same time, mature accounts are watched fewer hours per week (Figure \ref{fig:box_plots_mature}).\footnote{Mature accounts also tend to have fewer peak and average viewers, and they also have not gained as many followers over the period. See Figure \ref{fig:box_plots_mature}} While it is clear that mature accounts are watched less, it is interesting to ask how much that disparity in watch time can "explain"\footnote{This is observational data, so causal claims cannot be made here.} the disparity in the number of followers.
 
 \subsubsection{Model Specificiation}\
 
@@ -241,6 +237,8 @@ ln(Followers_{i}) = \beta_{0} + \beta_{1} \ast Mature_{i} + \beta_{2} \ast ln(Me
 
 where \emph{i} is each Twitch account in the dataset; \texttt{`Followers'} is the number of followers; \texttt{`Mature'} is a binary variable where 1 is when the account has been classified as mature, and 0 is when it has not; \texttt{`Mean weekly watch hours'} is the total watch time in minutes divided by 60 and divided by 52. Results are reported below.
 
+\subsubsection{Results}\
+
 \begin{table}[H]
   \centering % width=\linewidth, height=\textheight
   \includegraphics[scale = 0.7]{../StatCrunch_Results/followers_mature_watch_hrs/multi_regression_table}
@@ -249,6 +247,7 @@ where \emph{i} is each Twitch account in the dataset; \texttt{`Followers'} is th
   \label{tab:multi_regression_tab}
 \end{table}
 
+\subsubsection{Discussion}\
 R-squared is rather weak (0.25), but the differences in watch time (mean weekly watch hours) does explain some of the differences observed between mature and non-mature accounts. The coefficient for \texttt{`Mature'} is -0.080855823. Exponentiating the coefficient ($\emph{e}^{-0.080855823}$) results in 0.9223. This is the ratio of followers for mature accounts to non-mature accounts when the natural log of mean weekly watch hours is held constant. In other words, mature accounts have 7.7 (1- 0.9223) percent fewer followers than non-mature accounts when controlling for differences in watch time.
 
 \begin{figure}
