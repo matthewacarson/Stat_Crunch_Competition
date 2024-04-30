@@ -13,6 +13,7 @@
 \usepackage{caption} % for customizing captions
 \usepackage[margin=1in]{geometry} % for setting margins
 \usepackage{setspace} % for adjusting line spacing
+\usepackage{subcaption}
 % Line spacing
 \setstretch{1.25}
 \usepackage[autostyle, english = american]{csquotes}
@@ -231,7 +232,7 @@ Since \texttt{`Followers'} is highly skewed, the log of \texttt{`Followers'} was
 \label{eq:log_means_followers_mature}
 \end{equation}
 
-Next a multiple linear regression model was run to assess how much the differences between followers between mature and not mature accounts can be explained by differences in the number of watch hours. Log transformations on both the indepdendent (\texttt{`Mean weekly watch hours'}) and dependent variable (\texttt{`Followers'}) were conducted to correct for the non-linear nature of the relationship.
+Next a multiple linear regression model was run to assess how much the differences between followers between mature and not mature accounts can be explained by differences in the number of watch hours. Log transformations on both the indepdendent (\texttt{`Mean weekly watch hours'}) and dependent variable (\texttt{`Followers'}) were conducted to correct for the non-linear nature of the relationship. The model is as follows:
 
 \begin{equation}
 ln(Followers_{i}) = \beta_{0} + \beta_{1} \ast Mature_{i} + \beta_{2} \ast Mean\ weekly\ watch\ hours_{i}
@@ -249,13 +250,27 @@ where \emph{i} is each Twitch account in the dataset; \texttt{`Followers'} is th
 
 R-squared is rather weak (0.25), but the differences in watch time (mean weekly watch hours) does explain some of the differences observed between mature and non-mature accounts. The coefficient for \texttt{`Mature'} is -0.080855823. Exponentiating the coefficient ($\emph{e}^{-0.080855823}$) results in 0.9223. This is the ratio of followers for mature accounts to non-mature accounts when the natural log of mean weekly watch hours is held constant. In other words, mature accounts have 7.7 (1- 0.9223) percent fewer followers than non-mature accounts when controlling for differences in watch time.
 
-\begin{figure}[H]
-  \centering % width=\linewidth, height=\textheight
-  \includegraphics[width=0.8\linewidth]{../StatCrunch_Results/mature/box_plots}
-  \captionsetup{justification=centering, singlelinecheck=false, margin=2cm}
-  \caption[Box Plots of Twitch Accounts by Mature Calssification]{Box Plots of Twitch Accounts by Mature Calssification}
-  \label{fig:box_plots_mature}
+\begin{figure}
+    \centering
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../StatCrunch_Results/followers_mature_watch_hrs/residual_histogram}
+        \caption{Histogram of residuals are nearly normal}
+        \label{fig:plot1}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../StatCrunch_Results/followers_mature_watch_hrs/residual_plot}
+        \caption{No non-linear trends are detected in the data}
+        \label{fig:plot2}
+    \end{subfigure}
+    \caption{Plots of residuals for the multiple linear regression model}
+    \label{fig:both_plots}
 \end{figure}
+
+
+
 
 
 
@@ -267,6 +282,16 @@ R-squared is rather weak (0.25), but the differences in watch time (mean weekly 
 \newpage
 
 \section{Appendix}
+
+\begin{figure}[H]
+  \centering % width=\linewidth, height=\textheight
+  \includegraphics[width=0.8\linewidth]{../StatCrunch_Results/mature/box_plots}
+  \captionsetup{justification=centering, singlelinecheck=false, margin=2cm}
+  \caption[Box Plots of Twitch Accounts by Mature Calssification]{Box Plots of Twitch Accounts by Mature Calssification}
+  \label{fig:box_plots_mature}
+\end{figure}
+
+
 
 %%%%%%%%%%%%%%%%%%%
 % Figure: Stream Hours Scatter Plot Matrix
