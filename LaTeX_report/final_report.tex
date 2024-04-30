@@ -318,10 +318,18 @@ R-squared is rather weak (0.25), but the differences in watch time (mean weekly 
 
 The results suggest that the difference between the number of followers that mature and non-mature accounts have is only slightly "explained" by differences in the number of mean weekly stream hours between the two types of accounts. In a way this is not totally surprising. Figure \ref{fig:spearman_correlogram} shows that there is only a moderate correlation between watch time and the number of followers an account has. It could be that there is some other unobserved variable out there that explains the difference in followers, or, perhaps just as likely of a hypothesis is that mature accounts are less popular in general and struggle to gain as many followers.
 
-\section{•}
+\section{Logistic Regression}
 
+\section{Predict Partnered Status}\
 
+Of the variables in the dataset, is the number of followers the best predictor of whether a Twitch account is partnered? To answer this, I ran a logistic regression on each of the predictor values in the dataset. Using the log-likelihood from the output, I calculated the Akaike information criterion (AIC), which estimates the quality of a statistical model relative to other models. The formula for AIC is as follows:
 
+\begin{equation}
+AIC = 2k -2 \ast ln(Likelihood)
+\end{equation}
+where \emph{k} is the number of parameters. When comparing across models with the same number of predictor variables, k remains constant; thus, the model with the greatest ln(likelihood) is the model with the lowest AIC. The model with the smallest AIC is usually preferred over more complicated models unless there is a good theoretical reason to include those additional variables.\footnote{To be clear, one should be guided by theory first; AIC is only a guide in the process.}
+
+After running each model, \texttt{`Followers'} was the best model to predict \texttt{`Partnered'} status ($AIC = 4 - 2 \times -116.78416 = 237.5683$).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%
