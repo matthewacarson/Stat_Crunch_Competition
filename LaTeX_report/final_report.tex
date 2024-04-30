@@ -215,7 +215,7 @@ Contrary to what one might think, the amount of time that a Twitch account strea
 
 \subsection{Mature Accounts and Followers}\
 
-Twitch accounts classified as \texttt{`Mature'} have fewer followers than those not classified as \texttt{`Mature'}. At the same time, mature accounts are watched fewer hours per week (Figure \ref{fig:box_plots_mature}).\footnote{Mature accounts also tend to have fewer peak and average viewers, and they also have not gained as many followers over the period.} While it is clear that mature accounts are watched less, it is interesting to ask how much that disparity in watch time can "explain"\footnote{This is observational data, so causal claims cannot be made here.} the disparity in the number of followers.
+Twitch accounts classified as \texttt{`Mature'} have fewer followers than those not classified as \texttt{`Mature'}. At the same time, mature accounts are watched fewer hours per week (Figure \ref{fig:box_plots_mature}).\footnote{Mature accounts also tend to have fewer peak and average viewers, and they also have not gained as many followers over the period. See Figure \ref{fig:box_plots_mature}} While it is clear that mature accounts are watched less, it is interesting to ask how much that disparity in watch time can "explain"\footnote{This is observational data, so causal claims cannot be made here.} the disparity in the number of followers.
 
 \subsubsection{Model Specificiation}\
 
@@ -237,11 +237,21 @@ Next a multiple linear regression model was run to assess how much the differenc
 ln(Followers_{i}) = \beta_{0} + \beta_{1} \ast Mature_{i} + \beta_{2} \ast Mean\ weekly\ watch\ hours_{i}
 \end{equation}
 
-where \emph{i} is each Twitch account in the dataset; \texttt{`Followers'} is the number of followers; \texttt{`Mature'} is a binary variable where 1 is when the account has been classified as mature, and 0 is when it has not; \texttt{`Mean weekly watch hours'} is the total watch time in minutes divided by 60 and divideb by 52.
+where \emph{i} is each Twitch account in the dataset; \texttt{`Followers'} is the number of followers; \texttt{`Mature'} is a binary variable where 1 is when the account has been classified as mature, and 0 is when it has not; \texttt{`Mean weekly watch hours'} is the total watch time in minutes divided by 60 and divided by 52. Results are reported below.
+
+\begin{table}[H]
+  \centering % width=\linewidth, height=\textheight
+  \includegraphics[width=0.8\linewidth]{../StatCrunch_Results/followers_mature_watch_hrs/multi_regression_table}
+  \captionsetup{justification=centering, singlelinecheck=false, margin=2cm}
+  \caption[Multiple Linear Regression for Followers by Mature]{Multiple Linear Regression for Followers by Mature}
+  \label{tab:multi_regression_tab}
+\end{table}
+
+
 
 \begin{figure}[H]
   \centering % width=\linewidth, height=\textheight
-  \includegraphics[width=0.8\linewidth]{../StatCrunch_Results/mature/box_plots}
+  \includegraphics[width=0.8\linewidth, height = 0.5\textheight]{../StatCrunch_Results/mature/box_plots}
   \captionsetup{justification=centering, singlelinecheck=false, margin=2cm}
   \caption[Box Plots of Twitch Accounts by Mature Calssification]{Box Plots of Twitch Accounts by Mature Calssification}
   \label{fig:box_plots_mature}
