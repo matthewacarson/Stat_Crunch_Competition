@@ -310,7 +310,7 @@ R-squared is rather weak (0.25), but the differences in watch time (mean weekly 
         \caption{No non-linear trends are detected in the data}
         \label{fig:plot2}
     \end{subfigure}
-    \caption{Plots of residuals for the multiple linear regression model in Equation \ref{eq:multi_linear_model}}
+    \caption{Plots of residuals for the multiple linear regression model in Equation \ref{eq:multi_linear_model} and Table \ref{tab:multi_regression_tab}.}
     \label{fig:both_plots}
 \end{figure}
 
@@ -334,26 +334,30 @@ where \emph{k} is the number of parameters. When comparing across models with th
 After running each model, \texttt{`Followers'} was the best model to predict \texttt{`Partnered'} status (AIC = 4 - 2 $\times$ -116.78416 = 237.5683).
 \newline
 \newline
-\noindent
-AIC values for other models with a single predictor variable:
+\noindent AIC values for other models with a single predictor variable:
+
+\noindent Variable(s) \hfill AIC 
+\hspace{0.4em}
+\hrule
 \begin{itemize}
-	\item \texttt{`Peak viewers'}: 245.79
-	\item \texttt{`Average viewers'}: 246.42
-	\item \texttt{`Mature'}: 246.22
-	\item \texttt{`Mean weekly watch hours'}: 245.77
-	\item \texttt{`Mean weekly stream hours'}: 246.36
+	\item \texttt{`Peak viewers'} \dotfill 245.79
+	\item \texttt{`Average viewers'} \dotfill 246.42
+	\item \texttt{`Mature'} \dotfill 246.22
+	\item \texttt{`Mean weekly watch hours'} \dotfill 245.77
+	\item \texttt{`Mean weekly stream hours'} \dotfill 246.36
 \end{itemize}
 
 \noindent Adding additional variables beyond \texttt{`Followers'} did not improve the AIC:
 
+\noindent Variable(s) \hfill AIC 
+\hspace{0.4em}
+\hrule
 \begin{itemize}
-\begin{align}
-	\item \texttt{`Followers + Peak viewers'} &: 238.8016
-	\item \texttt{`Followers + Average viewers'} &: 237.6662
-	\item \texttt{`Followers + Mature'} &: 239.0717
-	\item \texttt{`Followers + Mean weekly watch hours'} &: 239.0692
-	\item \texttt{`Followers + Mean weekly stream hours'} &: 238.3238
-\end{align}
+    \item \texttt{`Followers + Peak viewers'} \dotfill 238.80
+    \item \texttt{`Followers + Average viewers'} \dotfill 237.67
+    \item \texttt{`Followers + Mature'} \dotfill 239.07
+    \item \texttt{`Followers + Mean weekly watch hours'} \dotfill 239.07
+    \item \texttt{`Followers + Mean weekly stream hours'} \dotfill 238.32
 \end{itemize}
 Thus, I opted to only use \texttt{`Followers'} to predict partnered status in my logit model.
 
@@ -369,7 +373,15 @@ where \emph{i} is a Twitch account; \texttt{`Partnered'} is a binary variable in
 
 \subsubsection{Logistic Regression Results}
 
+The logistic regression shows a positive relationship between the number of followers a Twitch account has and the log odds of being a partnered account (Table \ref{tab:logistic_table}). 
 
+\begin{table}[H]
+  \centering % width=\linewidth, height=\textheight
+  \includegraphics[scale=0.8]{../StatCrunch_Results/logit_partnered_followers/table}
+  \captionsetup{justification=centering, singlelinecheck=false, margin=2cm}
+  \caption[Logistic Regression: Predict Partnered Status by Number of Followers]{Logistic Regression Table. The results indicate a positive relationship between the number of followers an account has and whether it has achieved partnership status.}
+  \label{tab:logistic_table}
+\end{table}
 
 %ln(\frac{p}{1-p}
 %%%%%%%%%%%%%%%%%%%%%%%%%%
