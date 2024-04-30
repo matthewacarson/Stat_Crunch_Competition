@@ -133,7 +133,7 @@ Because the relationships between the variables were not linear, it was difficul
 
 \subsection{Stream Hours to Predict Average Viewers}\
 
-A simple linear regression was run to assess the strength between \texttt{`Mean weekly stream hours’} (independent variable) and \texttt{`average viewers’} (dependent variable). Because of the non-linear relationship between the variables, the residuals were highly non-normal. A inverse (reciprocal) transformation of \texttt{`Average viewers’} was performed to correct for non-normality of the residuals. The transformation greatly improved the distribution of the residuals, making them nearly normal. The transformation could not correct for heteroskedasticity, but this is not an issue since inference is not being conducted.
+Do accounts that stream more hours have more viewers? Intution would suggest yes, but the question deserves empirical examination. A simple linear regression was run to assess the strength between \texttt{`Mean weekly stream hours’} (independent variable) and \texttt{`average viewers’} (dependent variable). Because of the non-linear relationship between the variables, the residuals were highly non-normal. A inverse (reciprocal) transformation of \texttt{`Average viewers’} was performed to correct for non-normality of the residuals. The transformation greatly improved the distribution of the residuals, making them nearly normal. The transformation could not correct for heteroskedasticity, but this is not an issue since inference is not being conducted.
 
 \subsubsection{Model Specification}
 
@@ -209,6 +209,7 @@ Contrary to what one might think, the amount of time that a Twitch account strea
 \subsection{Stream Hours to Predict Followers}\
 
 Do accounts that stream more have more followers? Intiutively, it would make sense.
+\section{Multiple Linear Regression}\
 
 \subsection{Mature Accounts and Followers}\
 
@@ -216,7 +217,7 @@ How much does the difference in watch time explain the difference in the number 
 
 \subsubsection{Model Specificiation}\
 
-Since \texttt{`Followers'} is highly skewed, the log of \texttt{`Followers'} was taken. A difference in means of the log followers was calculated. The difference in log means (-0.13351611) is exponentiated to get the ratio (0.875) between the two means (Equation \ref{eq:log_means_followers_mature}). Thus, Mature Twitch accounts have 13 percent fewer followers than accounts that are not classified as mature.
+Since \texttt{`Followers'} is highly skewed, the log of \texttt{`Followers'} was taken. A difference in means of the log followers was calculated. The difference in log means (-0.13351611) is exponentiated to get the ratio (0.875) between the two means (Equation \ref{eq:log_means_followers_mature}). Thus, mature Twitch accounts have 12.5 percent fewer followers than accounts that are not classified as mature.
 
 \begin{equation}
 \begin{aligned}
