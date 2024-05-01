@@ -88,7 +88,7 @@ Additional statistics were calculated as well.\footnote{Entire dataset available
 
 Because all distributions are heavily right skewed (skewness $\geq$ 2.6), medians, represented with Greek letter eta ($\eta$), are reported instead of means (all values are from Table \ref{table:summary_stats}). The majority of the top nine hundred accounts stream content at least 30 hours per week ($\eta \approx$ 34.23) and are watched more than 90 thousand hours per week $(\eta \approx$ 91,422). Most accounts gained a substantial number of followers from the previous year ($\eta \approx$ 66,003), which represents a median increase of approximately 16 percent. Because of the heavy skewness of the distributions, easy-to-interpret visualizations were difficult to make (Fig. \ref{fig:histogram_matrix}).
 
-\section{Correlation}
+\section{Correlation}\
 
 To assess the relationships between numeric variables, Spearman’s correlation coefficients were calculated (Fig. \ref{fig:spearman_correlogram}). Because of the non-linearity of the relationships (Fig. \ref{fig:stream_scatter_matrix}, Fig. \ref{fig:watch_scatter_matrix}, Fig. \ref{fig:follow_gain_scatter_matrix}), typical Pearson’s R correlation coefficients would be inappropriate. Spearman’s correlation coefficients are preferred for assessing the strength of non-linear relationships.
 %%%%%%%%%%%%%%
@@ -187,7 +187,7 @@ Figure \ref{fig:stream_time_reciprocal_avg_viewers} shows the relationship betwe
   \label{fig:stream_time_reciprocal_avg_viewers}
 \end{figure}
 
-Since one usually does not have a particular interest in knowing what the reciprocal of the average number of viewers is, \texttt{`Average viewers'} was reverse transformed and the transformed equation was plotted over the data on their original scale (Fig. \ref{fig:transformed_reciprocal_scatter}).
+\noindent Since one usually does not have a particular interest in knowing what the reciprocal of the average number of viewers is, \texttt{`Average viewers'} was reverse transformed and the transformed equation was plotted over the data on their original scale (Fig. \ref{fig:transformed_reciprocal_scatter}).
 
 
 \begin{figure}[H]
@@ -372,7 +372,7 @@ I decided to rescale \texttt{`Followers'} by dividing it by 100,000 so that the 
 \end{equation}
 where \emph{i} is a Twitch account; \texttt{`Partnered'} is a binary variable indicating whether the respective account has attained partnered status or not; \texttt{`Followers / 100,000'} is the numer of followers that an account has; and \emph{p} is the probability of an account being achieving partnered status.
 
-\subsubsection{Logistic Regression Results}
+\subsubsection{Logistic Regression Results}\
 
 The logistic regression shows a positive relationship between the number of followers a Twitch account has and the log odds of being a partnered account (Table \ref{tab:logistic_table}). Exponentiating the coefficient for \texttt{`Followers / 100,000'} (\emph{e}$^{0.10616385}$)  results in 1.112, which means that a for every 100,000 followers that an account has, the odds of being a partnered account increases 11.2 percent.
 
@@ -414,13 +414,13 @@ This resulted in the following plot:
 	\label{fig:logit_partnered_followers}
 \end{figure}
 
-\subsubsection{Goodness of Fit}
+\subsubsection{Goodness of Fit}\
 
 The Hosmer-Lemeshow Goodness-of-Fit observed vs. expected successes for partnered status suggest that, in general, the model is reasonably calibrated (Table \ref{tab:logistic_table}). The Hosmer-Lemeshow Goodness-of-Fit Test assess how accurately the model predicts the success rate in each decile of the independent variable (in this case, \texttt{`Followers'}). The model predicts successful partnered status reasonably well, but is more limited in its ability to predict non-partnered status (failures). This could be because of the extreme class imbalance in the data (success-to-failure ratio of 873:27).
 
-\subsubsection{Discussion}/
+\subsubsection{Discussion}\
 
-The number of followers is the best predictor of the probability that an account will be partnered. However, this analysis is hampered because of the severe class imbalance in the data. That notwithstanding, the disparity in followers between partnered and non-partnered accounts is striking.  Future analyses could randomly sample Twitch data using a blocking technique to ensure that success and failure conditions are more equally represented in the data.
+The number of followers is the best predictor of the probability that an account will be partnered. However, this analysis is hampered because of the severe class imbalance in the data. That notwithstanding, the disparity in followers between partnered and non-partnered accounts is striking. 123 of the 873 partnered accounts have more followers than the maximum number (1714324) of followers that non-partnered accounts have.\footnote{Author's calculations in StatCrunch.} Future analyses could randomly sample Twitch data using a blocking technique to ensure that success and failure conditions are more equally represented in the data.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -428,6 +428,11 @@ The number of followers is the best predictor of the probability that an account
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
+
+
+\section{Conclusion}
+
+
 
 \section{Appendix}
 
