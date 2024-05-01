@@ -1,57 +1,108 @@
 sapply(c('readr', 'dplyr', 'ggplot2'), FUN = require, character.only = T)
-library(ggridges)
+# library(ggridges)
 
-# new_wd <- "C:/Users/madou/OneDrive - UCLA IT Services/Stat_Crunch_Competition/"
-# setwd(new_wd)
+new_wd <- "C:/Users/madou/OneDrive - UCLA IT Services/Stat_Crunch_Competition/"
+setwd(new_wd)
 
 Twitch23 <- read.csv("Twitch_Streamer_Data_2023.csv")
 
-# Twitch23$`Mean.weekly.stream.hours^0.15` <-  transformTukey(Twitch23$Mean.weekly.stream.hours, plotit = TRUE)
+Twitch23 |> 
+  plot(Average.viewers ~ Mean.weekly.stream.hours, data = _)
 
-# Include <-  Twitch23$Mean.weekly.stream.hours <= max(Twitch23$Mean.weekly.stream.hours)
+viewers_stream_lm <- Twitch23 |> 
+  lm(1/Average.viewers ~ Mean.weekly.stream.hours, data = _)
 
-max_stream_hours <- 58
+median_stream_hours <- median(Twitch23$Mean.weekly.stream.hours)
+
+viewers_stream_predict <- data.frame(
+  Mean.weekly.stream.hours = seq(median_stream_hours - 30, median_stream_hours + 100, 5)
+)
+
+viewers_stream_predict$Prediction <- 1/predict(viewers_stream_lm, viewers_stream_predict)
+
+
+for (i in c(1,2,3,5)) {
+  followers_stream_lm <- Twitch23 |> 
+    lm(log(Followers) ~ Mean.weekly.stream.hours, data = _)
+  
+  plot(followers_stream_lm, which = i)
+  
+  followers_stream_lm <- Twitch23 |> 
+    lm(log(Followers) ~ log(Mean.weekly.stream.hours), data = _)
+  
+  plot(followers_stream_lm, which = i)
+}
+
+
+followers_avg_viewers_mature_lm <- Twitch23 |> 
+  lm(
+    log(Followers) ~ log(Average.viewers) + Mature, data = _
+  )
+
+followers_watch_hrs_mature_lm <- Twitch23 |> 
+  lm(
+    log(Followers) ~ Mean.weekly.watch.hours + Mature, data = _
+  )
+
+followers_watch_hrs_avg_viewers_mature_lm <- Twitch23 |> 
+  lm(
+    log(Followers) ~ log(Mean.weekly.watch.hours) + log(Average.viewers) + Mature, data = _
+  )
 
 # ################################## #
 # Logistic Regression ####
 # ################################## #
 
-twitch_logit <- 
-  Twitch23 |> glm(
-    family = 'binomial',
-    formula = Partnered ~ Mean.weekly.stream.hours
-  )
-
-summary(twitch_logit)
-
-autoplot(twitch_logit)
-
-twitch_logit_no_outliers <- 
-  Twitch23 |> filter(Mean.weekly.stream.hours <= max_stream_hours) |>  glm(
-    family = 'binomial',
-    formula = Partnered ~ Mean.weekly.stream.hours
-  )
-
-summary(twitch_logit_no_outliers)
-
-
-# Trying with all variables
-
 twitch_logit_best_model <-
-  Twitch23 |> filter(Followers.gained < 320000) |> glm(
-    family = 'binomial',
-    formula = Partnered ~ 
-      Followers.gained  # AIC: 246.53
-      # Followers # AIC: 237.57
-      # Peak.viewers # AIC: 245.79
-      # Average.viewers # AIC: 246.42
-      # Mature # AIC: 246.22
-      # Mean.weekly.watch.hours # AIC: 245.77
-      # Mean.weekly.stream.hours # AIC: 246.36
-  )
+  Twitch23 |> glm(
+    family = binomial,
+    formula = Partnered ~ Followers...100000  # AIC: 237.57
 
+      # Peak.viewers # AIC: 245.79 -- BIC: 255.3945
+      # Average.viewers # AIC: 246.42 -- BIC: 256.0215
+      # Mature # AIC: 246.22 -- BIC: 255.8209
+      # Mean.weekly.watch.hours # AIC: 245.77 -- BIC: 255.3718
+      # Mean.weekly.stream.hours # AIC: 246.36 -- BIC: 255.9618
+)
+AIC(twitch_logit_best_model)
 summary(twitch_logit_best_model)
 
+predict(twitch_logit_best_model, newdata = data.frame(Followers = 100000), type = 'response')
+
+
+
+####
+twitch_logit_best_model <-
+  Twitch23 |> glm(
+    family = binomial,
+    formula = Partnered ~ Followers + Peak.viewers)
+AIC(twitch_logit_best_model) # 238.8016
+
+twitch_logit_best_model <-
+  Twitch23 |> glm(
+    family = binomial,
+    formula = Partnered ~ Followers + Average.viewers)
+AIC(twitch_logit_best_model) # 237.6662
+
+twitch_logit_best_model <-
+  Twitch23 |> glm(
+    family = binomial,
+    formula = Partnered ~ Followers + Mature)
+AIC(twitch_logit_best_model) # 239.0717
+
+twitch_logit_best_model <-
+  Twitch23 |> glm(
+    family = binomial,
+    formula = Partnered ~ Followers + Mean.weekly.watch.hours)
+AIC(twitch_logit_best_model) # 239.0692
+
+twitch_logit_best_model <-
+  Twitch23 |> glm(
+    family = binomial,
+    formula = Partnered ~ Followers + Mean.weekly.stream.hours)
+AIC(twitch_logit_best_model) # 238.3238
+
+summary(twitch_logit_best_model)
 # Call:
 #   glm(formula = Partnered ~ Followers.gained + Followers, family = "binomial", 
 #       data = filter(Twitch23, Followers < 1000000))
@@ -106,7 +157,7 @@ ggplot(Twitch23, aes(x = Mean.weekly.stream.hours, y = Partnered)) +
 # ################################## #
 
 
-poisson_stream_viewers <- Twitch23 |>  glm(
+poisson_viewers_stream <- Twitch23 |>  glm(
   family = 'poisson',
   data = _,
   `Average viewers` ~ `Stream time (hrs)`
