@@ -266,9 +266,9 @@ The results, again, are counterintuitive. Rather than observing more followers w
 
 How much does the difference in watch time explain the difference in the number of followers for accounts categorized as mature or not mature? Twitch accounts classified as \texttt{`Mature'} have fewer followers than those not classified as \texttt{`Mature'}. At the same time, mature accounts are watched fewer hours per week (Figure \ref{fig:box_plots_mature}).\footnote{Mature accounts also tend to have fewer peak and average viewers, and they also have not gained as many followers over the period. See Figure \ref{fig:box_plots_mature}.} While it is clear that mature accounts are watched less, it is interesting to ask how much that disparity in watch time can "explain"\footnote{This is observational data, so causal claims cannot be made here.} the disparity in the number of followers.
 
-\subsubsection{Model Specificiation}\
+\subsubsection{Difference in Means}\
 
-Since \texttt{`Followers'} is highly skewed, the log of \texttt{`Followers'} was taken. A difference in means of the log followers was calculated. The difference in log means (-0.13351611) is exponentiated to get the ratio (0.875) between the two means (Equation \ref{eq:log_means_followers_mature}). Thus, mature Twitch accounts have 12.5 percent fewer followers than accounts that are not classified as mature.
+Since \texttt{`Followers'} is highly skewed, the log of \texttt{`Followers'} was taken. A difference in means of the log followers was calculated. (This also allows for a better "apples-to-apples" comparison in the subsequent multiple linear regression.) The difference in log means (-0.13351611) is exponentiated to get the ratio (0.875) between the two means (Equation \ref{eq:log_means_followers_mature}). Thus, mature Twitch accounts have 12.5 percent fewer followers than accounts that are not classified as mature.
 
 \begin{equation}
 \begin{aligned}
@@ -279,6 +279,9 @@ Since \texttt{`Followers'} is highly skewed, the log of \texttt{`Followers'} was
 \end{aligned}
 \label{eq:log_means_followers_mature}
 \end{equation}
+
+
+\subsubsection{Model Specificiation}\
 
 Next a multiple linear regression model was run to assess how much differences in the number of watch hours can explain the differences in the number of followers between mature and non-mature accounts. Log transformations on both the independent (\texttt{`Mean weekly watch hours'}) and dependent variable (\texttt{`Followers'}) were conducted to correct for the non-linear nature of the relationship. The model is as follows:
 
