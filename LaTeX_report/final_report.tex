@@ -398,17 +398,19 @@ A scatter plot was generated to visualize the relationship. Since all values for
 \end{cases}
 \end{equation}
 
-\noindent The model was exponentiated and plotted over the scatter plot. It represents the probability that an account will be partnered as predicted by the number of followers that that account has.
+\noindent where \texttt{`Partnered'} is the binary variable for whether an account is partnered; \texttt{`Normal'} is the simulated normal distribution based on $\mathcal{N}(0, 0.01)$.
+
+The model was exponentiated and plotted over the scatter plot. It represents the probability that an account will be partnered as predicted by the number of followers that that account has.
 
 \begin{equation}
-\hat{p_{i}} = \frac{e^{2.8464312 + 0.10616385 \ast Followers/100,000}}{1 + e^{2.8464312 + 0.10616385 \ast Followers/100,000}}
+\hat{p_{i}} = \frac{e^{2.8464312 + 0.10616385 \ast (Followers/100,000)}}{1 + e^{2.8464312 + 0.10616385 \ast (Followers/100,000)}}
 \end{equation}
 
 This resulted in the following plot:
 
 \begin{figure}[H]
 \centering
-	\includegraphics[height=0.55\textheight]{../StatCrunch_Results/logit_partnered_followers/scatter_plot}
+	\includegraphics[height=0.52\textheight]{../StatCrunch_Results/logit_partnered_followers/scatter_plot}
 	\captionsetup{justification=centering, singlelinecheck=false, margin=2cm}
 	\caption[Scatter Plot: Partnered Status Predicted by Number of Followers]{Scatter Plot: Partnered Status Predicted by Number of Followers.}
 	\label{fig:logit_partnered_followers}
