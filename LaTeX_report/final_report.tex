@@ -175,7 +175,7 @@ R-squared is moderate (0.56), suggesting that the mean weekly stream hours can e
 %    \label{table:reciprocal_regression_table}
 %\end{wraptable}
 
-Figure \ref{fig:stream_time_reciprocal_avg_viewers} shows the relationship between the mean weekly stream hours and the inverse of average viewers. The other scatter plots show the residuals. The histogram and Q-Q plots show that the residuals are now symmetric, although excess kurtosis is still high, making the distribution of the residuals leptokurtic (skewness = -0.57036091; excess kurtosis = 6.0727871). Removing extreme dependent variable observations improves this, but it is unlikely to be helpful since inference is not being conducted, and fitting data to your model is not the best practice.\footnote{It is better to adjust your model to fit the data than the other way around.} Heteroskedasticity also was not corrected, but it is not an issue as no hypothesis testing is being conducted, nor are confidence intervals being calculated. The model with coefficients is as follows:
+Figure \ref{fig:stream_time_reciprocal_avg_viewers} shows the relationship between the mean weekly stream hours and the inverse of average viewers. The other scatter plots show the residuals. The histogram and Q-Q plots show that the residuals are now symmetric, although excess kurtosis is still high, making the distribution of the residuals leptokurtic (skewness = -0.57036091; excess kurtosis = 6.0727871). Removing extreme dependent variable observations improves this, but it is unlikely to be helpful since inference is not being conducted, and fitting data to your model is not the best practice.\footnote{It is better to adjust your model to fit the data than the other way around.} Heteroskedasticity also was not corrected, but it is not an issue as no hypothesis testing is being conducted, nor are confidence intervals being calculated.\footnote{See Section 1 for an explanation on why I chose not to conduct inference.} The model with coefficients is as follows:
 \begin{equation}
  \dfrac{1}{Average\ viewers_{i}} = 4.04e^{-5} + 9.15e^{-6} \ast Mean\ weekly\ stream\ hours_{i} \label{eq:reciprocal_model_w_coef}
 \end{equation}
@@ -227,7 +227,7 @@ where \emph{i} is a Twitch account; \texttt{`Followers'} is the number of follow
 
 \subsubsection{Simple Linear Regression Results}\
 
-The regression reveals a rather weak correlation between the mean weekly stream hours and the number of followers that an account has. R-squared is only 0.056. The coefficient for \texttt{`Mean weekly stream hours'} (Table \ref{tab:ln_followers_stream}) was exponentiated ($\emph{e}^{-0.0088658957} = 0.99117$), indicating that for every additional weekly streaming hour, an account should expect 0.88 percent fewer followers. (See Table \ref{tab:ln_followers_stream} for all model parameters.)
+The regression reveals a rather weak negative correlation between the mean weekly stream hours and the number of followers that an account has. R-squared is only 0.056. The coefficient for \texttt{`Mean weekly stream hours'} (Table \ref{tab:ln_followers_stream}) was exponentiated ($\emph{e}^{-0.0088658957} = 0.99117$), indicating that for every additional weekly streaming hour, an account should expect 0.88 percent fewer followers. (See Table \ref{tab:ln_followers_stream} for all model parameters.)
 
 \subsubsection{Scatter Plots}
 
