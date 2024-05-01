@@ -325,13 +325,13 @@ R-squared is rather weak (0.25), but the difference in watch time (mean weekly w
 
 \subsubsection{Discussion}\
 
-The results suggest that the difference between the number of followers that mature and non-mature accounts have is only slightly "explained" by differences in the number of mean weekly stream hours between the two types of accounts. In a way, this is not totally surprising. Figure \ref{fig:spearman_correlogram} shows that there is only a moderate correlation between watch time and the number of followers an account has. It could be that there is some other unobserved variable out there that explains the difference in followers, or, perhaps just as likely, mature accounts are less popular in general and struggle to gain as many followers. Of course, identifying a mechanism like this is beyond the scope of this paper, as that would require more data.
+The results suggest that the difference between the number of followers that mature and non-mature accounts have is only slightly "explained" by differences in the number of mean weekly watch hours between the two types of accounts. In a way, this is not totally surprising. Figure \ref{fig:spearman_correlogram} shows that there is only a moderate correlation between watch time and the number of followers an account has. It could be that there is some other unobserved variable out there that explains the difference in followers, or, perhaps just as likely, mature accounts are less popular in general and struggle to gain as many followers. Of course, identifying a mechanism like this is beyond the scope of this paper, as that would require more data.
 
 \section{Logistic Regression}
 
 \subsection{Predicting Partnered Status}\
 
-Of the variables in the dataset, is the number of followers the best predictor of whether a Twitch account is partnered? To answer this, I ran a logistic regression on each of the predictor values in the dataset. Using the log-likelihood from the output, I calculated the Akaike information criterion (AIC), which estimates the quality of a statistical model relative to other models. The formula for AIC is as follows:
+Which variable in the dataset is the best predictor of whether an account is partnered? To answer this, I ran a logistic regression on each of the predictor values in the dataset. Using the log-likelihood from the output, I calculated the Akaike information criterion (AIC), which estimates the quality of a statistical model relative to other models. The formula for AIC is as follows:
 
 \begin{equation}
 AIC = 2k -2 \ast ln(Likelihood)
