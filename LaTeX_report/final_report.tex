@@ -386,17 +386,21 @@ The logistic regression shows a positive relationship between the number of foll
 
 \subsubsection{Figures}
 
-A scatter plot was generated to visualize the relationship. Since all values for \texttt{`Partnered'} take either a zero or one, random noise using the normal distribution simulation function was generated in StatCrunch to make visualization clearer. Then the absolute value of that simulated normal distribution was either added or subtracted from the \texttt{`Partnered'} value depending on if the value was a one or zero, respectively. 
+A scatter plot was generated to visualize the relationship. Since all values for \texttt{`Partnered'} take either a zero or one, random noise using the normal distribution simulation function centered on zero with a standard deviation of 0.01 --- $\mathcal{N}(0, 0.01)$ --- was generated in StatCrunch to make visualization clearer. Then the absolute value of that simulated normal distribution was either added or subtracted from the \texttt{`Partnered'} value depending on if the value was a one or zero, respectively. 
 
 The equation representing the generation of the \texttt{`PartneredNoise'} variable is:
 
 \begin{equation}
 \text{PartneredNoise} = 
 \begin{cases}
-    \text{Partnered} + \text{absNormal} & \text{if } \text{Partnered} = 1 \\
-    \text{Partnered} - \text{absNormal} & \text{if } \text{Partnered} = 0
+    \text{Partnered} + \lvert \text{Normal} \rvert & \text{if } \text{Partnered} = 1 \\
+    \text{Partnered} - \lvert \text{Normal} \rvert & \text{if } \text{Partnered} = 0
 \end{cases}
 \end{equation}
+
+
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%
