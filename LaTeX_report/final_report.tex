@@ -68,7 +68,7 @@ Initial calculations were made before presenting the summary statistics. Since v
 Mean\ weekly\ watch\ hours = \dfrac{Watch\ time\ (mins)}{60 \ast 52}
 \end{equation}
 \newline
-Additional statistics were calculated as well:
+Additional statistics were calculated as well.\footnote{Entire dataset available at: \url{https://www.statcrunch.com/app/index.html?dataid=4597814&token=OTI3Z8\%2F0N6hSC1KVw9hTXmyjHLnuZvqCMyuxkgn1QRYPhIQfDVLUFClF3Y41ShOi4C\%2BMKL5\%2FHgpBTXKukjWOPGD4pN\%2FCkiobeyKouIjPB7LoPvHOTDN7wUNtPZQd2\%2BNjOwAtSMQl9aKQrbthjCSuuSihsliiTo0MvakPDYN0lwiE8N11ITBSTS9QJH9QgHEmO4ahoV6IkASuVdKosV\%2FJSQ\%3D\%3D}[here]}
 
 \begin{itemize}
 	\item \texttt{`Followers Prev Yr’} = \texttt{`Followers’} - \texttt{`Followers gained’}.
@@ -300,7 +300,7 @@ R-squared is rather weak (0.25), but the differences in watch time (mean weekly 
     \begin{subfigure}{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{../StatCrunch_Results/followers_mature_watch_hrs/residual_histogram}
-        \caption{Histogram of residuals are nearly normal}
+        \caption{Histogram: residuals are nearly normal}
         \label{fig:plot1}
     \end{subfigure}
     \hfill
@@ -361,19 +361,20 @@ After running each model, \texttt{`Followers'} was the best model to predict \te
 \end{itemize}
 Thus, I opted to only use \texttt{`Followers'} to predict partnered status in my logit model.
 
-\subsubsection{Model Specification}
+\subsubsection{Model Specification}\
 
+I decided to rescale \texttt{`Followers'} by dividing it by 100,000 so that the new variable is 100,000 followers. This will make the coefficient easier to interpret.
 \begin{equation}
 \begin{aligned}
-	ln(\frac{p_{i}}{1-p_{i}}) & = logit(Partnered_{i})  = \beta_{0} + \beta_{1} \ast Followers_{i} \\
+	ln(\frac{p_{i}}{1-p_{i}}) & = logit(Partnered_{i})  = \beta_{0} + \beta_{1} \ast Followers/100,000_{i} \\
 	\frac{p_{i}}{1-p_{i}} & = odds
 \end{aligned}
 \end{equation}
-where \emph{i} is a Twitch account; \texttt{`Partnered'} is a binary variable indicating whether the respective account has attained partnered status or not; \texttt{`Followers'} is the numer of followers that an account has; and \emph{p} is the probability of a "success."
+where \emph{i} is a Twitch account; \texttt{`Partnered'} is a binary variable indicating whether the respective account has attained partnered status or not; \texttt{`Followers / 100,000'} is the numer of followers that an account has; and \emph{p} is the probability of an account being achieving partnered status.
 
 \subsubsection{Logistic Regression Results}
 
-The logistic regression shows a positive relationship between the number of followers a Twitch account has and the log odds of being a partnered account (Table \ref{tab:logistic_table}). 
+The logistic regression shows a positive relationship between the number of followers a Twitch account has and the log odds of being a partnered account (Table \ref{tab:logistic_table}). Exponentiating the coefficient for \texttt{`Followers / 100,000'} (\emph{e}$^{0.10616385}$)  results in 1.112, which means that a for every 100,000 followers that an account has, the odds of being a partnered account increases 11.2 percent.
 
 \begin{table}[H]
   \centering % width=\linewidth, height=\textheight
