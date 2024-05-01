@@ -378,13 +378,26 @@ The logistic regression shows a positive relationship between the number of foll
 
 \begin{table}[H]
   \centering % width=\linewidth, height=\textheight
-  \includegraphics[scale=0.8]{../StatCrunch_Results/logit_partnered_followers/table}
+  \includegraphics[scale=0.9]{../StatCrunch_Results/logit_partnered_followers/table}
   \captionsetup{justification=centering, singlelinecheck=false, margin=2cm}
   \caption[Logistic Regression: Predict Partnered Status by Number of Followers]{Logistic Regression Table. The results indicate a positive relationship between the number of followers an account has and whether it has achieved partnership status.}
   \label{tab:logistic_table}
 \end{table}
 
-%ln(\frac{p}{1-p}
+\subsubsection{Figures}
+
+A scatter plot was generated to visualize the relationship. Since all values for \texttt{`Partnered'} take either a zero or one, random noise using the normal distribution simulation function was generated in StatCrunch to make visualization clearer. Then the absolute value of that simulated normal distribution was either added or subtracted from the \texttt{`Partnered'} value depending on if the value was a one or zero, respectively. 
+
+The equation representing the generation of the \texttt{`PartneredNoise'} variable is:
+
+\begin{equation}
+\text{PartneredNoise} = 
+\begin{cases}
+    \text{Partnered} + \text{absNormal} & \text{if } \text{Partnered} = 1 \\
+    \text{Partnered} - \text{absNormal} & \text{if } \text{Partnered} = 0
+\end{cases}
+\end{equation}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%    Appendix    %%%%%%%%%%%
