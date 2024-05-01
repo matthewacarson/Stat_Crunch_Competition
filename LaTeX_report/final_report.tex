@@ -414,7 +414,7 @@ This resulted in the following plot:
 
 \begin{figure}[H]
 \centering
-	\includegraphics[height=0.52\textheight]{../StatCrunch_Results/logit_partnered_followers/scatter_plot}
+	\includegraphics[width=0.9\linewidth]{../StatCrunch_Results/logit_partnered_followers/scatter_plot}
 	\captionsetup{justification=centering, singlelinecheck=false, margin=2cm}
 	\caption[Scatter Plot: Partnered Status Predicted by Number of Followers]{Scatter Plot: Partnered Status Predicted by Number of Followers.}
 	\label{fig:logit_partnered_followers}
@@ -433,7 +433,9 @@ The number of followers is the best predictor of the probability that an account
 
 The Twitch dataset analysis stands out primarily due to the unexpected findings it yielded. There is practically no relationship between the amount of time that an account streams and the amount of time that the account is watched. And contrary to what one might expect, streaming more frequently has a strong \emph{negative} relationship with the average number of viewers an account has. In short, if you stream more, fewer people are watching you (See Figure \ref{fig:spearman_correlogram} and 3.1: Stream Hours to Predict Average Viewers). Similarly, the number of stream hours has a negative relationship with the number of followers that an account has (see 3.2: Stream Hours to Predict Followers), though the relationship is relatively weak.
 
-In general, Twitch accounts classified as mature had
+In general, Twitch accounts classified as mature had fewer followers than accounts not classified as mature; mature accounts are also watched less than non-mature accounts. While it was hypothesized that the disparity in watch time could explain the difference in the number of followers, the multiple linear regression model (4.1: Mature Accounts and Followers) revealed only a small R-squared, suggesting that there are probably other unobserved variables influencing the differences in the number of followers. 
+
+Lastly, whether an account is partnered on Twitch is best predicted by the number of followers that the account has. Additional variables did not add enough predictive power to warrant their inclusion in the model. 
 
 
 
