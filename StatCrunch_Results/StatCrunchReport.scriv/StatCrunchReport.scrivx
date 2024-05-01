@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ScrivenerProject Template="No" Version="2.0" Identifier="B9903633-277C-44D2-968A-F31F181CD57E" Creator="SCRWIN-3.1.5.1" Device="HP-UHN6MU6" Modified="2024-04-08 18:47:13 -0700" ModID="07AE39BB-12CB-49D8-B3EA-9D9461AAD9F8">
+<ScrivenerProject Template="No" Version="2.0" Identifier="B9903633-277C-44D2-968A-F31F181CD57E" Creator="SCRWIN-3.1.5.1" Device="HP-UHN6MU6" Author="Matt" Modified="2024-04-29 00:56:59 -0700" ModID="07AE39BB-12CB-49D8-B3EA-9D9461AAD9F8">
     <Binder>
         <BinderItem UUID="28E9F31E-944F-4AF3-99CD-123257DA86E2" Type="DraftFolder" Created="2024-04-05 21:22:38 -0700" Modified="2024-04-05 21:22:38 -0700">
             <Title>Draft</Title>
@@ -33,7 +33,7 @@
                         <NotesTextSelection>131,0</NotesTextSelection>
                     </MetaData>
                     <TextSettings>
-                        <TextSelection>4373,0</TextSelection>
+                        <TextSelection>5408,0</TextSelection>
                     </TextSettings>
                 </BinderItem>
             </Children>
@@ -107,11 +107,11 @@
     <ProjectTargets Notify="No">
         <DraftTarget Type="Words" CountIncludedOnly="Yes" CurrentCompileGroupOnly="No" Deadline="2024-04-05 21:22:38 -0700" IgnoreDeadline="Yes">0</DraftTarget>
         <SessionTarget Type="Words" CountDraftOnly="No" AllowNegatives="Yes" ResetType="Time" ResetTime="01:00" DeterminedFromDeadline="No" CanWriteOnDeadlineDate="Yes" WritingDays="">0</SessionTarget>
-        <PreviousSession Words="38" Characters="254" Date="2024-04-08 18:47:13 -0700"/>
+        <PreviousSession Words="0" Characters="0" Date="2024-04-29 00:56:59 -0700"/>
     </ProjectTargets>
-    <RecentWritingHistory Date="2024-04-08 00:00:00 -0700">
-        <DraftWordCount>38</DraftWordCount>
-        <DraftCharCount>254</DraftCharCount>
+    <RecentWritingHistory Date="2024-04-29 00:00:00 -0700">
+        <DraftWordCount>0</DraftWordCount>
+        <DraftCharCount>0</DraftCharCount>
         <OtherWordCount>0</OtherWordCount>
         <OtherCharCount>0</OtherCharCount>
     </RecentWritingHistory>
