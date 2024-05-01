@@ -2,7 +2,7 @@
   "info": {
     "type": "StatCrunch Session",
     "version": 1,
-    "date": "2024-04-30 18:26"
+    "date": "2024-04-30 20:55"
   },
   "settings": {
     "graphfontface": "Open Sans",
@@ -592,15 +592,17 @@
       "dialog": "SumStatDialog",
       "result_properties": {
         "size_and_position": {
-          "width": 556,
-          "height": 103,
-          "left": 160,
-          "top": 265.80000001192093
-        }
+          "width": 0,
+          "height": 0,
+          "left": 271,
+          "top": 184
+        },
+        "hidden": true
       },
       "columns": [
         "658"
       ],
+      "group_by": "432",
       "statistics": [
         "n",
         "Mean",
@@ -609,23 +611,6 @@
         "Sum"
       ],
       "stack_order": 16
-    },
-    {
-      "dialog": "BoxplotDialog",
-      "result_properties": {
-        "size_and_position": {
-          "width": 748,
-          "height": 607,
-          "left": 755,
-          "top": 46.00000077486038
-        }
-      },
-      "columns": [
-        "428"
-      ],
-      "group_by": "432",
-      "draw_horizontally": true,
-      "stack_order": 17
     }
   ]
 }
