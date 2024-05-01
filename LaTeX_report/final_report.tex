@@ -384,11 +384,11 @@ The logistic regression shows a positive relationship between the number of foll
   \label{tab:logistic_table}
 \end{table}
 
-\subsubsection{Figures}
+\subsubsection{Figures}\
 
 A scatter plot was generated to visualize the relationship. Since all values for \texttt{`Partnered'} take either a zero or one, random noise using the normal distribution simulation function centered on zero with a standard deviation of 0.01 --- $\mathcal{N}(0, 0.01)$ --- was generated in StatCrunch to make visualization clearer. Then the absolute value of that simulated normal distribution was either added or subtracted from the \texttt{`Partnered'} value depending on if the value was a one or zero, respectively. 
 
-The equation representing the generation of the \texttt{`PartneredNoise'} variable is:
+\noindent The equation representing the generation of the \texttt{`PartneredNoise'} variable is:
 
 \begin{equation}
 \text{PartneredNoise} = 
@@ -398,9 +398,21 @@ The equation representing the generation of the \texttt{`PartneredNoise'} variab
 \end{cases}
 \end{equation}
 
+\noindent The model was exponentiated and plotted over the scatter plot. It represents the probability that an account will be partnered as predicted by the number of followers that that account has.
 
+\begin{equation}
+\hat{p_{i}} = \frac{e^{2.8464312 + 0.10616385 \ast Followers/100,000}}{1 + e^{2.8464312 + 0.10616385 \ast Followers/100,000}}
+\end{equation}
 
+This resulted in the following plot:
 
+\begin{figure}[H]
+\centering
+	\includegraphics[height=0.55\textheight]{../StatCrunch_Results/logit_partnered_followers/scatter_plot}
+	\captionsetup{justification=centering, singlelinecheck=false, margin=2cm}
+	\caption[Scatter Plot: Partnered Status Predicted by Number of Followers]{Scatter Plot: Partnered Status Predicted by Number of Followers.}
+	\label{fig:logit_partnered_followers}
+\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%
