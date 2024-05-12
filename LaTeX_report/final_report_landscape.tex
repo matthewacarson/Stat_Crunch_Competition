@@ -1,4 +1,5 @@
-\documentclass[12pt]{article}
+\documentclass[12pt, landscape]{article}
+
 \usepackage[english]{babel}
 \title{StatCrunch Competition\\ Twitch Dataset}
 \author{Matthew Carson\\ University of California, Los Angeles}
@@ -11,7 +12,7 @@
 \usepackage{float} % for [H] placement specifier
 \usepackage{wrapfig}
 \usepackage{caption} % for customizing captions
-\usepackage[margin=1in]{geometry} % for setting margins
+\usepackage[margin=0.5in]{geometry} % for setting margins
 \usepackage{setspace} % for adjusting line spacing
 \usepackage{subcaption}
 % Line spacing
@@ -173,7 +174,7 @@ where \textit{i} is a Twitch account. \textit{`Average viewers'} is the average 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{table}[!ht]
   \centering % width=0.8\linewidth, height=0.375\textheight
-  \includegraphics[scale=0.75]{../StatCrunch_Results/reciprocal/regression_table}
+  \includegraphics[height=350pt]{../StatCrunch_Results/reciprocal/regression_table}
   \captionsetup{justification=raggedright, singlelinecheck=false, margin=2cm}
   \caption[Regression: Average Viewers Predicted by Stream Hours]{Simple linear regression model showing a moderate relationship between average viewers and mean weekly stream hours.}
   \label{table:reciprocal_regression_table}
@@ -201,7 +202,7 @@ Figure \ref{fig:stream_time_reciprocal_avg_viewers} shows the relationship betwe
 %%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[H]
   \centering % width=\linewidth, height=\textheight
-  \includegraphics[scale=0.5]{../StatCrunch_Results/reciprocal/stream_time_reciprocal_avg_viewers_plots}
+  \includegraphics[height=0.85\textheight]{../StatCrunch_Results/reciprocal/stream_time_reciprocal_avg_viewers_plots}
   \captionsetup{justification=centering, singlelinecheck=false, margin=2cm}
   \caption[Average Viewers Predicted by Stream Hours]{Model plots. The residuals are symmetric, making the model a decent fit, notwithstanding the non-constant variance.}
   \label{fig:stream_time_reciprocal_avg_viewers}
@@ -212,7 +213,7 @@ Figure \ref{fig:stream_time_reciprocal_avg_viewers} shows the relationship betwe
 
 \begin{figure}[H]
   \centering % width=\linewidth, height=\textheight
-  \includegraphics[width=0.8\linewidth]{../StatCrunch_Results/reciprocal/scatter_plot_reverse_transformed}
+  \includegraphics[height=0.65\textheight]{../StatCrunch_Results/reciprocal/scatter_plot_reverse_transformed}
   \captionsetup{justification=centering, singlelinecheck=false, margin=2cm}
   \caption[Back Transformed Average Viewers Predicted by Stream Hours]{Back Transformed Average Viewers Predicted by Stream Hours. The fitted line is Equation \ref{eq:back_transformed_reciprocal_eq}}.
   \label{fig:transformed_reciprocal_scatter}
@@ -247,7 +248,7 @@ The regression reveals a rather weak negative correlation between the mean weekl
 
 \begin{figure}[H]
 \centering
-	\includegraphics[height=0.7\textheight]{../StatCrunch_Results/ln_followers_stream/plot}
+	\includegraphics[height=0.85\textheight]{../StatCrunch_Results/ln_followers_stream/plot}
 	\captionsetup{justification=centering, singlelinecheck=false, margin=2cm}
 	\caption[Residual Plots: Followers by Stream Time]{\texttt{`Followers'} regressed against \texttt{`Mean weekly stream hours'}. }
 	\label{fig:ln_followers_stream_plot}
@@ -255,7 +256,7 @@ The regression reveals a rather weak negative correlation between the mean weekl
 
 \begin{figure}[H]
 \centering
-	\includegraphics[scale=0.65]{../StatCrunch_Results/ln_followers_stream/scatter_small}
+	\includegraphics[scale=0.7]{../StatCrunch_Results/ln_followers_stream/scatter_small}
 	\captionsetup{justification=centering, singlelinecheck=false, margin=2cm}
 	\caption[Scatter Plot: Followers by Stream Time]{\texttt{`Followers'} regressed against \texttt{`Mean weekly stream hours'}. }
 	\label{fig:ln_followers_stream_scatter}
@@ -356,7 +357,6 @@ where \emph{k} is the number of parameters. When comparing models with the same 
 
 After running each model, \texttt{`Followers'} was the best model to predict \texttt{`Partnered'} status (AIC = 4 - 2 $\times$ -116.78416 = 237.5683).
 \newline
-\newline
 \noindent AIC values for other models with a single predictor variable:
 
 \noindent Variable(s) \hfill AIC 
@@ -389,8 +389,9 @@ Thus, I opted to only use \texttt{`Followers'} to predict partnered status in my
 I decided to rescale \texttt{`Followers'} by dividing it by 100,000 so that the new variable is 100,000 followers. This will make the coefficient easier to interpret.
 \begin{equation}
 \begin{aligned}
-	ln(\frac{p_{i}}{1-p_{i}}) & = logit(Partnered_{i})  = \beta_{0} + \beta_{1} \ast Followers/100,000_{i} \\
-	\frac{p_{i}}{1-p_{i}} & = odds
+	logit(Partnered_{i})  &= \beta_{0} + \beta_{1} \ast (Followers_{i}/100,000) \\
+	ln(odds_{i})  &= logit(Partnered_{i})\\
+	\frac{p_{i}}{1-p_{i}} &= odds
 \end{aligned}
 \end{equation}
 where \emph{i} is a Twitch account; \texttt{`Partnered'} is a binary variable indicating whether the respective account has attained partnered status or not; \texttt{`Followers / 100,000'} is the number of followers that an account has rescaled to 100,000 followers; \emph{p} is the probability of an account being achieving partnered status.
@@ -401,7 +402,7 @@ The logistic regression shows a positive relationship between the number of foll
 
 \begin{table}[H]
   \centering % width=\linewidth, height=\textheight
-  \includegraphics[scale=1]{../StatCrunch_Results/logit_partnered_followers/table}
+  \includegraphics[height=0.7\textheight]{../StatCrunch_Results/logit_partnered_followers/table}
   \captionsetup{justification=centering, singlelinecheck=false, margin=2cm}
   \caption[Logistic Regression: Predict Partnered Status by Number of Followers]{Logistic Regression Table. The results indicate a positive relationship between the number of followers an account has and whether it has achieved partnership status.}
   \label{tab:logistic_table}
@@ -433,7 +434,7 @@ This resulted in the following plot:
 
 \begin{figure}[H]
 \centering
-	\includegraphics[width=0.75\linewidth]{../StatCrunch_Results/logit_partnered_followers/scatter_plot}
+	\includegraphics[height=0.9\textheight]{../StatCrunch_Results/logit_partnered_followers/scatter_plot}
 	\captionsetup{justification=centering, singlelinecheck=false, margin=2cm}
 	\caption[Scatter Plot: Partnered Status Predicted by Number of Followers]{Scatter Plot: Partnered Status Predicted by Number of Followers.}
 	\label{fig:logit_partnered_followers}
@@ -445,7 +446,7 @@ The Hosmer-Lemeshow Goodness-of-Fit observed vs. expected successes for partnere
 
 \subsubsection{Discussion}\
 
-The number of followers is the best predictor of the probability that an account will be partnered. However, this analysis is hampered because of the severe class imbalance in the data. That notwithstanding, the disparity in followers between partnered and non-partnered accounts is striking. 123 of the 873 partnered accounts have more followers than the maximum number (1714324) of followers that non-partnered accounts have.\footnote{Author's calculations in StatCrunch.} Future analyses could randomly sample Twitch data using a blocking technique to ensure that success and failure conditions are more equally represented in the data.
+The number of followers is the best predictor of the probability that an account will be partnered. However, this analysis is hampered because of the severe class imbalance in the data. That notwithstanding, the disparity in followers between partnered and non-partnered accounts is striking. 123 of the 873 partnered accounts have more followers than the maximum number (1714324) of followers that non-partnered accounts have. Future analyses could randomly sample Twitch data using a blocking technique to ensure that success and failure conditions are more equally represented in the data.
 
 
 \section{Conclusion}\
@@ -454,33 +455,13 @@ The Twitch dataset analysis stands out primarily due to the unexpected findings 
 
 In general, Twitch accounts classified as mature had fewer followers than accounts not classified as mature; mature accounts are also watched less than non-mature accounts. While it was hypothesized that the disparity in watch time could explain the difference in the number of followers, the multiple linear regression model (4.1: Mature Accounts and Followers) revealed only a small R-squared, suggesting that there are probably other unobserved variables influencing the differences in the number of followers. 
 
-Lastly, whether an account is partnered on Twitch is best predicted by the number of followers it has. Additional variables did not add enough predictive power to warrant their inclusion in the model. However, this analysis is hampered by the extreme class imbalance in partnered vs. non-partnered status. Future research could randomly sample while maintaining a better class balance to assess which variables best predict partnered status.  
-
-
-
-
-
-
-
-
-
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%    Appendix    %%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newpage 
-
+Lastly, whether an account is partnered on Twitch is best predicted by the number of followers it has. Additional variables did not add enough predictive power to warrant their inclusion in the model. However, this analysis is hampered by the extreme class imbalance in partnered vs. non-partnered status. Future research could randomly sample while maintaining a better class balance to assess which variables best predict partnered status.
 \section{Appendix}
-
 \subsection{Additional Figures}
-
+\newpage
 \begin{figure}[H]
   \centering % width=\linewidth, height=\textheight
-  \includegraphics[width=0.8\linewidth]{../StatCrunch_Results/mature/box_plots}
+  \includegraphics[height=0.9\textheight]{../StatCrunch_Results/mature/box_plots}
   \captionsetup{justification=centering, singlelinecheck=false, margin=2cm}
   \caption[Box Plots of Twitch Accounts by Mature Calssification]{Box Plots of Twitch Accounts by Mature Calssification}
   \label{fig:box_plots_mature}
@@ -493,7 +474,7 @@ Lastly, whether an account is partnered on Twitch is best predicted by the numbe
 %%%%%%%%%%%%%%%%%%%
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.795\linewidth]{../StatCrunch_Results/stream_scatter_plot_matrix.png}
+  \includegraphics[height=0.9\textheight]{../StatCrunch_Results/stream_scatter_plot_matrix.png}
   \captionsetup{justification=centering, singlelinecheck=false, margin=2cm}
   \caption[Stream Hours Scatter Plot Matrix]{Relationships between \texttt{`Mean weekly stream hours'} and other variables.}
   \label{fig:stream_scatter_matrix}
@@ -504,7 +485,7 @@ Lastly, whether an account is partnered on Twitch is best predicted by the numbe
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.8\linewidth]{../StatCrunch_Results/watch_scatter_plot_matrix.png}
+  \includegraphics[height=0.9\textheight]{../StatCrunch_Results/watch_scatter_plot_matrix.png}
   \captionsetup{justification=centering, singlelinecheck=false, margin=2cm}
   \caption[Watch Hours Scatter Plot Matrix]{Relationships between \texttt{`Mean weekly watch hours'} and other variables.}
   \label{fig:watch_scatter_matrix}
@@ -515,7 +496,7 @@ Lastly, whether an account is partnered on Twitch is best predicted by the numbe
 %%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.8\linewidth]{../StatCrunch_Results/follow_gain_scatter_matrix}
+  \includegraphics[height=0.9\textheight]{../StatCrunch_Results/follow_gain_scatter_matrix}
   \captionsetup{justification=centering, singlelinecheck=false, margin=2cm}
   \caption[Followers Gained Scatter Plot Matrix]{Relationships between \texttt{`Followers gained'} and other variables.}
   \label{fig:follow_gain_scatter_matrix}
@@ -526,7 +507,7 @@ Lastly, whether an account is partnered on Twitch is best predicted by the numbe
 %%%%%%%%%%%%%
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.8\linewidth]{../StatCrunch_Results/Histogram_Matrix.png}
+  \includegraphics[height=0.9\textheight]{../StatCrunch_Results/Histogram_Matrix.png}
   \captionsetup{justification=centering, singlelinecheck=false, margin=2cm}
   \caption[Histogram Matrix]{All distributions are heavily skewed and non-normal.}
   \label{fig:histogram_matrix}
@@ -543,12 +524,6 @@ Lastly, whether an account is partnered on Twitch is best predicted by the numbe
   \caption[Prediction Matrix]{Predicted Values.}
   \label{tab:prediction_matrix}
 \end{table}
-
-\subsection{StatCrunch Dataset}\
-
-\begin{tiny}
-\url{https://www.statcrunch.com/app/index.html?dataid=4597814&token=OTI3Z8\%2F0N6hSC1KVw9hTXmyjHLnuZvqCMyuxkgn1QRYPhIQfDVLUFClF3Y41ShOi4C\%2BMKL5\%2FHgpBTXKukjWOPGD4pN\%2FCkiobeyKouIjPB7LoPvHOTDN7wUNtPZQd2\%2BNjOwAtSMQl9aKQrbthjCSuuSihsliiTo0MvakPDYN0lwiE8N11ITBSTS9QJH9QgHEmO4ahoV6IkASuVdKosV\%2FJSQ\%3D\%3D}
-\end{tiny}
 
 % ceil(Rank(Mean weekly stream hours) / 90)
 
