@@ -4,7 +4,24 @@ sapply(c('readr', 'dplyr', 'ggplot2'), FUN = require, character.only = T)
 new_wd <- "C:/Users/madou/OneDrive - UCLA IT Services/Stat_Crunch_Competition/"
 setwd(new_wd)
 
-Twitch23 <- read.csv("Twitch_Streamer_Data_2023.csv")
+Twitch23 <- read.csv("Subset_of_Twitch_Streamer_Data_2023.csv")
+
+plot(Followers ~ Mean.weekly.stream.hours, data = Twitch23, col = "skyblue", pch = 19, cex = 0.5)
+
+lnFollowers_lnStream_lm <- Twitch23 |> 
+  lm(log(Followers) ~ log(Mean.weekly.stream.hours), data = _)
+
+curve(exp(lnFollowers_lnStream_lm$coefficients['(Intercept)'] + lnFollowers_lnStream_lm$coefficients['log(Mean.weekly.stream.hours)'] * x), add = T, col = 'red2', lwd = 2)
+
+lnFollowers_Stream_lm <- Twitch23 |> 
+  lm(log(Followers) ~ Mean.weekly.stream.hours, data = _)
+
+curve(exp(lnFollowers_Stream_lm$coefficients['(Intercept)'] + lnFollowers_Stream_lm$coefficients['Mean.weekly.stream.hours'] * x), add = T, col = 'orange', lwd = 2)
+
+Followers_Stream_lm <- Twitch23 |> 
+  lm(Followers ~ Mean.weekly.stream.hours, data = _)
+
+abline(Followers_Stream_lm$coefficients['(Intercept)'], Followers_Stream_lm$coefficients['Mean.weekly.stream.hours'])
 
 Twitch23 |> 
   plot(Average.viewers ~ Mean.weekly.stream.hours, data = _)
@@ -20,17 +37,16 @@ viewers_stream_predict <- data.frame(
 
 viewers_stream_predict$Prediction <- 1/predict(viewers_stream_lm, viewers_stream_predict)
 
+followers_stream_lm <- Twitch23 |> 
+  lm(log(Followers) ~ Mean.weekly.stream.hours, data = _)
+
+plot(followers_stream_lm, which = 1)
 
 for (i in c(1,2,3,5)) {
-  followers_stream_lm <- Twitch23 |> 
-    lm(log(Followers) ~ Mean.weekly.stream.hours, data = _)
+  # followers_stream_lm <- Twitch23 |> 
+  #   lm(log(Followers) ~ log(Mean.weekly.stream.hours), data = _)
   
-  plot(followers_stream_lm, which = i)
-  
-  followers_stream_lm <- Twitch23 |> 
-    lm(log(Followers) ~ log(Mean.weekly.stream.hours), data = _)
-  
-  plot(followers_stream_lm, which = i)
+  # plot(followers_stream_lm, which = i)
 }
 
 
@@ -48,6 +64,17 @@ followers_watch_hrs_avg_viewers_mature_lm <- Twitch23 |>
   lm(
     log(Followers) ~ log(Mean.weekly.watch.hours) + log(Average.viewers) + Mature, data = _
   )
+
+
+
+# Poisson
+
+viewers_stream_neg_binom <- glm.nb(
+  formula = Average.viewers ~ Mean.weekly.stream.hours,
+  # family = quasipoisson(link = "log"),
+  data = Twitch23
+)
+
 
 # ################################## #
 # Logistic Regression ####
