@@ -2,7 +2,7 @@
   "info": {
     "type": "StatCrunch Session",
     "version": 1,
-    "date": "2024-04-30 20:55"
+    "date": "2024-05-09 13:57"
   },
   "settings": {
     "graphfontface": "Open Sans",
@@ -66,22 +66,15 @@
       658
     ],
     "exp_history": [
-      "ifelse(Partnered and Followers > 1714324, 1, 0)",
-      "Normal2 * 10",
-      "ifelse(Normal1 = Normal2, 1, 0)",
-      "exp(2.8464312 + 0.10616385 * x)",
-      "ifelse(Partnered, Partnered + absNormal / 2, absNormal / -2)",
-      "Partnered + \"abs(Normal1)\"",
-      "Followers / 1000",
-      "ceil(\"Rank(Followers gained)\"/90)",
-      "Followers / 10000",
-      "Followers / 100000",
-      "abs(\"Partnered noise\")",
-      "abs(Normal1)",
+      "10002.647 - 94.453738 * x",
+      "10002.647 -94.453738* \"Mean weekly stream hours\")",
+      "exp(9.78892 - 0.033056 * \"Mean weekly stream hours\")",
       "exp(2.8464312 + 0.10616385 * x) / (1 + exp(2.8464312 + 0.10616385 * x))",
-      "ifelse(Normal1 == Normal2, 1, 0)",
-      "Normal1 - Normal2",
-      "ifelse(Norma1 = TimesTen, 1, 0)"
+      "!Mature",
+      "9.78892 - 0.033056 * \"Mean weekly stream hours\"",
+      "10002.647 -94.453738* \"Mean weekly stream hours\"",
+      "10002.647 - 94.453738 * \"Mean weekly stream hours\"",
+      "exp(9.78892 - 0.033056 * x)"
     ]
   },
   "dialogs": [
@@ -159,7 +152,7 @@
       "plots_for_each_combination": true,
       "rows_per_page": "4",
       "columns_per_page": "2",
-      "stack_order": 12
+      "stack_order": 11
     },
     {
       "dialog": "SLRDialog",
@@ -261,7 +254,7 @@
       "plots_for_each_combination": true,
       "rows_per_page": "4",
       "columns_per_page": "2",
-      "stack_order": 10
+      "stack_order": 9
     },
     {
       "dialog": "MultiplotDialog",
@@ -330,7 +323,7 @@
       "plots_for_each_combination": true,
       "rows_per_page": "4",
       "columns_per_page": "2",
-      "stack_order": 11
+      "stack_order": 10
     },
     {
       "dialog": "SumStatDialog",
@@ -339,7 +332,7 @@
           "width": 0,
           "height": 0,
           "left": 329,
-          "top": 39
+          "top": 41
         },
         "hidden": true
       },
@@ -358,7 +351,7 @@
         "Max",
         "IQR"
       ],
-      "stack_order": 14
+      "stack_order": 13
     },
     {
       "dialog": "ChartStatsDialog",
@@ -367,7 +360,7 @@
           "width": 0,
           "height": 0,
           "left": 0,
-          "top": 170
+          "top": 171
         },
         "hidden": true
       },
@@ -378,7 +371,7 @@
       "groups": "576",
       "order_by": "Group Label Descending",
       "plot": "horizontal bars",
-      "stack_order": 8
+      "stack_order": 7
     },
     {
       "dialog": "SLRDialog",
@@ -387,14 +380,14 @@
           "width": 0,
           "height": 403,
           "left": 281,
-          "top": 40
+          "top": 42
         },
         "hidden": true
       },
       "x": "463",
       "y": "426",
       "y_transform": "1/y",
-      "stack_order": 9
+      "stack_order": 8
     },
     {
       "dialog": "SumStatDialog",
@@ -403,7 +396,7 @@
           "width": 0,
           "height": 0,
           "left": 423,
-          "top": 109
+          "top": 111
         },
         "hidden": true
       },
@@ -429,7 +422,7 @@
         "Skewness",
         "Kurtosis"
       ],
-      "stack_order": 13
+      "stack_order": 12
     },
     {
       "dialog": "SLRDialog",
@@ -438,7 +431,7 @@
           "width": 0,
           "height": 562,
           "left": 824,
-          "top": 0
+          "top": 1
         },
         "hidden": true
       },
@@ -465,7 +458,7 @@
           "width": 587,
           "height": 461,
           "left": 0,
-          "top": 171
+          "top": 172
         },
         "hidden": true
       },
@@ -482,7 +475,7 @@
       "group_by": "433",
       "rows_per_page": "4",
       "columns_per_page": "2",
-      "stack_order": 7
+      "stack_order": 6
     },
     {
       "dialog": "LogisticWithDataDialog",
@@ -491,7 +484,7 @@
           "width": 0,
           "height": 0,
           "left": 212,
-          "top": 12
+          "top": 14
         },
         "hidden": true
       },
@@ -523,9 +516,9 @@
       "result_properties": {
         "size_and_position": {
           "width": 0,
-          "height": 514,
+          "height": 403,
           "left": 786,
-          "top": 78
+          "top": 80
         },
         "hidden": true
       },
@@ -548,7 +541,7 @@
           "width": 728,
           "height": 164,
           "left": 16,
-          "top": 473
+          "top": 469
         },
         "hidden": true
       },
@@ -559,26 +552,13 @@
       "stack_order": 3
     },
     {
-      "dialog": "HistDialog",
-      "result_properties": {
-        "size_and_position": {
-          "width": 0,
-          "height": 562,
-          "left": 789,
-          "top": 30
-        },
-        "hidden": true
-      },
-      "stack_order": 6
-    },
-    {
       "dialog": "PlotxyDialog",
       "result_properties": {
         "size_and_position": {
           "width": 0,
-          "height": 632,
+          "height": 0,
           "left": 278,
-          "top": 22
+          "top": 24
         },
         "hidden": true
       },
@@ -586,7 +566,7 @@
       "y": "649",
       "point_type": "Transparent circle",
       "overlay_function": "exp(2.8464312 + 0.10616385 * x) / (1 + exp(2.8464312 + 0.10616385 * x))",
-      "stack_order": 15
+      "stack_order": 14
     },
     {
       "dialog": "SumStatDialog",
@@ -595,7 +575,7 @@
           "width": 0,
           "height": 0,
           "left": 271,
-          "top": 184
+          "top": 186
         },
         "hidden": true
       },
@@ -610,7 +590,39 @@
         "Max",
         "Sum"
       ],
+      "stack_order": 15
+    },
+    {
+      "dialog": "TwoSampleTDialog",
+      "result_properties": {
+        "size_and_position": {
+          "width": 457,
+          "height": 268,
+          "left": 121,
+          "top": 159.99999696016312
+        }
+      },
+      "pool_variances": true,
+      "where": "!Mature",
+      "sample1": "601",
+      "sample2": "601",
       "stack_order": 16
+    },
+    {
+      "dialog": "PlotxyDialog",
+      "result_properties": {
+        "size_and_position": {
+          "width": 462,
+          "height": 462,
+          "left": 968,
+          "top": 106.80000001192093
+        }
+      },
+      "x": "463",
+      "y": "426",
+      "point_type": "Transparent circle",
+      "overlay_function": "exp(9.78892 - 0.033056 * x)",
+      "stack_order": 17
     }
   ]
 }
