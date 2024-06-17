@@ -1,0 +1,9 @@
+DATA:
+  FILE IS 'C:\Users\madou\_GitHub\Stat_Crunch_Competition\Twitch_2023_3_var.csv';
+
+VARIABLE:
+  NAMES ARE Follower Mature WkStrmHr;
+  MISSING = all(-9999);
+
+MODEL:
+  Follower ON Mature WkStrmHr;
