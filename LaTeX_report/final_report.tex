@@ -5,8 +5,8 @@
 \date{April 30, 2024}
 
 \usepackage{amsmath}
-\usepackage{url}
-\usepackage{hyperref}
+\usepackage{xurl}
+\usepackage[hidelinks]{hyperref}
 \usepackage{graphicx}
 \usepackage{float} % for [H] placement specifier
 \usepackage{wrapfig}
@@ -25,6 +25,8 @@
 
 % Paragraph indentation
 \setlength{\parindent}{\myindent}
+
+\PassOptionsToPackage{hyphens}{url}\usepackage{hyperref}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Begin Document
@@ -78,7 +80,7 @@ Since these data were not randomly sampled, it would be inappropriate to conduct
 
 \section{Summary Statistics}\
 
-Initial calculations were made before presenting the summary statistics. Since values for \texttt{`Watch time (mins)'} and \texttt{`Stream time (mins)'} were typically very large, requiring scientific notation to express, values were rescaled by dividing the values in both columns by the product of 60 (60 minutes in an hour) times 52 (number of weeks in a year) to make the numbers more manageable:
+Initial calculations were made before presenting the summary statistics. Since values for \texttt{Watch time (mins)} and \texttt{Stream time (mins)} were typically very large, requiring scientific notation to express, values were rescaled by dividing the values in both columns by the product of 60 (60 minutes in an hour) times 52 (number of weeks in a year) to make the numbers more manageable:
 
 \begin{equation}
 Mean\ weekly\ watch\ hours = \dfrac{Watch\ time\ (mins)}{60 \ast 52}
@@ -91,8 +93,8 @@ Mean\ weekly\ stream\ hours = \dfrac{Stream\ time\ (mins)}{60 \ast 52}
 Additional statistics were calculated as well.\footnote{Entire dataset available: \href{https://www.statcrunch.com/app/index.html?dataid=4597814&token=OTI3Z8\%2F0N6hSC1KVw9hTXmyjHLnuZvqCMyuxkgn1QRYPhIQfDVLUFClF3Y41ShOi4C\%2BMKL5\%2FHgpBTXKukjWOPGD4pN\%2FCkiobeyKouIjPB7LoPvHOTDN7wUNtPZQd2\%2BNjOwAtSMQl9aKQrbthjCSuuSihsliiTo0MvakPDYN0lwiE8N11ITBSTS9QJH9QgHEmO4ahoV6IkASuVdKosV\%2FJSQ\%3D\%3D}{(click here)}}
 
 \begin{itemize}
-	\item \texttt{`Followers Prev Yr’} = \texttt{`Followers’} - \texttt{`Followers gained’}.
-	\item \texttt{`Followers gained percent’} = \texttt{`Followers gained’} / \texttt{`Followers Prev Yr’}.
+	\item \texttt{Followers Prev Yr’} = \texttt{Followers’} - \texttt{Followers gained’}.
+	\item \texttt{Followers gained percent’} = \texttt{Followers gained’} / \texttt{Followers Prev Yr’}.
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -122,7 +124,7 @@ To assess the relationships between numeric variables, Spearman’s correlation 
   \label{fig:spearman_correlogram}
 \end{figure}
 
-The relationships between numeric variables are surprising, especially the absence of some correlations where one would think they would exist (Fig. \ref{fig:spearman_correlogram}). \texttt{`Stream time’} has a moderately strong negative Spearman correlation ($\rho$) with \texttt{`Average viewers’} ($\rho = -0.63$), which is counterintuitive given that one might expect more frequent streaming to result in more viewers, but that is not the case. In terms of change over time, accounts that streamed more hours did \emph{not} gain more followers; indeed, the accounts that were in the top decile of weekly stream time gained less than one-fifth of the followers that the accounts in the lowest stream time decile gained (Table \ref{table:followers_gained_stream_decile_table}; Fig. \ref{fig:followers_gained_stream_deciles}).  With respect to surprising absences of relationships, \texttt{`Stream time’} has practically no relationship with \texttt{`Watch time’} ($\rho = 0.07$; Fig. \ref{fig:spearman_correlogram}). Together, these findings suggest that a strategy of merely increasing one’s streaming time does not “pay off” in terms of the number of followers or viewers.
+The relationships between numeric variables are surprising, especially the absence of some correlations where one would think they would exist (Fig. \ref{fig:spearman_correlogram}). \texttt{Stream time’} has a moderately strong negative Spearman correlation ($\rho$) with \texttt{Average viewers’} ($\rho = -0.63$), which is counterintuitive given that one might expect more frequent streaming to result in more viewers, but that is not the case. In terms of change over time, accounts that streamed more hours did \emph{not} gain more followers; indeed, the accounts that were in the top decile of weekly stream time gained less than one-fifth of the followers that the accounts in the lowest stream time decile gained (Table \ref{table:followers_gained_stream_decile_table}; Fig. \ref{fig:followers_gained_stream_deciles}).  With respect to surprising absences of relationships, \texttt{Stream time’} has practically no relationship with \texttt{Watch time’} ($\rho = 0.07$; Fig. \ref{fig:spearman_correlogram}). Together, these findings suggest that a strategy of merely increasing one’s streaming time does not “pay off” in terms of the number of followers or viewers.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Table: followers_gained_stream_decile_table
@@ -153,7 +155,7 @@ Because the relationships between the variables were not linear, it was difficul
 
 \subsection{Stream Hours to Predict Average Viewers}\
 
-Do accounts that stream more hours have more viewers? Intuition would suggest yes, but the question deserves empirical examination. A simple linear regression was run to assess the strength between \texttt{`Mean weekly stream hours’} (independent variable) and \texttt{`average viewers’} (dependent variable). Because of the non-linear relationship between the variables, the residuals were highly non-normal. An inverse (reciprocal) transformation of \texttt{`Average viewers’} was performed to correct for the non-normality of the residuals. The transformation greatly improved the distribution of the residuals, making them nearly normal. The transformation could not correct for heteroskedasticity, but this is not an issue since inference is not being conducted.
+Do accounts that stream more hours have more viewers? Intuition would suggest yes, but the question deserves empirical examination. A simple linear regression was run to assess the strength between \texttt{Mean weekly stream hours’} (independent variable) and \texttt{average viewers’} (dependent variable). Because of the non-linear relationship between the variables, the residuals were highly non-normal. An inverse (reciprocal) transformation of \texttt{Average viewers’} was performed to correct for the non-normality of the residuals. The transformation greatly improved the distribution of the residuals, making them nearly normal. The transformation could not correct for heteroskedasticity, but this is not an issue since inference is not being conducted.
 
 \subsubsection{Model Specification}
 
@@ -162,7 +164,7 @@ The regression model is as follows:
 \begin{equation}
 \dfrac{1}{Average\ viewers_{i}} = \beta_{0} + \beta_{1} \ast Mean\ weekly\ stream\ hours_{i} 
 \end{equation}
-where \textit{i} is a Twitch account. \textit{`Average viewers'} is the average number of viewers that watched the respective Twitch account; \textit{`Mean weekly stream hours'} is the number of hours that the respective Twitch account streamed over the year divided by 52.
+where \textit{i} is a Twitch account. \textit{Average viewers} is the average number of viewers that watched the respective Twitch account; \textit{Mean weekly stream hours} is the number of hours that the respective Twitch account streamed over the year divided by 52.
 
 \subsubsection{Simple Linear Regression Results}\
 
@@ -191,7 +193,7 @@ R-squared is moderate (0.56), suggesting that the mean weekly stream hours can e
 
 Figure \ref{fig:stream_time_reciprocal_avg_viewers} shows the relationship between the mean weekly stream hours and the inverse of average viewers. The other scatter plots show the residuals. The histogram and Q-Q plots show that the residuals are now symmetric, although excess kurtosis is still high, making the distribution of the residuals leptokurtic (skewness = -0.57036091; excess kurtosis = 6.0727871). Removing extreme dependent variable observations improves this, but it is unlikely to be helpful since inference is not being conducted, and fitting data to your model is not the best practice.\footnote{It is better to adjust your model to fit the data than the other way around.} Heteroskedasticity also was not corrected, but it is not an issue as no hypothesis testing is being conducted, nor are confidence intervals being calculated.\footnote{See Section 1 for an explanation of why I chose not to conduct inference.} The model with coefficients is as follows:
 \begin{equation}
- \dfrac{1}{Average\ viewers_{i}} = 4.04e^{-5} + 9.15e^{-6} \ast Mean\ weekly\ stream\ hours_{i} \label{eq:reciprocal_model_w_coef}
+ \dfrac{1}{Average\ viewers_{i}} = 0.00004043631 + 0.0000091545008 \ast Mean\ weekly\ stream\ hours_{i} \label{eq:reciprocal_model_w_coef}
 \end{equation}
 
 \subsubsection{Scatter Plots}\
@@ -207,7 +209,7 @@ Figure \ref{fig:stream_time_reciprocal_avg_viewers} shows the relationship betwe
   \label{fig:stream_time_reciprocal_avg_viewers}
 \end{figure}
 
-\noindent Since one usually does not have a particular interest in knowing what the reciprocal of the average number of viewers is, \texttt{`Average viewers'} was reverse transformed, and the transformed equation was plotted over the data on their original scale (Fig. \ref{fig:transformed_reciprocal_scatter}).
+\noindent Since one usually does not have a particular interest in knowing what the reciprocal of the average number of viewers is, \texttt{Average viewers} was reverse transformed, and the transformed equation was plotted over the data on their original scale (Fig. \ref{fig:transformed_reciprocal_scatter}).
 
 
 \begin{figure}[H]
@@ -219,16 +221,16 @@ Figure \ref{fig:stream_time_reciprocal_avg_viewers} shows the relationship betwe
 \end{figure}
 
 \begin{equation}
-Average\ viewers_{i} = \dfrac{1}{4.04e^{-5} + 9.15e^{-6} \ast Mean\ weekly\ stream\ hours_{i}} \label{eq:back_transformed_reciprocal_eq}
+Average\ viewers_{i} = \dfrac{1}{0.00004043631 + 0.0000091545008 \ast Mean\ weekly\ stream\ hours_{i}} \label{eq:back_transformed_reciprocal_eq}
 \end{equation}
 
 \subsubsection{Discussion}\
 
-Contrary to what one might think, the amount of time that a Twitch account streams has a negative association with the average number of viewers. So, if one wants to increase their viewership, streaming more does not seem to be a good strategy. A quick illustration is helpful. The median weekly stream hours for all accounts is 34.23 hours per week. Using Equation \ref{eq:back_transformed_reciprocal_eq}, we can estimate that the mean average number of viewers\footnote{The formulation appears awkward, but the variable is \texttt{`Average viewers'}, and the predicted value represents the mean \texttt{`Average viewers'} for that particular \texttt{x} value.} for accounts that stream the median number of hours per week is $\approx$ 2826. Accounts that stream ten hours less than the median per week have a mean average viewership of 3813, which is 987 more viewers than accounts that stream the median number of hours per week (See Table \ref{tab:prediction_matrix} for predicted values). 
+Contrary to what one might think, the amount of time that a Twitch account streams has a negative association with the average number of viewers. So, if one wants to increase their viewership, streaming more does not seem to be a good strategy. A quick illustration is helpful. The median weekly stream hours for all accounts is 34.23 hours per week. Using Equation \ref{eq:back_transformed_reciprocal_eq}, we can estimate that the mean average number of viewers\footnote{The formulation appears awkward, but the variable is \texttt{Average viewers}, and the predicted value represents the mean \texttt{Average viewers} for that particular \texttt{x} value.} for accounts that stream the median number of hours per week is $\approx$ 2826. Accounts that stream ten hours less than the median per week have a mean average viewership of 3813, which is 987 more viewers than accounts that stream the median number of hours per week (See Table \ref{tab:prediction_matrix} for predicted values). 
 
 \subsection{Stream Hours to Predict Followers}\
 
-Do accounts that stream more have more followers? Intuitively, it would make sense. A simple linear regression was run to assess the relationship between streaming time, \texttt{`Mean weekly stream hours'}, and the number of \texttt{`Followers'} Twitch accounts have. The initial model revealed a highly non-linear relationship with highly non-normal residuals. A log transformation of \texttt{`Followers'} was conducted to correct for this and the models subsequently fit the data much better.
+Do accounts that stream more have more followers? Intuitively, it would make sense. A simple linear regression was run to assess the relationship between streaming time, \texttt{Mean weekly stream hours}, and the number of \texttt{Followers} Twitch accounts have. The initial model revealed a highly non-linear relationship with highly non-normal residuals. A log transformation of \texttt{Followers} was conducted to correct for this and the models subsequently fit the data much better.
 
 \subsubsection{Model Specification}
 The regression model is as follows:
@@ -237,11 +239,11 @@ The regression model is as follows:
 	ln(Followers_{i}) = \beta_{0} + \beta_{1} \ast Mean\ weekly\ stream\ hours_{i}
 	\label{eq:ln_followers_stream}
 \end{equation}
-where \emph{i} is a Twitch account; \texttt{`Followers'} is the number of followers that a Twitch account has; \texttt{`Mean weekly stream hours'} is the amount of time a Twitch account streamed over the year divided by 60 and then divided by 52.
+where \emph{i} is a Twitch account; \texttt{Followers} is the number of followers that a Twitch account has; \texttt{Mean weekly stream hours} is the amount of time a Twitch account streamed over the year divided by 60 and then divided by 52.
 
 \subsubsection{Simple Linear Regression Results}\
 
-The regression reveals a rather weak negative correlation between the mean weekly stream hours and the number of followers that an account has. R-squared is only 0.056. The coefficient for \texttt{`Mean weekly stream hours'} (Table \ref{tab:ln_followers_stream}) was exponentiated ($\emph{e}^{-0.0088658957} = 0.99117$), indicating that for every additional weekly streaming hour, an account should expect 0.88 percent fewer followers. (See Table \ref{tab:ln_followers_stream} for all model parameters.)
+The regression reveals a rather weak negative correlation between the mean weekly stream hours and the number of followers that an account has. R-squared is only 0.056. The coefficient for \texttt{Mean weekly stream hours} (Table \ref{tab:ln_followers_stream}) was exponentiated ($\emph{e}^{-0.0088658957} = 0.99117$), indicating that for every additional weekly streaming hour, an account should expect 0.88 percent fewer followers. (See Table \ref{tab:ln_followers_stream} for all model parameters.)
 
 \subsubsection{Scatter Plots}
 
@@ -249,7 +251,7 @@ The regression reveals a rather weak negative correlation between the mean weekl
 \centering
 	\includegraphics[height=0.7\textheight]{../StatCrunch_Results/ln_followers_stream/plot}
 	\captionsetup{justification=centering, singlelinecheck=false, margin=2cm}
-	\caption[Residual Plots: Followers by Stream Time]{\texttt{`Followers'} regressed against \texttt{`Mean weekly stream hours'}. }
+	\caption[Residual Plots: Followers by Stream Time]{\texttt{Followers} regressed against \texttt{Mean weekly stream hours}. }
 	\label{fig:ln_followers_stream_plot}
 \end{figure}
 
@@ -257,7 +259,7 @@ The regression reveals a rather weak negative correlation between the mean weekl
 \centering
 	\includegraphics[scale=0.65]{../StatCrunch_Results/ln_followers_stream/scatter_small}
 	\captionsetup{justification=centering, singlelinecheck=false, margin=2cm}
-	\caption[Scatter Plot: Followers by Stream Time]{\texttt{`Followers'} regressed against \texttt{`Mean weekly stream hours'}. }
+	\caption[Scatter Plot: Followers by Stream Time]{\texttt{Followers} regressed against \texttt{Mean weekly stream hours}. }
 	\label{fig:ln_followers_stream_scatter}
 \end{figure}
 
@@ -270,7 +272,7 @@ The results, again, are counterintuitive. Rather than observing more followers w
 \centering
   \includegraphics[height=0.5\textheight]{../StatCrunch_Results/ln_followers_stream/table}
   \captionsetup{justification=centering, singlelinecheck=false, margin=2cm}
-  \caption[Simple Linear Regression for Followers by Stream Time]{\texttt{`Followers'} regressed against \texttt{`Mean weekly stream hours'}}
+  \caption[Simple Linear Regression for Followers by Stream Time]{\texttt{Followers} regressed against \texttt{Mean weekly stream hours}}
   \label{tab:ln_followers_stream}
 \end{table}
 
@@ -278,11 +280,11 @@ The results, again, are counterintuitive. Rather than observing more followers w
 
 \subsection{Mature Accounts and Followers}\
 
-How much does the difference in watch time explain the difference in the number of followers for accounts categorized as mature or not mature? Twitch accounts classified as \texttt{`Mature'} have fewer followers than those not classified as \texttt{`Mature'}. At the same time, mature accounts are watched fewer hours per week (Figure \ref{fig:box_plots_mature}).\footnote{Mature accounts also tend to have fewer peak and average viewers, and they also have not gained as many followers over the period. See Figure \ref{fig:box_plots_mature}.} While it is clear that mature accounts are watched less, it is interesting to ask how much that disparity in watch time can "explain"\footnote{This is observational data, so causal claims cannot be made here.} the disparity in the number of followers.
+How much does the difference in watch time explain the difference in the number of followers for accounts categorized as mature or not mature? Twitch accounts classified as \texttt{Mature} have fewer followers than those not classified as \texttt{Mature}. At the same time, mature accounts are watched fewer hours per week (Figure \ref{fig:box_plots_mature}).\footnote{Mature accounts also tend to have fewer peak and average viewers, and they also have not gained as many followers over the period. See Figure \ref{fig:box_plots_mature}.} While it is clear that mature accounts are watched less, it is interesting to ask how much that disparity in watch time can "explain"\footnote{This is observational data, so causal claims cannot be made.} the disparity in the number of followers.
 
 \subsubsection{Difference in Means}\
 
-Since \texttt{`Followers'} is highly skewed, the log of \texttt{`Followers'} was taken. A difference in means of the log followers was calculated. (This also allows for a better "apples-to-apples" comparison in the subsequent multiple linear regression.) The difference in log means (-0.13351611) is exponentiated to get the ratio (0.875) between the two means (Equation \ref{eq:log_means_followers_mature}). Thus, mature Twitch accounts have 12.5 percent fewer followers than accounts that are not classified as mature.
+Since \texttt{Followers} is highly skewed, the log of \texttt{Followers} was taken. A difference in means of the log followers was calculated. (This also allows for a better "apples-to-apples" comparison in the subsequent multiple linear regression.) The difference in log means (-0.13351611) is exponentiated to get the ratio (0.875) between the two means (Equation \ref{eq:log_means_followers_mature}). Thus, mature Twitch accounts have 12.5 percent fewer followers than accounts that are not classified as mature.
 
 \begin{equation}
 \begin{aligned}
@@ -297,14 +299,14 @@ Since \texttt{`Followers'} is highly skewed, the log of \texttt{`Followers'} was
 
 \subsubsection{Model Specificiation}\
 
-Next a multiple linear regression model was run to assess how much differences in the number of watch hours can explain the differences in the number of followers between mature and non-mature accounts. Log transformations on both the independent (\texttt{`Mean weekly watch hours'}) and dependent variable (\texttt{`Followers'}) were conducted to correct for the non-linear nature of the relationship. The model is as follows:
+Next a multiple linear regression model was run to assess how much differences in the number of watch hours can explain the differences in the number of followers between mature and non-mature accounts. Log transformations on both the independent (\texttt{Mean weekly watch hours}) and dependent variable (\texttt{Followers}) were conducted to correct for the non-linear nature of the relationship. The model is as follows:
 
 \begin{equation}
 ln(Followers_{i}) = \beta_{0} + \beta_{1} \ast Mature_{i} + \beta_{2} \ast ln(Mean\ weekly\ watch\ hours_{i})
 \label{eq:multi_linear_model}
 \end{equation}
 
-where \emph{i} is each Twitch account in the dataset; \texttt{`Followers'} is the number of followers; \texttt{`Mature'} is a binary variable where \texttt{1} is when the account has been classified as mature, and \texttt{0} is when it has not; \texttt{`Mean weekly watch hours'} is the total watch time in minutes for a Twitch account divided by 60 and divided by 52.
+where \emph{i} is each Twitch account in the dataset; \texttt{Followers} is the number of followers; \texttt{Mature} is a binary variable where \texttt{1} is when the account has been classified as mature, and \texttt{0} is when it has not; \texttt{Mean weekly watch hours} is the total watch time in minutes for a Twitch account divided by 60 and divided by 52.
 
 \subsubsection{Multiple Linear Regression Results}\
 
@@ -316,7 +318,7 @@ where \emph{i} is each Twitch account in the dataset; \texttt{`Followers'} is th
   \label{tab:multi_regression_tab}
 \end{table}
 
-R-squared is rather weak (0.25), but the difference in watch time (mean weekly watch hours) does explain some of the differences observed between mature and non-mature accounts. The coefficient for \texttt{`Mature'} is -0.080855823. Exponentiating the coefficient ($\emph{e}^{-0.080855823}$) results in 0.9223. This is the ratio of followers for mature accounts to non-mature accounts when the natural log of mean weekly watch hours is held constant. In other words, mature accounts have 7.7 (1- 0.9223) percent fewer followers than non-mature accounts when controlling for differences in watch time.
+R-squared is rather weak (0.25), but the difference in watch time (mean weekly watch hours) does explain some of the differences observed between mature and non-mature accounts. The coefficient for \texttt{Mature} is -0.080855823. Exponentiating the coefficient ($\emph{e}^{-0.080856}$) results in 0.9223. This is the ratio of followers for mature accounts to non-mature accounts when the natural log of mean weekly watch hours is held constant. In other words, mature accounts have 7.7 (1- 0.9223) percent fewer followers than non-mature accounts when controlling for differences in watch time.
 
 \begin{figure}
     \centering
@@ -354,50 +356,49 @@ where \emph{k} is the number of parameters. When comparing models with the same 
 
 \subsubsection{AIC Values}
 
-After running each model, \texttt{`Followers'} was the best model to predict \texttt{`Partnered'} status (AIC = 4 - 2 $\times$ -116.78416 = 237.5683).
-\newline
-\newline
-\noindent AIC values for other models with a single predictor variable:
+After running each model, \texttt{Followers} was the best variable to predict \texttt{Partnered} status.
 
-\noindent Variable(s) \hfill AIC 
+\vspace{2mm}
+\noindent \textbf{Variable(s)} \hfill \textbf{AIC}
 \hspace{0.4em}
 \hrule
 \begin{itemize}
-	\item \texttt{`Peak viewers'} \dotfill 245.79
-	\item \texttt{`Average viewers'} \dotfill 246.42
-	\item \texttt{`Mature'} \dotfill 246.22
-	\item \texttt{`Mean weekly watch hours'} \dotfill 245.77
-	\item \texttt{`Mean weekly stream hours'} \dotfill 246.36
+	\item \texttt{Followers}  \dotfill 237.57
+	\item \texttt{Peak viewers} \dotfill 245.79
+	\item \texttt{Average viewers} \dotfill 246.42
+	\item \texttt{Mature} \dotfill 246.22
+	\item \texttt{Mean weekly watch hours} \dotfill 245.77
+	\item \texttt{Mean weekly stream hours} \dotfill 246.36
 \end{itemize}
 
-\noindent Adding additional variables beyond \texttt{`Followers'} did not improve the AIC:
+\noindent Adding additional variables beyond \texttt{Followers} did not improve the AIC:
 
-\noindent Variable(s) \hfill AIC 
+\noindent \textbf{Variable(s)} \hfill \textbf{AIC}
 \hspace{0.4em}
 \hrule
 \begin{itemize}
-    \item \texttt{`Followers + Peak viewers'} \dotfill 238.80
-    \item \texttt{`Followers + Average viewers'} \dotfill 237.67
-    \item \texttt{`Followers + Mature'} \dotfill 239.07
-    \item \texttt{`Followers + Mean weekly watch hours'} \dotfill 239.07
-    \item \texttt{`Followers + Mean weekly stream hours'} \dotfill 238.32
+    \item \texttt{Followers + Peak viewers} \dotfill 238.80
+    \item \texttt{Followers + Average viewers} \dotfill 237.67
+    \item \texttt{Followers + Mature} \dotfill 239.07
+    \item \texttt{Followers + Mean weekly watch hours} \dotfill 239.07
+    \item \texttt{Followers + Mean weekly stream hours} \dotfill 238.32
 \end{itemize}
-Thus, I opted to only use \texttt{`Followers'} to predict partnered status in my logit model.
+Thus, I opted to only use \texttt{Followers} to predict partnered status in my logit model.
 
 \subsubsection{Model Specification}\
 
-I decided to rescale \texttt{`Followers'} by dividing it by 100,000 so that the new variable is 100,000 followers. This will make the coefficient easier to interpret.
+I decided to rescale \texttt{Followers} by dividing it by 100,000 so that the new variable is 100,000 followers. This will make the coefficient easier to interpret.
 \begin{equation}
 \begin{aligned}
 	ln(\frac{p_{i}}{1-p_{i}}) & = logit(Partnered_{i})  = \beta_{0} + \beta_{1} \ast Followers/100,000_{i} \\
 	\frac{p_{i}}{1-p_{i}} & = odds
 \end{aligned}
 \end{equation}
-where \emph{i} is a Twitch account; \texttt{`Partnered'} is a binary variable indicating whether the respective account has attained partnered status or not; \texttt{`Followers / 100,000'} is the number of followers that an account has rescaled to 100,000 followers; \emph{p} is the probability of an account being achieving partnered status.
+where \emph{i} is a Twitch account; \texttt{Partnered} is a binary variable indicating whether the respective account has attained partnered status or not; \texttt{Followers / 100,000} is the number of followers that an account has rescaled to 100,000 followers; \emph{p} is the probability of an account being achieving partnered status.
 
 \subsubsection{Logistic Regression Results}\
 
-The logistic regression shows a positive relationship between the number of followers a Twitch account has and the log odds of being a partnered account (Table \ref{tab:logistic_table}). Exponentiating the coefficient for \texttt{`Followers / 100,000'} (\emph{e}$^{0.10616385}$)  results in 1.112, which means that for every 100,000 followers that an account has, the odds of being a partnered account increase 11.2 percent.
+The logistic regression shows a positive relationship between the number of followers a Twitch account has and the log odds of being a partnered account (Table \ref{tab:logistic_table}). Exponentiating the coefficient for \texttt{Followers / 100,000} (\emph{e}$^{0.10616385}$)  results in 1.112, which means that for every 100,000 followers that an account has, the odds of being a partnered account increase 11.2 percent.
 
 \begin{table}[H]
   \centering % width=\linewidth, height=\textheight
@@ -409,9 +410,9 @@ The logistic regression shows a positive relationship between the number of foll
 
 \subsubsection{Figures}\
 
-A scatter plot was generated to visualize the relationship. Since all values for\newline\texttt{`Partnered'} take either a zero or one, random noise using the normal distribution simulation function centered on zero with a standard deviation of 0.01 --- $\mathcal{N}(0, 0.01)$ --- was generated in StatCrunch to make visualization clearer. Then, the absolute value of that simulated normal distribution was either added or subtracted from the \texttt{`Partnered'} value depending on if the value was a one or zero, respectively. 
+A scatter plot was generated to visualize the relationship. Since all values for\newline\texttt{Partnered} take either a zero or one, random noise using the normal distribution simulation function centered on zero with a standard deviation of 0.01 --- $\mathcal{N}(0, 0.01)$ --- was generated in StatCrunch to make visualization clearer. Then, the absolute value of that simulated normal distribution was either added or subtracted from the \texttt{Partnered} value depending on if the value was a one or zero, respectively. 
 
-\noindent The equation representing the generation of the \texttt{`PartneredNoise'} variable is:
+\noindent The equation representing the generation of the \texttt{PartneredNoise} variable is:
 
 \begin{equation}
 \text{PartneredNoise} = 
@@ -421,7 +422,7 @@ A scatter plot was generated to visualize the relationship. Since all values for
 \end{cases}
 \end{equation}
 
-\noindent where \texttt{`Partnered'} is the binary variable for whether an account is partnered; \texttt{`Normal'} is the simulated normal distribution based on $\mathcal{N}(0, 0.01)$.
+\noindent where \texttt{Partnered} is the binary variable for whether an account is partnered; \texttt{Normal} is the simulated normal distribution based on $\mathcal{N}(0, 0.01)$.
 
 The model was exponentiated and plotted over the scatter plot. It represents the probability that an account will be partnered, as predicted by the number of followers that that account has.
 
@@ -441,7 +442,7 @@ This resulted in the following plot:
 
 \subsubsection{Goodness of Fit}\
 
-The Hosmer-Lemeshow Goodness-of-Fit observed vs. expected successes for partnered status suggest that, in general, the model is reasonably calibrated (Table \ref{tab:logistic_table}). The Hosmer-Lemeshow Goodness-of-Fit Test assesses how accurately the model predicts the success rate in each decile of the independent variable (in this case, \texttt{`Followers'}). The model predicts successful partnered status reasonably well, but it is more limited in its ability to predict non-partnered status (failures). This could be because of the extreme class imbalance in the data (success-to-failure ratio of 873:27).
+The Hosmer-Lemeshow Goodness-of-Fit observed vs. expected successes for partnered status suggest that, in general, the model is reasonably calibrated (Table \ref{tab:logistic_table}). The Hosmer-Lemeshow Goodness-of-Fit Test assesses how accurately the model predicts the success rate in each decile of the independent variable (in this case, \texttt{Followers}). The model predicts successful partnered status reasonably well, but it is more limited in its ability to predict non-partnered status (failures). This could be because of the extreme class imbalance in the data (success-to-failure ratio of 873:27).
 
 \subsubsection{Discussion}\
 
@@ -495,7 +496,7 @@ Lastly, whether an account is partnered on Twitch is best predicted by the numbe
   \centering
   \includegraphics[width=0.795\linewidth]{../StatCrunch_Results/stream_scatter_plot_matrix.png}
   \captionsetup{justification=centering, singlelinecheck=false, margin=2cm}
-  \caption[Stream Hours Scatter Plot Matrix]{Relationships between \texttt{`Mean weekly stream hours'} and other variables.}
+  \caption[Stream Hours Scatter Plot Matrix]{Relationships between \texttt{Mean weekly stream hours} and other variables.}
   \label{fig:stream_scatter_matrix}
 \end{figure}
 
@@ -506,7 +507,7 @@ Lastly, whether an account is partnered on Twitch is best predicted by the numbe
   \centering
   \includegraphics[width=0.8\linewidth]{../StatCrunch_Results/watch_scatter_plot_matrix.png}
   \captionsetup{justification=centering, singlelinecheck=false, margin=2cm}
-  \caption[Watch Hours Scatter Plot Matrix]{Relationships between \texttt{`Mean weekly watch hours'} and other variables.}
+  \caption[Watch Hours Scatter Plot Matrix]{Relationships between \texttt{Mean weekly watch hours} and other variables.}
   \label{fig:watch_scatter_matrix}
 \end{figure}
 
@@ -517,7 +518,7 @@ Lastly, whether an account is partnered on Twitch is best predicted by the numbe
   \centering
   \includegraphics[width=0.8\linewidth]{../StatCrunch_Results/follow_gain_scatter_matrix}
   \captionsetup{justification=centering, singlelinecheck=false, margin=2cm}
-  \caption[Followers Gained Scatter Plot Matrix]{Relationships between \texttt{`Followers gained'} and other variables.}
+  \caption[Followers Gained Scatter Plot Matrix]{Relationships between \texttt{Followers gained} and other variables.}
   \label{fig:follow_gain_scatter_matrix}
 \end{figure}
 
@@ -546,10 +547,6 @@ Lastly, whether an account is partnered on Twitch is best predicted by the numbe
 
 \subsection{StatCrunch Dataset}\
 
-\begin{tiny}
-\url{https://www.statcrunch.com/app/index.html?dataid=4597814&token=OTI3Z8\%2F0N6hSC1KVw9hTXmyjHLnuZvqCMyuxkgn1QRYPhIQfDVLUFClF3Y41ShOi4C\%2BMKL5\%2FHgpBTXKukjWOPGD4pN\%2FCkiobeyKouIjPB7LoPvHOTDN7wUNtPZQd2\%2BNjOwAtSMQl9aKQrbthjCSuuSihsliiTo0MvakPDYN0lwiE8N11ITBSTS9QJH9QgHEmO4ahoV6IkASuVdKosV\%2FJSQ\%3D\%3D}
-\end{tiny}
-
-% ceil(Rank(Mean weekly stream hours) / 90)
+\noindent\url{https://www.statcrunch.com/app/index.html?dataid=4597814&token=OTI3Z8\%2F0N6hSC1KVw9hTXmyjHLnuZvqCMyuxkgn1QRYPhIQfDVLUFClF3Y41ShOi4C\%2BMKL5\%2FHgpBTXKukjWOPGD4pN\%2FCkiobeyKouIjPB7LoPvHOTDN7wUNtPZQd2\%2BNjOwAtSMQl9aKQrbthjCSuuSihsliiTo0MvakPDYN0lwiE8N11ITBSTS9QJH9QgHEmO4ahoV6IkASuVdKosV\%2FJSQ\%3D\%3D}
 
 \end{document}

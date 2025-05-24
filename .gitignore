@@ -312,3 +312,4 @@ R/.Rhistory
 *.lock
 
 ignore
+build
