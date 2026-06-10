@@ -311,3 +311,4 @@ R/.Rhistory
 *.lock
 
 ignore
+LaTeX_report/.Rhistory
